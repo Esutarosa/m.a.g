@@ -8,19 +8,18 @@ interface NavLinkProps {
     title: string
     path: string
     key: string 
-  } 
+  }
+  onClick ?: () => void
 }
 
-const NavLink = ({ item }: NavLinkProps) => {
+const NavLink = ({ item, onClick }: NavLinkProps) => {
   const pathName = usePathname()
 
   return (
     <Link 
       href={item.path}
-      className={`
-        block md:inline-block text-gray-200
-        ${pathName === item.path ? "active" : ""}
-      `}
+      onClick={onClick}
+      className={`block lg:inline-block text-muted-foreground py-2 ${pathName === item.path ? "active" : ""}`}
     >
       {item.title}
     </Link>
