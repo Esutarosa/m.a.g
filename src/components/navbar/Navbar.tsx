@@ -18,7 +18,7 @@ const Navbar = () => {
   }, [])
 
   return (
-    <header className={`w-full z-10 ${header ? 'fixed top-0 left-0 lg:bg-primary-foreground transition-all duration-100' : ''}`}>
+    <header className={`w-full z-50 ${header ? 'sticky top-0 left-0 lg:border-b lg:border-border/40 lg:bg-background/95 lg:backdrop-blur lg:supports-[backdrop-filter]:bg-background/60 transition-all duration-100' : ''}`}>
       <nav className="flex justify-center items-center py-4">
         <Links />
       </nav>
