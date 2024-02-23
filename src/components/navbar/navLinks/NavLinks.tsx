@@ -3,7 +3,7 @@
 import { NAV_LINKS } from "@/lib/constants"
 import NavLink from "./navLink/NavLink";
 import { useState } from "react";
-import { MenuButton } from "../menuButton/MenuButton";
+import { MenuButton } from "@/ui/MenuButton";
 
 const NavLinks = () => {
   const session = true
@@ -30,7 +30,7 @@ const NavLinks = () => {
 
   const renderMenu = () => {
     return (
-      <div className="lg:hidden fixed top-0 right-0 w-[45%] border-l border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85 transition-all duration-100 h-full overflow-y-auto">
+      <div className="z-20 lg:hidden fixed top-0 right-0 w-[100%] xs:w-[55%] border-l border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85 transition-all duration-100 h-full overflow-y-auto">
         <div className="flex flex-col items-start gap-4 my-[5rem] mx-[1.35rem]">
           {NAV_LINKS.map((link, index) => (
             <NavLink 
@@ -50,7 +50,7 @@ const NavLinks = () => {
       <MenuButton 
         isOpen={isOpen}
         onClick={() => setOpen(!isOpen)}
-        className="block cursor-pointer lg:hidden fixed top-0 right-0 m-4 p-2 bg-primary rounded z-10 w-[2rem] h-[2rem] select-none"
+        className="block cursor-pointer lg:hidden fixed top-0 right-0 m-4 p-2 bg-primary rounded z-50 w-[2rem] h-[2rem] select-none"
       /> 
 
       <ul className="hidden lg:flex h-full gap-12">
