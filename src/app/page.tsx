@@ -11,7 +11,7 @@ const Home = () => {
         <div className="flex items-center justify-center">
           <div className="relative w-full h-[420px] bg-glitch bg-no-repeat opacity-40 xs:opacity-85 rounded-md"></div>
 
-          <div className={`absolute ${lato.className} select-none xs:backdrop-blur xs:supports-[backdrop-filter]:bg-background/60 xs:px-[4rem] xs:py-[2rem] md:px-[7rem] md:py-[2rem] lg:px-[20rem] rounded-md`}>
+          <div className={`absolute ${lato.className} select-none xs:bg-background/60 xs:px-[4rem] xs:py-[2rem] md:px-[7rem] md:py-[2rem] lg:px-[20rem] rounded-md`}>
             <span className="flex justify-start text-xl font-thin">
               official
             </span>
