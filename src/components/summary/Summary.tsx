@@ -8,7 +8,7 @@ import { HOME_CARDS } from '@/lib/constants'
 import Button from "@/ui/Button"
 import Image from "next/image"
 
-const GridCard = () => {
+const Summary = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   return (
@@ -87,4 +87,4 @@ const GridCard = () => {
   )
 }
 
-export default GridCard
+export default Summary

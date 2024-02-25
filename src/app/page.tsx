@@ -1,11 +1,12 @@
-import GridCard from "@/components/gridCard/GridCard";
+import Summary from "@/components/summary/Summary";
 import Banner from '@/components/banner/Banner';
 
 const Home = () => {
   return (
     <main className="main">
       <Banner />
-      <GridCard />
+      <Summary />
+
     </main>
   )
 }
