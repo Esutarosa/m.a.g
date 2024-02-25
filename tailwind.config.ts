@@ -64,6 +64,7 @@ const config: Config = {
       },
       backgroundImage: {
         glitch: 'url(/home/glitch.jpg)',
+        home_contact_bg: 'url(/home/home-contact-bg.jpg)',
       },
     },
   },
