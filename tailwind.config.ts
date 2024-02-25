@@ -40,7 +40,7 @@ const config: Config = {
         },
         tertiary: {
           DEFAULT: "hsl(var(--tertiary))",
-        },  
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
