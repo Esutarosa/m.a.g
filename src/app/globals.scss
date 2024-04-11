@@ -4,31 +4,6 @@
 
 
 @layer base {
-  :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --radius: 0.5rem;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
@@ -36,36 +11,4 @@
   body {
     @apply bg-background text-primary;
   }
-}
-
-.h1 {
-  @apply text-6xl xl:text-[5.75rem] font-bold;
-}
-
-.h2 {
-  @apply text-4xl font-bold;
-}
-
-.h3 {
-  @apply text-2xl font-bold;
-}
-
-.active {
-  @apply text-foreground
-}
-
-.section {
-  @apply py-12 md:py-14 lg:py-16
-}
-
-.main {
-  @apply overflow-hidden
-}
-
-.data {
-  @apply pb-8 max-w-[520px] text-center md:text-left
-}
-
-.btn {
-  @apply inline-flex items-center justify-center rounded-md text-sm transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2
 }
