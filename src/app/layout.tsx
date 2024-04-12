@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { FC, PropsWithChildren } from "react";
-import { OPEN_SANS } from "@/next.fonts";
+import { OPEN_SANS as fontFamily } from "@/next.fonts";
 
 import "@/styles/base.scss";
+import WithNavBar from "@/components/withNavBar";
 
 export const metadata: Metadata = {
   title: "M.A.G",
@@ -12,8 +13,9 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
 
   return (
-    <html className={OPEN_SANS.className} lang="en">
+    <html className={fontFamily.className} lang="en">
       <body suppressHydrationWarning>
+        <WithNavBar />
         {children}
       </body>
     </html>

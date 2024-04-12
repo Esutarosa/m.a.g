@@ -3,14 +3,17 @@
 import type { FC } from 'react'
 import NavBar from './Containers/NavBar/NavBar'
 
-const WuthNavBar: FC = () => {
+import { NAVBAR_CATEGORIES as setCategories } from '@/config/categories';
 
+const WithNavBar: FC = () => {
   return (
     <div>
       <NavBar
         onThemeTogglerClick={() => console.log('...')}
-        navItems={[]}
+        navItems={setCategories.map(({ name, href, key }) => ({ text: name, href, key }))}
       />
     </div>
   )
-}
+};
+
+export default WithNavBar;
