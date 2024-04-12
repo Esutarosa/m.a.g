@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import "./globals.scss";
+import { FC, PropsWithChildren } from "react";
+
+import "@/styles/base.scss";
 
 export const metadata: Metadata = {
   title: "M.A.G",
   description: "Artist's official website",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
   return (
     <html lang="en">
       <body>
         {children}
       </body>
     </html>
-  );
+  )
 }
+
+export default RootLayout;

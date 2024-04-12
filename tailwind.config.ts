@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
@@ -22,6 +21,9 @@ const config: Config = {
       md: '768px',
       lg: '1024px',
       xl: '1400px',
+    },
+    fontFamily: {
+      'open-sans': ['var(--font-open-sans)'],
     },
     extend: {
       colors: {
@@ -62,12 +64,9 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      backgroundImage: {
-        glitch: 'url(/home/glitch.jpg)',
-        home_contact_bg: 'url(/home/home-contact-bg.jpg)',
-      },
     },
   },
+  darkMode: ['class', '[data-theme="dark"]'],
   plugins: [],
 };
 export default config;
