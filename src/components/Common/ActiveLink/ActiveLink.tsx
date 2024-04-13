@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
 import type { ComponentProps, FC } from 'react';
 
@@ -19,9 +20,11 @@ const ActiveLink: FC<ActiveLinkProps> = ({
 }) => {
   const pathname = usePathname();
 
-  const finalClassName = `${className} ${allowSubPath
-    ? (pathname.startsWith(`/${href.toString().split('/')[1]}`) ? activeClassName : '')
-    : (href.toString() === pathname ? activeClassName : '')}`.trim();
+  const finalClassName = classNames(className, {
+    [activeClassName]: allowSubPath
+      ? pathname.startsWith(`/${href.toString().split('/')[1]}`)
+      : href.toString() === pathname
+  });
 
   return (
     <Link className={finalClassName} href={href} {...props}>
