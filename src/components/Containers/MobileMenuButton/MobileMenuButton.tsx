@@ -11,7 +11,10 @@ interface MobileMenuButtonProps {
   isToggleMenuClick: () => void;
 }
 
-const MobileMenuButton: FC<MobileMenuButtonProps> = ({ isActiveMenu, isToggleMenuClick }) => {
+const MobileMenuButton: FC<MobileMenuButtonProps> = ({
+  isActiveMenu,
+  isToggleMenuClick
+}) => {
   return (
     <div className={cn(
       'absolute top-0 right-0 w-[100px] h-[45px] cursor-pointer rounded-[45px] overflow-hidden select-none',
