@@ -5,6 +5,7 @@ export const perspective = {
     translateY: 80,
     translateX: -20,
   },
+
   enter: (i: number) => ({
     opacity: 1,
     rotateX: 0,
@@ -17,11 +18,16 @@ export const perspective = {
       opacity: { duration: 0.35 }
     }
   }),
+
   exit: {
     opacity: 0,
-    transition: { duration: 0.5, type: "linear", ease: [0.76, 0, 0.24, 1] }
+    transition: {
+      duration: 0.5,
+      type: "linear",
+      ease: [0.76, 0, 0.24, 1]
+    }
   }
-}
+};
 
 export const slideIn = {
   initial: {
@@ -39,6 +45,37 @@ export const slideIn = {
   }),
   exit: {
     opacity: 0,
-    transition: { duration: 0.5, type: "tween", ease: "easeInOut" }
+    transition: {
+      duration: 0.5,
+      type: "tween",
+      ease: "easeInOut"
+    }
   }
-}
+};
+
+export const variants = {
+  open: {
+    width: "75%",
+    height: "480px",
+    top: "5px",
+    right: "5px",
+    transition: {
+      duration: 0.75,
+      type: "tween",
+      ease: [0.76, 0, 0.24, 1]
+    }
+  },
+
+  closed: {
+    width: "95px",
+    height: "40px",
+    top: "5px",
+    right: "5px",
+    transition: {
+      duration: 0.75,
+      delay: 0.35,
+      type: "tween",
+      ease: [0.76, 0, 0.24, 1]
+    }
+  }
+};

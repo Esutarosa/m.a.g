@@ -1,13 +1,17 @@
 'use client'
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import type { FC, HTMLAttributeAnchorTarget } from "react";
-import NavItem from './NavItem/NavItem';
+
 import BandCamp from '@/components/Icons/Social/BandCamp';
 import Twitter from '@/components/Icons/Social/Twitter';
+import NavItem from './NavItem/NavItem';
 import MobileMenuButton from '../MobileMenuButton/MobileMenuButton';
+import { variants as menu } from '@/anims/animMobileMenu';
+
+import { AnimatePresence, motion } from 'framer-motion';
 
 type NavbarProps = {
   navItems: Array<{
@@ -41,13 +45,24 @@ const NavBar: FC<NavbarProps> = ({
           />
         </Link>
 
+        <motion.div
+          className='absolute w-[75%] h-[480px] rounded-[45px]'
+          variants={menu}
+          animate={isActive ? 'open' : 'closed'}
+          initial='closed'
+        >
+          <AnimatePresence>
+            {isActive && (<></>)}
+          </AnimatePresence>
+        </motion.div>
+
         <MobileMenuButton
           isActiveMenu={isActive}
           isToggleMenuClick={() => { setIsActive(!isActive) }}
         />
       </div>
 
-      <div className=''>
+      <div className='hidden'>
         <div className=''>
           {navItems.map(({ text, href, key, target }) => (
             <NavItem key={key} href={href} target={target}>
@@ -78,7 +93,7 @@ const NavBar: FC<NavbarProps> = ({
           </Link>
         </div>
       </div>
-    </nav>
+    </nav >
   )
 };
 
