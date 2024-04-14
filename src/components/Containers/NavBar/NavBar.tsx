@@ -27,7 +27,7 @@ const NavBar: FC<NavbarProps> = ({
       <div className=''>
         <Link
           href='/'
-          className='text-3xl font-bold'
+          className=''
           aria-label='Home'
         >
           <Image
@@ -38,14 +38,18 @@ const NavBar: FC<NavbarProps> = ({
           />
         </Link>
 
+        <button className=''>
+          fds
+        </button>
+      </div>
+
+      <div className=''>
         <div className=''>
-          <div className=''>
-            {navItems.map(({ text, href, key, target }) => (
-              <NavItem key={key} href={href} target={target}>
-                {text}
-              </NavItem>
-            ))}
-          </div>
+          {navItems.map(({ text, href, key, target }) => (
+            <NavItem key={key} href={href} target={target}>
+              {text}
+            </NavItem>
+          ))}
         </div>
 
         <div>
