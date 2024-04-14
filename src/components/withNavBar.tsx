@@ -7,12 +7,12 @@ import { NAVBAR_CATEGORIES as setCategories } from '@/config/categories';
 
 const WithNavBar: FC = () => {
   return (
-    <div>
+    <header className=''>
       <NavBar
         onThemeTogglerClick={() => console.log('...')}
         navItems={setCategories.map(({ name, href, key }) => ({ text: name, href, key }))}
       />
-    </div>
+    </header>
   )
 };
 

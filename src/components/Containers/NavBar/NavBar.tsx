@@ -7,6 +7,7 @@ import type { FC, HTMLAttributeAnchorTarget } from "react";
 import NavItem from './NavItem/NavItem';
 import BandCamp from '@/components/Icons/Social/BandCamp';
 import Twitter from '@/components/Icons/Social/Twitter';
+import MobileMenuButton from '../MobileMenuButton/MobileMenuButton';
 
 type NavbarProps = {
   navItems: Array<{
@@ -22,6 +23,8 @@ const NavBar: FC<NavbarProps> = ({
   navItems,
   onThemeTogglerClick,
 }) => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <nav className=''>
       <div className=''>
@@ -38,9 +41,10 @@ const NavBar: FC<NavbarProps> = ({
           />
         </Link>
 
-        <button className=''>
-          fds
-        </button>
+        <MobileMenuButton
+          isActiveMenu={isActive}
+          isToggleMenuClick={() => { setIsActive(!isActive) }}
+        />
       </div>
 
       <div className=''>
