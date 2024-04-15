@@ -1,21 +1,21 @@
 export const NAVBAR_CATEGORIES = [
   {
-    name: 'Biography',
+    text: 'Biography',
     href: '/biography',
     key: 'biography',
   },
   {
-    name: 'Discography',
+    text: 'Discography',
     href: '/discography',
     key: 'discography',
   },
   {
-    name: 'Blog',
+    text: 'Blog',
     href: '/blog',
     key: 'blog',
   },
   {
-    name: 'Contact',
+    text: 'Contact',
     href: '/contact',
     key: 'contact',
   },

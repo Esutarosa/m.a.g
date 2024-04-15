@@ -10,7 +10,7 @@ const WithNavBar: FC = () => {
     <header className='sticky top-0 z-50 w-full'>
       <NavBar
         onThemeTogglerClick={() => console.log('...')}
-        navItems={setCategories.map(({ name, href, key }) => ({ text: name, href, key }))}
+        navItems={setCategories.map(({ text, href, key }) => ({ text, href, key }))}
       />
     </header>
   )

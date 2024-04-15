@@ -6,7 +6,7 @@ import { perspective } from '@/anims/animMobileMenu';
 
 interface NavMobileProps {
   navMobileItems: Array<{
-    name: string;
+    text: string;
     href: string;
     key: string;
     target?: HTMLAttributeAnchorTarget | undefined;
@@ -19,10 +19,10 @@ const NavMobile: FC<NavMobileProps> = ({
   return (
     <nav className='flex flex-col justify-between h-full px-6 pt-20 pb-6'>
       <div className='flex flex-col gap-2'>
-        {navMobileItems.map(({ name, href, key, target }) => (
+        {navMobileItems.map(({ text, href, key, target }) => (
           <div
-            key={`${key}`}
-            className='perspective-link'
+            key={key}
+            className='perspective'
           >
             <motion.div
               variants={perspective}
@@ -37,7 +37,7 @@ const NavMobile: FC<NavMobileProps> = ({
                 target={target}
                 className='text-3xl'
               >
-                {name}
+                {text}
               </NavItem>
             </motion.div>
           </div>
