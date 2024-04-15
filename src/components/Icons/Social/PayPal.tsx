@@ -2,9 +2,9 @@ import type { FC, SVGProps } from "react";
 
 const PayPal: FC<SVGProps<SVGSVGElement>> = props => (
   <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+    width="26"
+    height="32"
+    viewBox="0 0 26 32"
     fill="currentColor"
     fill-rule="evenodd"
     clip-rule="evenodd"
