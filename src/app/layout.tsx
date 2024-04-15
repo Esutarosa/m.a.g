@@ -17,7 +17,7 @@ const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
       <body suppressHydrationWarning>
         <WithNavBar />
 
-        <div className="max-w-8xl mx-auto">
+        <div className="max-w-8xl min-w-[320px] w-full mx-auto">
           {children}
         </div>
       </body>
