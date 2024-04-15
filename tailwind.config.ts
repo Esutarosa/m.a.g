@@ -10,7 +10,7 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1.5rem',
+        DEFAULT: '.5rem',
         sm: '2rem',
         lg: '4rem',
       }
@@ -64,6 +64,7 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      maxWidth: { '8xl': '75rem' },
     },
   },
   darkMode: ['class', '[data-theme="dark"]'],

@@ -96,3 +96,8 @@ ul {
 ol {
   @apply list-decimal px-5 leading-6;
 }
+
+.perspective-link {
+  perspective: 8.5rem;
+  perspective-origin: bottom;
+}

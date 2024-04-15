@@ -9,7 +9,7 @@ import style from './index.module.scss';
 interface MobileMenuButtonProps {
   isActiveMenu: boolean;
   isToggleMenuClick: () => void;
-}
+};
 
 const MobileMenuButton: FC<MobileMenuButtonProps> = ({
   isActiveMenu,
@@ -17,11 +17,11 @@ const MobileMenuButton: FC<MobileMenuButtonProps> = ({
 }) => {
   return (
     <div className={cn(
-      'absolute top-0 right-0 w-[100px] h-[45px] cursor-pointer rounded-[45px] overflow-hidden select-none',
+      'absolute top-2 right-2 w-24 h-12 cursor-pointer rounded-3xl overflow-hidden select-none',
       style.button
     )}>
       <motion.div
-        className={cn('relative w-full h-full', style.slider)}
+        className={cn('absolute w-full h-full', style.slider)}
         animate={{ top: isActiveMenu ? "-100%" : "0%" }}
         transition={{ duration: 0.5, type: "tween", ease: [0.76, 0, 0.24, 1] }}
       >
@@ -41,6 +41,6 @@ const MobileMenuButton: FC<MobileMenuButtonProps> = ({
       </motion.div>
     </div>
   )
-}
+};
 
 export default MobileMenuButton

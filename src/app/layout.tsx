@@ -16,10 +16,13 @@ const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
     <html className={fontFamily.className} lang="en">
       <body suppressHydrationWarning>
         <WithNavBar />
-        {children}
+
+        <div className="max-w-8xl mx-auto">
+          {children}
+        </div>
       </body>
     </html>
   )
-}
+};
 
 export default RootLayout;

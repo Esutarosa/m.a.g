@@ -1,7 +1,7 @@
 .button {
   .slider {
     .element {
-      @apply bg-foreground;
+      @apply bg-accent-foreground;
 
       p {
         @apply text-accent;
@@ -11,7 +11,7 @@
         @apply bg-accent;
 
         p {
-          @apply text-foreground;
+          @apply text-accent-foreground;
         }
       }
     }

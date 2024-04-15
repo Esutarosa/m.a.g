@@ -7,11 +7,13 @@ import type { FC, HTMLAttributeAnchorTarget } from "react";
 
 import BandCamp from '@/components/Icons/Social/BandCamp';
 import Twitter from '@/components/Icons/Social/Twitter';
-import NavItem from './NavItem/NavItem';
-import MobileMenuButton from '../MobileMenuButton/MobileMenuButton';
+import NavItem from './NavItem';
+import NavMobile from './NavMobile';
+import MobileMenuButton from '../../Common/MobileMenuButton/MobileMenuButton';
 import { variants as menu } from '@/anims/animMobileMenu';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { NAVBAR_CATEGORIES as setCategories } from '@/config/categories';
 
 type NavbarProps = {
   navItems: Array<{
@@ -30,7 +32,7 @@ const NavBar: FC<NavbarProps> = ({
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <nav className=''>
+    <nav className='w-full h-16 px-2 flex items-center justify-between'>
       <div className=''>
         <Link
           href='/'
@@ -46,13 +48,13 @@ const NavBar: FC<NavbarProps> = ({
         </Link>
 
         <motion.div
-          className='absolute w-[75%] h-[480px] rounded-[45px]'
+          className='absolute w-[75%] h-[480px] rounded-[1.5rem] bg-accent-foreground overflow-hidden'
           variants={menu}
           animate={isActive ? 'open' : 'closed'}
           initial='closed'
         >
           <AnimatePresence>
-            {isActive && (<></>)}
+            {isActive && (<NavMobile navMobileItems={setCategories} />)}
           </AnimatePresence>
         </motion.div>
 
