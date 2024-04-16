@@ -14,6 +14,7 @@ import { variants as menu } from '@/anims/animMobileMenu';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { NAVBAR_CATEGORIES as setCategories } from '@/config/categories';
+import Logo from '@/components/Icons/Logo';
 
 type NavbarProps = {
   navItems: Array<{
@@ -39,12 +40,7 @@ const NavBar: FC<NavbarProps> = ({
           className=''
           aria-label='Home'
         >
-          <Image
-            src='/logo.svg'
-            alt='Logo'
-            width={50}
-            height={50}
-          />
+          <Logo className='w-12 h-12 rounded-full' />
         </Link>
 
         <motion.div
