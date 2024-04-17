@@ -6,6 +6,8 @@ import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
 import { useMotionValue, useSpring } from "framer-motion";
 
+import Model from '@/components/Common/Model/Model';
+
 const FloatShape: FC = () => {
   const mouse = {
     x: useMotionValue(0),
