@@ -31,13 +31,13 @@ const NavMobile: FC<NavMobileProps> = ({
               initial="initial"
               animate="enter"
               exit="exit"
-              className='text-accent text-lg'
+              className='text-foreground text-lg'
             >
               <NavItem
                 key={key}
                 href={href}
                 target={target}
-                className='text-3xl'
+                className='text-2xl'
               >
                 {text}
               </NavItem>
@@ -58,7 +58,7 @@ const NavMobile: FC<NavMobileProps> = ({
             exit="exit"
           >
             <Link
-              className='text-accent'
+              className='text-foreground'
               target='_blank'
               href={href}
               aria-label={label}

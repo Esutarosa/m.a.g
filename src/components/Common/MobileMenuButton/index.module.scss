@@ -1,17 +1,17 @@
 .button {
   .slider {
     .element {
-      @apply bg-accent-foreground;
+      @apply bg-foreground;
 
       p {
         @apply text-accent;
       }
 
       &:nth-of-type(2) {
-        @apply bg-accent;
+        @apply bg-background;
 
         p {
-          @apply text-accent-foreground;
+          @apply text-foreground;
         }
       }
     }

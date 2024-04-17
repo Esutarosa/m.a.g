@@ -24,11 +24,11 @@ const NavItem: FC<PropsWithChildren<NavItemProps>> = ({
     <ActiveLink
       href={href}
       allowSubPath={href.startsWith('/')}
-      activeClassName='text-accent/40'
-      className={cn(className, 'inline-flex items-center gap-2 px-3 py-2')}
+      activeClassName='bg-accent rounded-md'
+      className={cn(className, 'px-4 py-2 hover:text-foreground/85 transition-colors inline-flex gap-10')}
       target={target}
     >
-      <span className='font-medium'>
+      <span>
         {children}
       </span>
 
