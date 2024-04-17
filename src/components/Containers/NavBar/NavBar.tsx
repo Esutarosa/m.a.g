@@ -1,11 +1,9 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import type { FC, HTMLAttributeAnchorTarget } from "react";
 
-import BandCamp from '@/components/Icons/Social/BandCamp';
-import Twitter from '@/components/Icons/Social/Twitter';
 import NavItem from './NavItem';
 import NavMobile from './NavMobile';
 import MobileMenuButton from '../../Common/MobileMenuButton/MobileMenuButton';
