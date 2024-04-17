@@ -1,14 +1,15 @@
-'use client';
+'use client'
 
-import { FC, useEffect } from 'react';
+import type { FC } from 'react'
+import { useEffect } from 'react'
 
-import { Canvas } from '@react-three/fiber';
-import { Environment } from '@react-three/drei';
-import { useMotionValue, useSpring } from "framer-motion";
+import { Canvas } from '@react-three/fiber'
+import { Environment } from '@react-three/drei'
+import { useMotionValue, useSpring } from "framer-motion"
 
-import Model from '@/components/Common/Model/Model';
+interface WithFloatShapeProps { }
 
-const FloatShape: FC = () => {
+const WithFloatShape: FC<WithFloatShapeProps> = ({ }) => {
   const mouse = {
     x: useMotionValue(0),
     y: useMotionValue(0),
@@ -37,10 +38,9 @@ const FloatShape: FC = () => {
 
   return (
     <Canvas>
-      <Model mouse={smoothMouse} />
-      <Environment preset="studio" />
+      <Environment preset='studio' />
     </Canvas>
   )
 }
 
-export default FloatShape
+export default WithFloatShape
