@@ -14,11 +14,19 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
   return (
-    <html className={fontFamily.className} lang="en">
-      <body suppressHydrationWarning className="min-h-screen flex flex-col">
+    <html
+      className={fontFamily.className}
+      lang="en"
+    >
+      <body
+        className="min-h-screen flex flex-col antialiased"
+        suppressHydrationWarning
+      >
         <WithNavBar />
 
-        <div className="max-w-8xl min-w-[320px] w-full mx-auto flex-grow">
+        <div
+          className="max-w-8xl min-w-[320px] w-full mx-auto flex-grow"
+        >
           {children}
         </div>
 
