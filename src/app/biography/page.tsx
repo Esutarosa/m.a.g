@@ -1,10 +1,17 @@
-import { FC } from 'react'
+'use client'
+
+import type { FC } from 'react'
+import { useEffect } from 'react'
 
 const Biography: FC = () => {
+  useEffect(() => { }, [])
+
   return (
-    <div>
-      Biography
-    </div>
+    <main>
+      {/* <Intro /> */}
+      {/* <Biography /> */}
+      {/* <Reviews /> */}
+    </main>
   )
 }
 
