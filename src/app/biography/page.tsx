@@ -1,16 +1,11 @@
-'use client'
-
 import type { FC } from 'react'
-import { useEffect } from 'react'
+
+import WithBiography from '@/components/withBiography'
 
 const Biography: FC = () => {
-  useEffect(() => { }, [])
-
   return (
     <main>
-      {/* <Intro /> */}
-      {/* <Biography /> */}
-      {/* <Reviews /> */}
+      <WithBiography />
     </main>
   )
 }
