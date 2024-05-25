@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    /* --8bit: '8BIT WONDER', sans-serif; */
+  }
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+.h1:not(.prose *):not(.overwrite),
+.h2:not(.prose *):not(.overwrite),
+.h3:not(.prose *):not(.overwrite),
+.h4:not(.prose *):not(.overwrite),
+.h5:not(.prose *):not(.overwrite),
+.h6:not(.prose *):not(.overwrite) {
+  @apply text-foreground;
+  margin-bottom: 1rem;
+}
+
+.h1:not(.prose *):not(.overwrite) {
+  @apply text-4xl;
+}
+
+.h2:not(.prose *):not(.overwrite) {
+  @apply text-3xl;
+}
+
+.h3:not(.prose *):not(.overwrite) {
+  @apply text-2xl;
+}
+
+.h4:not(.prose *):not(.overwrite) {
+  @apply text-xl;
+}
+
+.h5:not(.prose *):not(.overwrite) {
+  @apply text-xl;
+}
+
+.p:not(.prose *):not(.overwrite) {
+  @apply text-muted-foreground;
+  margin-bottom: 1rem;
+}
+
+.small:not(.prose *):not(.overwrite) {
+  @apply text-muted-foreground text-xs;
+}
+
+h1:not(.overwrite),
+h2:not(.overwrite),
+h3:not(.overwrite),
+h4:not(.overwrite),
+h5:not(.overwrite),
+h6:not(.overwrite) {
+  scroll-margin-top: 5.625rem;
+}
+
+.h1:not(.prose *):not(.overwrite),
+.h2:not(.prose *):not(.overwrite) {
+  line-height: 1.2 !important;
+}
+
+@media only screen and (max-width: 1020px) {
+  .h1:not(.prose *):not(.overwrite) {
+    font-size: 2.2rem !important;
+  }
+
+  .h2:not(.prose *):not(.overwrite) {
+    font-size: 2rem !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .h1:not(.prose *):not(.overwrite) {
+    font-size: 2rem !important;
+  }
+
+  .h2:not(.prose *):not(.overwrite) {
+    font-size: 1.8rem !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .h1:not(.prose *):not(.overwrite) {
+    font-size: 1.8rem !important;
+  }
+
+  .h2:not(.prose *):not(.overwrite) {
+    font-size: 1.6rem !important;
+  }
+}
