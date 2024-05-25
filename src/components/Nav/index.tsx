@@ -45,14 +45,7 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage }) => {
                   </div>
                 </div>
               </div>
-              <div className='flex items-center gap-3'>
-                <Link
-                  href='https://github.com/Esutarosa/dustcell-funclub'
-                  target='_blank'
-                  className='hidden lg:flex text-muted-foreground/85 hover:text-foreground transition'
-                >
-                  <GitHub8bit className='w-6 h-6' />
-                </Link>
+              <div className='flex items-center'>
                 {session ? (
                   <Link href='/profile' className='hidden lg:block text-sm text-muted-foreground/85 hover:text-foreground transition'>
                     Profile
