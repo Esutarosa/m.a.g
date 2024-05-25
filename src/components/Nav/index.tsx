@@ -36,12 +36,11 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage }) => {
                 <div className='hidden pl-8 sm:space-x-4 lg:flex'>
                   <div className='flex gap-4'>
                     {nav.map((item) => (
-                      <div key={item.text} className='text-sm text-foreground/65 hover:text-foreground transition'>
-                        <MenuItem
-                          href={item.href}
-                          title={item.text}
-                          target={item.target} />
-                      </div>
+                      <MenuItem
+                        key={item.key}
+                        href={item.href}
+                        title={item.text}
+                        target={item.target} />
                     ))}
                   </div>
                 </div>

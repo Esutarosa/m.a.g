@@ -28,11 +28,9 @@ const MenuItem: FC<PropsWithChildren<MenuItemProps>> = ({
       {...props}
     >
       {children ?? (
-        <div className='flex flex-col justify-center'>
-          <div className='flex items-center'>
-            <span>{title}</span>
-          </div>
-        </div>
+        <>
+          {title}
+        </>
       )}
     </Link>
   );
