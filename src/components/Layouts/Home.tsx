@@ -1,6 +1,7 @@
 import type { FC, PropsWithChildren } from 'react';
-import { cn } from '@/util/cn';
-import Nav from '../Nav';
+import { cn } from '@/lib/utils';
+
+import Nav from '@/components/Nav';
 
 interface HomeLayoutProps {
   className?: string
