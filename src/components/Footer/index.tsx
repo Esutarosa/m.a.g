@@ -39,7 +39,7 @@ const Footer: FC<FooterProps> = ({ isHideFooter, isHomePage }) => {
         </>
         <>
           {footer.map((group, index) => (
-            <div key={index} className='grid gap-4 xl:flex'>
+            <div key={index} className='grid gap-3 grid-cols-2 items-end xl:flex'>
               {group.develop.map((item, index) => (
                 <Link
                   key={index}
