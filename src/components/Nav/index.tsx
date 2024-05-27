@@ -38,7 +38,7 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage }) => {
   return (
     <header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95'>
       <nav className='flex flex-col gap-6 lg:gap-5'>
-        <div className='flex items-center justify-between h-16 mx-auto container lg:px-16 xl:px-20 z-10'>
+        <div className='flex items-center justify-between h-16 mx-auto container lg:px-16 xl:px-20'>
           <div className={`${isHomePage ? PressStart2P.className : ''} flex items-center px-6 lg:px-0 flex-1 sm:items-stretch justify-between`}>
             <div className='flex items-center'>
               <Logo />
@@ -71,7 +71,7 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage }) => {
             )}
           </div>
         </div>
-        {isHomePage && (<HomePageMobileMenu menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />)}
+        {isHomePage && <HomePageMobileMenu menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />}
       </nav>
     </header >
   );
