@@ -6,6 +6,7 @@ import { useWindowSize } from 'react-use';
 import { nav } from '@/data/Nav';
 import Link from 'next/link';
 
+import Logo from '@/components/Logo';
 import MenuItem from '@/components/Nav/MenuItem';
 import MobileButton from '@/components/Nav/MobileButton';
 import HomePageMobileMenu from '@/components/Nav/HomePageMobileMenu';
@@ -40,9 +41,7 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage }) => {
         <div className='flex items-center justify-between h-16 mx-auto container lg:px-16 xl:px-20 z-10'>
           <div className={`${isHomePage ? PressStart2P.className : ''} flex items-center px-6 lg:px-0 flex-1 sm:items-stretch justify-between`}>
             <div className='flex items-center'>
-              <Link href='/' className='flex items-center gap-2 text-lg text-foreground font-bold leading-none'>
-                M.A.G
-              </Link>
+              <Logo />
               <div className='hidden pl-10 gap-4 lg:flex'>
                 {nav.map((item) => (
                   <MenuItem
