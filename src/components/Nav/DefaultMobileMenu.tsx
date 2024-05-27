@@ -1,4 +1,4 @@
-import type { FC, Dispatch, SetStateAction } from 'react';
+import type { FC } from 'react';
 
 import Logo from '@/components/Logo';
 import { Bars3Icon } from '@heroicons/react/24/outline';
