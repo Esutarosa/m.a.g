@@ -13,7 +13,7 @@ const MobileButton: FC<MobileButtonProps> = ({
   return (
     <button
       className={cn(
-        'block transition-transform lg:hidden z-20',
+        'block transition-transform lg:hidden',
         menuIsActive ? 'transform -translate-x-2' : ''
       )}
       onClick={() => setMenuIsActive(!menuIsActive)}

@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
-import { useWindowSize } from 'react-use'
+import { useWindowSize } from 'react-use';
 import { nav } from '@/data/Nav';
 import Link from 'next/link';
 
