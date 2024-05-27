@@ -7,9 +7,7 @@ const Home: FC = () => {
   return (
     <HomeLayout isHomePage>
       <SectionContainer>
-        <div className='bg-muted w-full h-[20rem]'>
 
-        </div>
       </SectionContainer>
     </HomeLayout>
   );
