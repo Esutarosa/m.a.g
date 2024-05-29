@@ -1,14 +1,12 @@
 import type { FC } from 'react';
 
 import HomeLayout from '@/components/Layouts/Home';
-import SectionContainer from '@/components/Layouts/SectionContainer';
+import Hero from '@/components/Hero/Hero';
 
 const Home: FC = () => {
   return (
     <HomeLayout isHomePage>
-      <SectionContainer>
-
-      </SectionContainer>
+      <Hero />
     </HomeLayout>
   );
 }
