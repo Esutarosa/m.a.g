@@ -34,6 +34,14 @@
   }
 }
 
+::-webkit-scrollbar {
+  @apply bg-accent/50 w-1;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full hover:bg-primary transition-colors;
+}
+
 * {
   @apply border-border;
 }
