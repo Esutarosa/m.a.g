@@ -13,12 +13,12 @@ interface InfiniteMovingCardsProps extends PropsWithChildren {
 }
 
 const InfiniteMovingCards: FC<InfiniteMovingCardsProps> = ({
-  children,
   direction = 'left',
-  speed = 'fast',
+  speed = 'normal',
   pauseOnHover = true,
   innerClassName,
   outerClassName,
+  children,
 }) => {
   const [start, setStart] = useState(false);
 
@@ -71,7 +71,7 @@ const InfiniteMovingCards: FC<InfiniteMovingCardsProps> = ({
     <div
       ref={containerRef}
       className={cn(
-        'scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
+        'scroller relative z-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
         outerClassName
       )}
     >
@@ -87,7 +87,7 @@ const InfiniteMovingCards: FC<InfiniteMovingCardsProps> = ({
           <li
             key={index}
             className={cn(
-              'max-w-full relative bg-foreground border flex-shrink-0 px-8 py-6',
+              'max-w-full relative flex-shrink-0 px-8 py-6',
               innerClassName,
             )}
           >
