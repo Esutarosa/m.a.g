@@ -1,30 +1,34 @@
 export const summary = [
   {
-    title: "My Blog",
-    text: "Every Shitty Webring Site needs a blog.",
-    href: "/blog",
-    target: "",
-    linkText: "Go on a trip",
+    question: "M.A.G",
+    answer: "Modernized Android Gyaru",
   },
   {
-    title: "Community",
-    text: "I've gathered a community of the coolest people on my discord, come join us!",
-    href: "https://discord.gg/qb3pA493b8",
-    target: "_blank",
-    linkText: "Join our Discord",
+    question: "What anime do you prefer?",
+    answer: "I prefer \"old\" anime (1990-2008) more than new ones",
   },
   {
-    title: "M.A.G",
-    text: "Modernized Android Gyaru",
-    href: "",
-    target: "",
-    linkText: "",
+    question: "What inspired you to start making music?",
+    answer: "I started making music at the age of 14, initially with lo-fi and trap metal, and only after 4 years of creating different music did I come to breakcore/ambient DnB",
   },
   {
-    title: "Gore and Beauty",
-    text: "Uncertain of his path but driven by a relentless pursuit of his goal, he continually transforms, his heart and mind racing towards it once discovered.",
-    href: "",
-    target: "",
-    linkText: "",
-  }
+    question: "What about your nickname?",
+    answer: "My nickname came from Cyberpunk 2077, which had a strong influence on my style and the idea of my covers and more",
+  },
+  {
+    question: "Favorite genre?",
+    answer: "Mecha and Cyberpunk",
+  },
+  {
+    question: "Do you like garlic?",
+    answer: "I love garlic (lol, it's a local joke)",
+  },
+  {
+    question: "Which countries have you visited?",
+    answer: "I love traveling, no matter how cliché it sounds. I have already visited 8 countries, and I have lived in 3 of them for at least a month or more",
+  },
+  {
+    question: "What about sweets?",
+    answer: "I really love sweets, lol",
+  },
 ]
