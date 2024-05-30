@@ -7,7 +7,6 @@ import InfiniteMovingCards from '@/components/InfiniteMovingCards';
 
 import { summary } from '@/data/Summary';
 import { PRESS_START_2P as PressStart2P } from '@/../../next.fonts';
-import { Button } from '../ui/button';
 
 const Summary: FC = () => {
   return (
