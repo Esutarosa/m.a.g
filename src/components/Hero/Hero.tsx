@@ -17,7 +17,7 @@ const Hero: FC = () => {
       )}>
         <AxisBoxe />
         <h1
-          className='relative text-3xl md:text-5xl text-center text-background z-20'
+          className='relative text-3xl md:text-5xl text-center text-background select-none z-20'
           style={{
             transform: 'skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)',
           }}
@@ -25,7 +25,7 @@ const Hero: FC = () => {
           Modernized Android Gyaru
         </h1>
         <p
-          className='relative text-sm md:text-2xl mt-4 text-center text-background z-20'
+          className='relative text-sm md:text-2xl mt-4 text-center text-background select-none z-20'
           style={{
             transform: 'skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)',
           }}

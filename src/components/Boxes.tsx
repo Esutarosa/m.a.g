@@ -7,8 +7,8 @@ import RenderSVG from '@/components/RenderSVG';
 interface BoxesProps { className?: string }
 
 const AxisBoxe: FC<BoxesProps> = ({ className, ...props }) => {
-  const rows = new Array(150).fill(1);
-  const cols = new Array(100).fill(1);
+  const rows = new Array(50).fill(1);
+  const cols = new Array(30).fill(1);
 
   return (
     <div
