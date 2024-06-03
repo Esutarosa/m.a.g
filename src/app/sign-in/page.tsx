@@ -2,15 +2,20 @@
 
 import type { FC } from 'react';
 import { useState } from 'react';
+import { useFormState } from 'react-dom';
+import { useSearchParams } from 'next/navigation';
 
 import DefaultLayout from '@/components/Layouts/Default';
 import SectionContainer from '@/components/Layouts/SectionContainer';
 import InfoBlock from '@/components/InfoBlock';
 import { LockClosedIcon } from '@heroicons/react/24/outline';
-import { useFormState } from 'react-dom';
 import ErrorNote from '@/components/ErrorNote';
+import { KEY_CREDENTIALS_SIGN_IN_ERROR, KEY_CALLBACK_URL } from '@/auth';
+import FieldSetWithStatus from '@/components/FieldSetWithStatus';
 
 const SignIn: FC = () => {
+  const params = useSearchParams();
+
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [response, action] = useFormState(_ => _, undefined);
@@ -30,17 +35,32 @@ const SignIn: FC = () => {
             className='w-full'
           >
             <div className='space-y-6 w-full'>
+              {response === KEY_CREDENTIALS_SIGN_IN_ERROR &&
+                <ErrorNote>Invalid email or password</ErrorNote>}
               <div className='space-y-4 w-full'>
+                <FieldSetWithStatus
+                  id="email"
+                  label="Admin Email"
+                  type="email"
+                  value={email}
+                  onChange={setEmail}
+                />
+                <FieldSetWithStatus
+                  id="password"
+                  label="Admin Password"
+                  type="password"
+                  value={password}
+                  onChange={setPassword}
+                />
                 <input
                   type='hidden'
-                  name=''
-                  value={response ?? ''}
+                  name={KEY_CALLBACK_URL}
+                  value={params.get(KEY_CALLBACK_URL) ?? ''}
                 />
               </div>
               <button>Sign in</button>
             </div>
           </form>
-          <ErrorNote />
         </InfoBlock>
       </SectionContainer>
     </DefaultLayout>
