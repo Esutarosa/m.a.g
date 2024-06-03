@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 import DefaultLayout from '@/components/Layouts/Default';
 import { Button } from '@/components/ui/button';
 
-import { PRESS_START_2P as PressStart2P } from '@/../../next.fonts';
+import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 
 const NotFound: FC = () => {
   const [show404, setShow404] = useState<boolean>(false);

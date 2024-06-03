@@ -5,7 +5,7 @@ import SectionContainer from '@/components/Layouts/SectionContainer';
 import InfiniteMovingCards from '@/components/InfiniteMovingCards';
 
 import { summary } from '@/data/Summary';
-import { PRESS_START_2P as PressStart2P } from '@/../../next.fonts';
+import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 
 const SummaryFacts: FC = () => {
   return (

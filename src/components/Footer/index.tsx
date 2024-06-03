@@ -5,7 +5,7 @@ import SectionContainer from '@/components/Layouts/SectionContainer';
 import { footer } from '@/data/Footer';
 import RenderSVG from '@/components/RenderSVG';
 
-import { PRESS_START_2P as PressStart2P } from '@/../../next.fonts';
+import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 
 interface FooterProps {
   isHideFooter?: boolean

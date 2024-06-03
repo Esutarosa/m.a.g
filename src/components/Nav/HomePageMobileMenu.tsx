@@ -6,7 +6,7 @@ import { nav } from '@/data/Nav';
 import { cn } from '@/lib/utils';
 import MenuItem from '@/components/Nav/MenuItem';
 
-import { PRESS_START_2P as PressStart2P } from '@/../../next.fonts';
+import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 
 interface HomePageMobileMenuProps {
   menuIsActive: boolean

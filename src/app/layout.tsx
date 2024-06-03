@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { FC, PropsWithChildren } from "react";
-import { OPEN_SANS as fontFamily } from "@/../../next.fonts";
+import { OPEN_SANS as fontFamily } from "@/config/fonts";
 
 import "@/styles/global.css";
 
