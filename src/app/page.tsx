@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 
 import HomeLayout from '@/components/Layouts/Home';
-import Hero from '@/components/Hero/Hero';
-import SummaryFacts from '@/components/SummaryFacts/SummaryFacts';
+import Hero from '@/components/Hero';
+import SummaryFacts from '@/components/SummaryFacts';
 
 const Home: FC = () => {
   return (
