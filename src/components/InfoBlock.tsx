@@ -3,22 +3,22 @@ import { cn } from '@/lib/utils';
 
 interface InfoBlockProps extends PropsWithChildren {
   className?: string;
-  color?: 'primary' | 'secondary';
+  color?: 'card' | 'blur';
   padding?: 'loose' | 'normal' | 'tight';
   centered?: boolean;
 }
 
 const InfoBlock: FC<InfoBlockProps> = ({
   className,
-  color = 'primary',
+  color = 'card',
   padding = 'normal',
   centered = true,
   children
 }) => {
   const getColorClasses = () => {
     switch (color) {
-      case 'primary': return 'bg-primary text-primary-foreground border border-primary';
-      case 'secondary': return 'bg-secondary text-secondary-foreground border border-secondary';
+      case 'card': return 'bg-card text-card-foreground';
+      case 'blur': return 'bg-background/95 text-muted-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60';
     }
   }
 
@@ -32,14 +32,14 @@ const InfoBlock: FC<InfoBlockProps> = ({
 
   return (
     <div className={cn(
-      'flex flex-col items-center justify-center rounded-lg border',
+      'flex flex-col items-center justify-center rounded-xl border shadow-lg',
       getColorClasses(),
       getPaddingClasses(),
       className,
     )}>
       <div className={cn(
         'flex flex-col justify-center w-full space-x-4',
-        centered ? 'items-center' : 'items-start',
+        centered && 'items-center',
       )}>
         {children}
       </div>
