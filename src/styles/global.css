@@ -143,6 +143,21 @@ input[type=text], input[type=email], input[type=password], select, textarea  {
   }
 }
 
+@keyframes rotate-pulse {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-rotate-pulse {
+  animation: rotate-pulse 0.75s linear infinite normal both running;
+}
+
 .disabled-select {
   @apply text-foreground/75 bg-foreground pointer-events-none
 }

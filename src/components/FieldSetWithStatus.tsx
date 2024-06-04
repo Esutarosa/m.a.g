@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import type { FC } from 'react';
 import { useFormStatus } from 'react-dom';
+import { cn } from '@/lib/utils';
 
 type FieldSetType = 'checkbox' | 'email' | 'password' | 'text' | 'textarea';
 

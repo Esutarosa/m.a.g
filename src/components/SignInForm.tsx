@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { useSearchParams } from 'next/navigation';
 
