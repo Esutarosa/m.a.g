@@ -12,7 +12,7 @@ import MobileButton from '@/components/Nav/MobileButton';
 import HomePageMobileMenu from '@/components/Nav/HomePageMobileMenu';
 import DefaultMobileMenu from '@/components/Nav/DefaultMobileMenu';
 
-import { PRESS_START_2P as PressStart2P } from '@/../../next.fonts';
+import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 
 interface NavProps {
   isHideHeader?: boolean

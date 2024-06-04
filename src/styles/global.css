@@ -109,6 +109,10 @@ h6:not(.overwrite) {
   line-height: 1.2 !important;
 }
 
+input[type=text], input[type=email], input[type=password], select, textarea  {
+  @apply h-9 rounded-[.5rem] border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50;
+}
+
 @media only screen and (max-width: 1020px) {
   .h1:not(.prose *):not(.overwrite) {
     font-size: 2.2rem !important;
@@ -137,4 +141,23 @@ h6:not(.overwrite) {
   .h2:not(.prose *):not(.overwrite) {
     font-size: 1.6rem !important;
   }
+}
+
+@keyframes rotate-pulse {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-rotate-pulse {
+  animation: rotate-pulse 0.75s linear infinite normal both running;
+}
+
+.disabled-select {
+  @apply text-foreground/75 bg-foreground pointer-events-none
 }

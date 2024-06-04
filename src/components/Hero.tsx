@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import SectionContainer from '@/components/Layouts/SectionContainer';
 import { AxisBoxe } from '@/components/Boxes';
 
-import { PRESS_START_2P as PressStart2P } from '@/../../next.fonts';
+import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 
 const Hero: FC = () => {
   return (
