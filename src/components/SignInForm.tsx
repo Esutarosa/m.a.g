@@ -10,7 +10,7 @@ import { LockClosedIcon } from '@heroicons/react/24/outline';
 import ErrorNote from '@/components/ErrorNote';
 import { KEY_CREDENTIALS_SIGN_IN_ERROR, KEY_CALLBACK_URL } from '@/auth';
 import FieldSetWithStatus from '@/components/FieldSetWithStatus';
-import SubmitButtonWithStatus from './SubmitButtonWithStatus';
+import SubmitButtonWithStatus from '@/components/SubmitButtonWithStatus';
 
 interface SignInFormProps { }
 
