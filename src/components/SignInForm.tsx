@@ -10,6 +10,7 @@ import { LockClosedIcon } from '@heroicons/react/24/outline';
 import ErrorNote from '@/components/ErrorNote';
 import { KEY_CREDENTIALS_SIGN_IN_ERROR, KEY_CALLBACK_URL } from '@/auth';
 import FieldSetWithStatus from '@/components/FieldSetWithStatus';
+import SubmitButtonWithStatus from './SubmitButtonWithStatus';
 
 interface SignInFormProps { }
 
@@ -24,6 +25,8 @@ const SignInForm: FC<SignInFormProps> = ({ }) => {
   useLayoutEffect(() => {
     emailRef.current?.focus();
   }, []);
+
+  const isFormValid = email.length > 0 && password.length > 0;
 
   return (
     <InfoBlock className='w-[calc(100vw-2rem)] sm:w-[min(360px,90vw)] px-6 py-5'>
@@ -62,7 +65,9 @@ const SignInForm: FC<SignInFormProps> = ({ }) => {
               value={params.get(KEY_CALLBACK_URL) ?? ''}
             />
           </div>
-          <button>Sign in</button>
+          <SubmitButtonWithStatus disabled={!isFormValid}>
+            Sign in
+          </SubmitButtonWithStatus>
         </div>
       </form>
     </InfoBlock>
