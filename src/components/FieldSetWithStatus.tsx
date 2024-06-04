@@ -4,7 +4,13 @@ import { cn } from '@/lib/utils';
 import type { FC } from 'react';
 import { useFormStatus } from 'react-dom';
 
-type FieldSetType = 'checkbox' | 'email' | 'password' | 'text';
+type FieldSetType = 'checkbox' | 'email' | 'password' | 'text' | 'textarea';
+
+type AnnotatedTag = {
+  value: string,
+  annotation?: string,
+  annotationAria?: string,
+}
 
 interface FieldSetWithStatusProps {
   id: string
@@ -18,6 +24,14 @@ interface FieldSetWithStatusProps {
   selectOptionsDefaultLabel?: string
   readOnly?: boolean
   onChange?: (value: string) => void
+  inputRef?: React.LegacyRef<HTMLInputElement>
+  tagOptions?: AnnotatedTag[]
+  accessory?: React.ReactNode
+  isModified?: boolean
+  required?: boolean
+  loading?: boolean
+  placeholder?: string
+  capitalize?: boolean
 }
 
 const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
@@ -32,18 +46,26 @@ const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
   readOnly,
   onChange,
   value,
+  inputRef,
+  tagOptions,
+  accessory,
+  isModified,
+  required,
+  loading,
+  placeholder,
+  capitalize,
 }) => {
   const { pending } = useFormStatus();
 
   return (
     <div className={cn(
-      'space-y-1',
+      'space-y-2',
       type === 'checkbox' && 'flex items-center gap-2',
     )}>
       {!hideLabel && (
         <label
           className={cn(
-            'flex gap-2 items-center select-none',
+            'flex gap-2 items-center select-none -translate-x-1',
             type === 'checkbox' && 'order-2 pt-1',
           )}
           htmlFor={id}
@@ -54,9 +76,24 @@ const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
               {note}
             </span>
           )}
+          {isModified && !error && (
+            <span className='text-muted-foreground font-medium text-lg'>
+              *
+            </span>
+          )}
           {error && (
             <span className='text-destructive'>
               {error}
+            </span>
+          )}
+          {required && (
+            <span className='text-muted-foreground'>
+              Required
+            </span>
+          )}
+          {loading && (
+            <span className='translate-y-0.5'>
+              spinner...
             </span>
           )}
         </label>
@@ -70,12 +107,12 @@ const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
             onChange={event => onChange?.(event.target.value)}
             className={cn(
               'w-full',
-              error && 'border-destructive',
+              cn(Boolean(error) && 'border-destructive'),
               readOnly || pending && 'disabled-select',
             )}
           >
             {selectOptionsDefaultLabel && (
-              <option value="">
+              <option value=''>
                 {selectOptionsDefaultLabel}
               </option>
             )}
@@ -88,12 +125,57 @@ const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
               </option>
             ))}
           </select>
-        ) : (
+        ) : tagOptions ? (
           <>
             {/* @ts-ignore */}
             {/* Tags */}
           </>
+        ) : type === 'textarea' ? (
+          <textarea
+            id={id}
+            name={id}
+            value={value}
+            placeholder={placeholder}
+            onChange={e => onChange?.(e.target.value)}
+            readOnly={readOnly || pending || loading}
+            className={cn(
+              'w-full h-24 resize-none',
+              Boolean(error) && 'error',
+            )}
+          />
+        ) : (
+          <input
+            ref={inputRef}
+            id={id}
+            name={id}
+            value={value}
+            checked={type === 'checkbox' ? value === 'true' : undefined}
+            placeholder={placeholder}
+            onChange={event => onChange?.(type === 'checkbox'
+              ? event.target.value === 'true' ? 'false' : 'true'
+              : event.target.value
+            )}
+            type={type}
+            autoComplete='off'
+            autoCapitalize={!capitalize ? 'off' : undefined}
+            readOnly={readOnly || pending || loading}
+            disabled={type === 'checkbox' && (
+              readOnly || pending || loading
+            )}
+            className={cn(
+              (
+                type === 'text' ||
+                type === 'email' ||
+                type === 'password'
+              ) && 'w-full -translate-x-1',
+              type === 'checkbox' && (
+                readOnly || pending || loading
+              ) && 'opacity-50 cursor-not-allowed',
+              Boolean(error) && 'border-destructive',
+            )}
+          />
         )}
+        {accessory && <div>{accessory}</div>}
       </div>
     </div>
   );

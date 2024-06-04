@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { useSearchParams } from 'next/navigation';
 
@@ -19,6 +19,11 @@ const SignInForm: FC<SignInFormProps> = ({ }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [response, action] = useFormState(_ => _, undefined);
+
+  const emailRef = useRef<HTMLInputElement>(null);
+  useLayoutEffect(() => {
+    emailRef.current?.focus();
+  }, []);
 
   return (
     <InfoBlock className='w-[calc(100vw-2rem)] sm:w-[min(360px,90vw)] px-6 py-5'>
@@ -38,6 +43,7 @@ const SignInForm: FC<SignInFormProps> = ({ }) => {
           <div className='space-y-4 w-full'>
             <FieldSetWithStatus
               id="email"
+              inputRef={emailRef}
               label="Admin Email"
               type="email"
               value={email}
