@@ -43,6 +43,7 @@ const LoaderButton: FC<LoaderButtonProps> = ({
         className,
       )}
       disabled={disabled || isLoading}
+      {...props}
     >
       {(icon || isLoading) && (
         <span

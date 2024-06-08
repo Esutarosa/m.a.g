@@ -8,8 +8,8 @@ interface LoginProps { searchParams: { message: string } }
 
 const Login: FC<LoginProps> = ({ searchParams }) => {
   return (
-    <DefaultLayout isHideFooter isHideHeader>
-      <SectionContainer>
+    <DefaultLayout isHideFooter isHideHeader className='justify-center'>
+      <SectionContainer className='flex justify-center'>
         <LoginForm />
       </SectionContainer>
     </DefaultLayout>

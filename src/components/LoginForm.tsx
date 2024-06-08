@@ -3,36 +3,44 @@ import type { FC } from 'react';
 import InfoBlock from '@/components/InfoBlock';
 import { LockClosedIcon } from '@heroicons/react/24/outline';
 import FieldSetWithStatus from '@/components/FieldSetWithStatus';
+import SubmitButtonWithStatus from '@/components/SubmitButtonWithStatus';
 
-interface LoginFormProps { }
+interface LoginFormProps {
+  formAction?: (formData: FormData) => Promise<{
+    error?: string, success?: boolean
+  }>
+}
 
-const LoginForm: FC<LoginFormProps> = ({ }) => {
+const LoginForm: FC<LoginFormProps> = ({ formAction }) => {
   return (
-    <InfoBlock className='w-[calc(100vw-2rem)] sm:w-[min(360px,90vw)] px-6 py-5'>
+    <InfoBlock className='w-[calc(100vw-2rem)] sm:w-[min(520px,90vw)] px-6 py-5'>
       <h1 className='h3 flex gap-3 items-center justify-center self-start mb-4'>
         <LockClosedIcon className='text-foreground h-6 w-6' />
         <span className='text-foreground'>
           Login
         </span>
       </h1>
-      <form className='w-full'>
+      <form className='w-full mt-2'>
         <div className='space-y-6 w-full'>
           <div className='space-y-4 w-full'>
             <FieldSetWithStatus
               id='email'
-              label='Some Email'
+              label='Email'
               name='email'
               type='email'
               required
             />
             <FieldSetWithStatus
               id='password'
-              label='Some Password'
+              label='Password'
               name='password'
               type='password'
               required
             />
           </div>
+          <SubmitButtonWithStatus formAction={formAction}>
+            Login
+          </SubmitButtonWithStatus>
         </div>
       </form>
     </InfoBlock>

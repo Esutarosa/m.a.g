@@ -25,6 +25,7 @@ const SubmitButtonWithStatus: FC<SubmitButtonWithStatusProps> = ({
   disabled,
   className,
   primary,
+  formAction,
   type: _type,
   ...props
 }) => {
@@ -44,15 +45,18 @@ const SubmitButtonWithStatus: FC<SubmitButtonWithStatusProps> = ({
 
   return (
     <LoaderButton
-      type="submit"
+      type='submit'
       disabled={disabled}
       isLoading={pending}
       icon={icon}
       spinnerColor={spinnerColor}
       styleAs={styleAs}
+      formAction={formAction}
       className={cn(
         'p-4 rounded-[.25rem] cursor-pointer inline-flex items-center gap-2',
-        primary ? 'bg-primary text-primary-foreground' : 'bg-accent text-accent-foreground',
+        primary
+          ? 'bg-primary text-background hover:bg-primary/85'
+          : 'border border-border hover:bg-accent/50 hover:text-accent-foreground',
         className
       )}
       {...props}
