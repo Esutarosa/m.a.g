@@ -59,7 +59,7 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage }) => {
                   Profile
                 </Link>
               ) : (
-                <Link href='/sign-in' className='hidden lg:block text-sm text-muted-foreground/85 hover:text-foreground transition'>
+                <Link href='/login' className='hidden lg:block text-sm text-muted-foreground/85 hover:text-foreground transition'>
                   Sign in
                 </Link>
               )}
