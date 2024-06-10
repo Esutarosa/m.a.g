@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 import { nav } from '@/data/Nav';
 import Link from 'next/link';
+import { User } from '@supabase/supabase-js';
 
 import Logo from '@/components/Logo';
 import MenuItem from '@/components/Nav/MenuItem';
@@ -17,12 +18,12 @@ import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 interface NavProps {
   isHideHeader?: boolean
   isHomePage?: boolean
+  isUserLoggedIn?: User | null;
 }
 
-const Nav: FC<NavProps> = ({ isHideHeader, isHomePage }) => {
+const Nav: FC<NavProps> = ({ isHideHeader, isHomePage, isUserLoggedIn }) => {
   const [menuIsActive, setMenuIsActive] = useState(false);
 
-  const session = !true;
   const { width } = useWindowSize()
 
   useEffect(() => {
@@ -54,13 +55,9 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage }) => {
               </div>
             </div>
             <div className='flex items-center'>
-              {session ? (
-                <Link href='/profile' className='hidden lg:block text-sm text-muted-foreground/85 hover:text-foreground transition'>
-                  Profile
-                </Link>
-              ) : (
-                <Link href='/login' className='hidden lg:block text-sm text-muted-foreground/85 hover:text-foreground transition'>
-                  Sign in
+              {isUserLoggedIn && (
+                <Link href='/admin' className='hidden lg:block text-sm text-muted-foreground/85 hover:text-foreground transition'>
+                  Dashboard
                 </Link>
               )}
             </div>

@@ -1,19 +1,18 @@
 import type { FC } from 'react';
-import { createClient } from '@/config/supabase/server';
 import { redirect } from 'next/navigation';
 
+import { getUser } from '@/config/store/user';
+
 const Admin: FC = async ({ }) => {
-  const supabase = createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const { user } = await getUser();
   if (!user) return redirect('/login');
 
   return (
     <div>
       Admin Page
+      <p>
+        {user?.email}
+      </p>
     </div>
   );
 }

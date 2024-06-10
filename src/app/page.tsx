@@ -4,9 +4,13 @@ import HomeLayout from '@/components/Layouts/Home';
 import Hero from '@/components/Hero';
 import SummaryFacts from '@/components/SummaryFacts';
 
-const Home: FC = () => {
+import { getUser } from '@/config/store/user';
+
+const Home: FC = async () => {
+  const { user } = await getUser();
+
   return (
-    <HomeLayout isHomePage>
+    <HomeLayout isUserLoggedIn={user} isHomePage>
       <Hero />
       <SummaryFacts />
     </HomeLayout>
