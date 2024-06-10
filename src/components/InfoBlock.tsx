@@ -38,7 +38,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
       className,
     )}>
       <div className={cn(
-        'flex flex-col justify-center w-full space-x-4',
+        'flex flex-col justify-center w-full',
         centered && 'items-center',
       )}>
         {children}

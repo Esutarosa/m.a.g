@@ -5,10 +5,16 @@ import { Bars3Icon } from '@heroicons/react/24/outline';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import MenuItem from '@/components/Nav/MenuItem';
+import { User } from '@supabase/supabase-js';
 
 import { nav } from '@/data/Nav';
+import Link from 'next/link';
 
-const DefaultMobileMenu: FC = () => {
+interface DefaultMobileMenuProps {
+  isUserLoggedIn?: User | null
+}
+
+const DefaultMobileMenu: FC<DefaultMobileMenuProps> = ({ isUserLoggedIn }) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -23,16 +29,21 @@ const DefaultMobileMenu: FC = () => {
       <SheetContent side='right'>
         <nav className='grid gap-4'>
           <Logo />
-          <div className='grid gap-3 mt-4'>
+          <div className='grid gap-8 mt-4'>
             {nav.map((item) => (
               <MenuItem
                 key={item.key}
                 href={item.href}
                 title={item.text}
                 target={item.target}
-                className='p-0 py-3 text-sm'
+                className='p-0 text-sm'
               />
             ))}
+            {isUserLoggedIn && (
+              <Link href='/admin' className='block lg:hidden text-sm text-muted-foreground/85 hover:text-foreground transition'>
+                Dashboard
+              </Link>
+            )}
           </div>
         </nav>
       </SheetContent>

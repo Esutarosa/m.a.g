@@ -1,11 +1,10 @@
 import type { FC } from 'react';
 import { cn } from '@/lib/utils';
-import { SpinnerColor } from '@/types';
 import RenderSVG from '@/components/RenderSVG';
 
 interface SpinnerProps {
   size?: number
-  color?: SpinnerColor
+  color?: 'text' | 'dim' | 'light';
   className?: string
 }
 

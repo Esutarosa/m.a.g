@@ -2,180 +2,73 @@
 
 import type { FC } from 'react';
 import { useFormStatus } from 'react-dom';
-import { cn } from '@/lib/utils';
 
-type FieldSetType = 'checkbox' | 'email' | 'password' | 'text' | 'textarea';
-
-type AnnotatedTag = {
-  value: string,
-  annotation?: string,
-  annotationAria?: string,
-}
+import Spinner from '@/components/Spinner';
 
 interface FieldSetWithStatusProps {
   id: string
   label: string
-  value: string
-  note?: string
-  error?: string
-  type?: FieldSetType,
+  type: 'email' | 'password' | 'text'
+  name: string
+  value?: string
+  placeholder?: string
+  required: boolean
   hideLabel?: boolean
+  loading?: boolean
   selectOptions?: { value: string, label: string }[]
   selectOptionsDefaultLabel?: string
-  readOnly?: boolean
-  onChange?: (value: string) => void
-  inputRef?: React.LegacyRef<HTMLInputElement>
-  tagOptions?: AnnotatedTag[]
+  tagOptions?: { value: string, annotation?: string, annotationAria?: string }[]
   accessory?: React.ReactNode
-  isModified?: boolean
-  required?: boolean
-  loading?: boolean
-  placeholder?: string
-  capitalize?: boolean
 }
 
 const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
   id,
   label,
-  note,
-  error,
+  name,
   type = 'text',
+  value,
+  placeholder,
+  required,
   hideLabel,
+  loading,
   selectOptions,
   selectOptionsDefaultLabel,
-  readOnly,
-  onChange,
-  value,
-  inputRef,
   tagOptions,
   accessory,
-  isModified,
-  required,
-  loading,
-  placeholder,
-  capitalize,
 }) => {
   const { pending } = useFormStatus();
 
   return (
-    <div className={cn(
-      'space-y-2',
-      type === 'checkbox' && 'flex items-center gap-2',
-    )}>
+    <div className='space-y-2'>
       {!hideLabel && (
-        <label
-          className={cn(
-            'flex gap-2 items-center select-none -translate-x-1',
-            type === 'checkbox' && 'order-2 pt-1',
-          )}
-          htmlFor={id}
-        >
+        <label className='flex gap-2 items-center select-none'>
           {label}
-          {note && !error && (
-            <span className='text-muted-foreground'>
-              {note}
-            </span>
-          )}
-          {isModified && !error && (
-            <span className='text-muted-foreground font-medium text-lg'>
-              *
-            </span>
-          )}
-          {error && (
-            <span className='text-destructive'>
-              {error}
-            </span>
-          )}
-          {required && (
-            <span className='text-muted-foreground'>
-              Required
-            </span>
-          )}
-          {loading && (
-            <span className='translate-y-0.5'>
-              spinner...
-            </span>
-          )}
+          {loading && <Spinner />}
         </label>
       )}
       <div className='flex gap-2'>
         {selectOptions ? (
-          <select
-            id={id}
-            name={id}
-            value={value}
-            onChange={event => onChange?.(event.target.value)}
-            className={cn(
-              'w-full',
-              cn(Boolean(error) && 'border-destructive'),
-              readOnly || pending && 'disabled-select',
-            )}
-          >
+          <select>
             {selectOptionsDefaultLabel && (
               <option value=''>
                 {selectOptionsDefaultLabel}
               </option>
             )}
-            {selectOptions.map(({ value: optionValue, label: optionLabel }) => (
-              <option
-                key={optionValue}
-                value={optionValue}
-              >
-                {optionLabel}
-              </option>
-            ))}
           </select>
         ) : tagOptions ? (
-          <>
-            {/* @ts-ignore */}
-            {/* Tags */}
-          </>
-        ) : type === 'textarea' ? (
-          <textarea
-            id={id}
-            name={id}
-            value={value}
-            placeholder={placeholder}
-            onChange={e => onChange?.(e.target.value)}
-            readOnly={readOnly || pending || loading}
-            className={cn(
-              'w-full h-24 resize-none',
-              Boolean(error) && 'error',
-            )}
-          />
+          <></>
         ) : (
           <input
-            ref={inputRef}
             id={id}
-            name={id}
-            value={value}
-            checked={type === 'checkbox' ? value === 'true' : undefined}
-            placeholder={placeholder}
-            onChange={event => onChange?.(type === 'checkbox'
-              ? event.target.value === 'true' ? 'false' : 'true'
-              : event.target.value
-            )}
+            name={name}
             type={type}
-            autoComplete='off'
-            autoCapitalize={!capitalize ? 'off' : undefined}
-            readOnly={readOnly || pending || loading}
-            disabled={type === 'checkbox' && (
-              readOnly || pending || loading
-            )}
-            className={cn(
-              (
-                type === 'text' ||
-                type === 'email' ||
-                type === 'password'
-              ) && 'w-full -translate-x-1',
-              type === 'checkbox' && (
-                readOnly || pending || loading
-              ) && 'opacity-50 cursor-not-allowed',
-              Boolean(error) && 'border-destructive',
-            )}
+            value={value}
+            placeholder={placeholder}
+            readOnly={pending || loading}
+            required={required}
+            className='w-full'
           />
         )}
-        {accessory && <div>{accessory}</div>}
       </div>
     </div>
   );
