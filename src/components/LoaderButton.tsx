@@ -1,12 +1,11 @@
 import type { ButtonHTMLAttributes, FC, PropsWithChildren, ReactNode } from 'react';
-import { SpinnerColor } from '@/types';
 import { cn } from '@/lib/utils';
 import Spinner from '@/components/Spinner';
 
 interface LoaderButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
   isLoading?: boolean
   icon?: ReactNode
-  spinnerColor?: SpinnerColor
+  spinnerColor?: 'text' | 'dim' | 'light';
   styleAs?: 'button' | 'link' | 'link-without-hover'
   hideTextOnMobile?: boolean
   shouldPreventDefault?: boolean
