@@ -62,13 +62,22 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage, isUserLoggedIn }) => {
               )}
             </div>
             {isHomePage ? (
-              <MobileButton setMenuIsActive={setMenuIsActive} menuIsActive={menuIsActive} />
+              <MobileButton
+                setMenuIsActive={setMenuIsActive}
+                menuIsActive={menuIsActive}
+              />
             ) : (
-              <DefaultMobileMenu />
+              <DefaultMobileMenu isUserLoggedIn={isUserLoggedIn} />
             )}
           </div>
         </div>
-        {isHomePage && <HomePageMobileMenu menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />}
+        {isHomePage && (
+          <HomePageMobileMenu
+            menuIsActive={menuIsActive}
+            setMenuIsActive={setMenuIsActive}
+            isUserLoggedIn={isUserLoggedIn}
+          />
+        )}
       </nav>
     </header >
   );
