@@ -18,7 +18,7 @@ import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 interface NavProps {
   isHideHeader?: boolean
   isHomePage?: boolean
-  isUserLoggedIn?: User | null;
+  isUserLoggedIn?: User | null
 }
 
 const Nav: FC<NavProps> = ({ isHideHeader, isHomePage, isUserLoggedIn }) => {
