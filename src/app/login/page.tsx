@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { createClient } from '@/config/supabase/server';
 import { redirect } from 'next/navigation';
+import { getUser } from '@/config/store/user';
 
 import DefaultLayout from '@/components/Layouts/Default';
 import SectionContainer from '@/components/Layouts/SectionContainer';
@@ -8,7 +9,11 @@ import LoginForm from '@/components/LoginForm';
 
 interface LoginProps { searchParams: { message: string } }
 
-const Login: FC<LoginProps> = ({ searchParams }) => {
+const Login: FC<LoginProps> = async ({ searchParams }) => {
+  const { user } = await getUser();
+
+  if (user) return redirect('/admin');
+
   const login = async (formData: FormData) => {
     'use server';
 
