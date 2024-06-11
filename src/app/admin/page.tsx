@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { getUser } from '@/config/store/user';
 import AdminLayout from '@/components/Layouts/Admin';
 import AdminSectionContainer from '@/components/Layouts/AdminSectionContainer';
+import AdminCards from '@/components/Admin/AdminCards';
 
 const Admin: FC = async ({ }) => {
   const { user } = await getUser();
@@ -11,7 +12,7 @@ const Admin: FC = async ({ }) => {
   return (
     <AdminLayout user={user}>
       <AdminSectionContainer>
-
+        <AdminCards />
       </AdminSectionContainer>
     </AdminLayout>
   );
