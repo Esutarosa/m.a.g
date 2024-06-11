@@ -6,7 +6,7 @@ interface AdminContainerProps extends PropsWithChildren {
   id?: string
 }
 
-const AdminContainer: FC<AdminContainerProps> = ({ children, className, id }) => {
+const AdminSectionContainer: FC<AdminContainerProps> = ({ children, className, id }) => {
   return (
     <div
       id={id}
@@ -19,4 +19,4 @@ const AdminContainer: FC<AdminContainerProps> = ({ children, className, id }) =>
   );
 }
 
-export default AdminContainer;
+export default AdminSectionContainer;
