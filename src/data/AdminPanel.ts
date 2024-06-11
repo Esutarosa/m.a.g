@@ -1,4 +1,4 @@
-export const sidebar = [
+export const admin_panel = [
   {
     name: 'Biography',
     short_description: 'Edit the biography section to update the life story and achievements.',

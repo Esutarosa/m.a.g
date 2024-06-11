@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 import RenderSVG from '@/components/RenderSVG';
-import { sidebar } from '@/data/SideBar';
+import { admin_panel } from '@/data/AdminPanel';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
 import AdminBreadcrumb from '@/components/Admin/AdminBreadcrumb';
@@ -48,7 +48,7 @@ const AdminNavBar: FC<AdminNavBarProps> = ({ user }) => {
                   Admin Panel
                 </span>
               </div>
-              {sidebar.map((item) => (
+              {admin_panel.map((item) => (
                 <Link
                   href={item.href}
                   key={item.key}

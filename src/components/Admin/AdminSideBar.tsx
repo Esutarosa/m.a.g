@@ -3,7 +3,7 @@
 import type { FC } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { sidebar } from '@/data/SideBar';
+import { admin_panel } from '@/data/AdminPanel';
 import { usePathname } from 'next/navigation';
 import RenderSVG from '@/components/RenderSVG';
 import {
@@ -37,7 +37,7 @@ const AdminSideBar: FC<AdminSideBarProps> = ({ }) => {
             <TooltipContent side='right'>Home</TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        {sidebar.map((item) => (
+        {admin_panel.map((item) => (
           <TooltipProvider key={item.key}>
             <Tooltip>
               <TooltipTrigger asChild>
