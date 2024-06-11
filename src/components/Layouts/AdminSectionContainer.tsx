@@ -11,7 +11,7 @@ const AdminSectionContainer: FC<AdminContainerProps> = ({ children, className, i
     <div
       id={id}
       className={cn(
-        'ml-28',
+        'grid gap-4 sm:pl-[6.5rem] px-6 py-8 sm:py-3',
         className
       )}>
       {children}

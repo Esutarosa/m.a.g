@@ -11,10 +11,7 @@ const Admin: FC = async ({ }) => {
   return (
     <AdminLayout>
       <AdminSectionContainer>
-        Admin Page
-        <p>
-          {user?.email}
-        </p>
+
       </AdminSectionContainer>
     </AdminLayout>
   );
