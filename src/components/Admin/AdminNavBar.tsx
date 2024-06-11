@@ -5,7 +5,7 @@ import RenderSVG from '@/components/RenderSVG';
 import { sidebar } from '@/data/SideBar';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
-import AdminBreadcrumb from '@/app/admin/components/AdminBreadcrumb';
+import AdminBreadcrumb from '@/components/Admin/AdminBreadcrumb';
 import {
   Sheet,
   SheetContent,
