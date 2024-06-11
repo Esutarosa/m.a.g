@@ -9,7 +9,7 @@ const Admin: FC = async ({ }) => {
   if (!user) return redirect('/login');
 
   return (
-    <AdminLayout>
+    <AdminLayout user={user}>
       <AdminSectionContainer>
 
       </AdminSectionContainer>
