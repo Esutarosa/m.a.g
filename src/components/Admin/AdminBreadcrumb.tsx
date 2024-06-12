@@ -13,13 +13,19 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
+} from '@/components/ui/breadcrumb';
+import { cn } from '@/lib/utils';
 
-const AdminBreadcrumb: FC = () => {
+interface AdminBreadcrumbProps { className?: string }
+
+const AdminBreadcrumb: FC<AdminBreadcrumbProps> = ({ className }) => {
   const paths = usePathname();
   const pathNames = paths.split('/').filter(path => path);
   return (
-    <Breadcrumb className='pl-6 hidden sm:flex'>
+    <Breadcrumb className={cn(
+      'pl-6 hidden sm:flex',
+      className
+    )}>
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>

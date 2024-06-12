@@ -6,6 +6,7 @@ import AdminSectionContainer from '@/components/Layouts/AdminSectionContainer';
 import AdminCards from '@/components/Admin/AdminCards';
 import { createClient } from '@/config/supabase/server';
 import AdminAnalytics from '@/components/Admin/AdminAnalytics';
+import AdminBreadcrumb from '@/components/Admin/AdminBreadcrumb';
 
 const Admin: FC = async ({ }) => {
   const { user } = await getUser();
@@ -22,6 +23,7 @@ const Admin: FC = async ({ }) => {
   return (
     <AdminLayout user={user} signOutAction={signOut}>
       <AdminSectionContainer>
+        <AdminBreadcrumb className='pl-0 flex sm:hidden' />
         <AdminCards />
         <AdminAnalytics />
       </AdminSectionContainer>
