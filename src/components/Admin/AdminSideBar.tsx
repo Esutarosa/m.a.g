@@ -24,17 +24,17 @@ const AdminSideBar: FC<AdminSideBarProps> = ({ }) => {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href='/'
+                href='/admin'
                 className='group flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-primary text-lg font-semibold text-primary-foreground'
               >
                 <RenderSVG
                   icon='M19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM6 19H18V9.15745L12 3.7029L6 9.15745V19Z'
                   className='group-hover:scale-110 transition-transform size-6'
                 />
-                <span className='sr-only'>Home</span>
+                <span className='sr-only'>Admin</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side='right'>Home</TooltipContent>
+            <TooltipContent side='right'>Admin</TooltipContent>
           </Tooltip>
         </TooltipProvider>
         {admin_panel.map((item) => (
