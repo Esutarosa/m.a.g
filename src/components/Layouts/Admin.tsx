@@ -7,12 +7,18 @@ import { User } from '@supabase/supabase-js';
 interface AdminLayoutProps extends PropsWithChildren {
   className?: string
   user: User | null
+  signOutAction: (() => void) | undefined
 }
 
-const AdminLayout: FC<AdminLayoutProps> = ({ children, className, user }) => {
+const AdminLayout: FC<AdminLayoutProps> = ({
+  className,
+  user,
+  signOutAction,
+  children
+}) => {
   return (
     <>
-      <AdminNavBar user={user} />
+      <AdminNavBar user={user} signOutAction={signOutAction} />
       <AdminSideBar />
       <main className={cn('flex flex-col min-h-screen w-full mx-auto', className)}>{children}</main>
     </>

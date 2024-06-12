@@ -57,7 +57,7 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage, isUserLoggedIn }) => {
             <div className='flex items-center'>
               {isUserLoggedIn && (
                 <Link href='/admin' className='hidden lg:block text-sm text-muted-foreground/85 hover:text-foreground transition'>
-                  Dashboard
+                  Admin Panel
                 </Link>
               )}
             </div>

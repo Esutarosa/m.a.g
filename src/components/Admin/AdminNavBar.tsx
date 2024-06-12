@@ -24,9 +24,12 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { User } from '@supabase/supabase-js';
 
-interface AdminNavBarProps { user: User | null }
+interface AdminNavBarProps {
+  user: User | null
+  signOutAction: (() => void) | undefined
+}
 
-const AdminNavBar: FC<AdminNavBarProps> = ({ user }) => {
+const AdminNavBar: FC<AdminNavBarProps> = ({ user, signOutAction }) => {
   return (
     <div className='flex flex-col sm:gap-4 sm:py-4 sm:pl-14'>
       <header className='sticky top-0 z-30 flex h-14 sm:h-10 md:h-12 items-center justify-between gap-4 border-b bg-background px-4 sm:static sm:border-0 sm:bg-transparent sm:px-6'>
@@ -63,7 +66,7 @@ const AdminNavBar: FC<AdminNavBarProps> = ({ user }) => {
         </Sheet>
         <AdminBreadcrumb />
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuTrigger className='border-transparent' asChild>
             <Button
               variant='outline'
               size='icon'
@@ -75,11 +78,22 @@ const AdminNavBar: FC<AdminNavBarProps> = ({ user }) => {
               />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align='end'>
+          <DropdownMenuContent
+            align='end'
+            className='w-[220px] rounded-xl p-2'
+          >
             <DropdownMenuLabel>{user?.email}</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className='hover:bg-destructive/25 cursor-pointer'>
-              Logout
+            <DropdownMenuItem
+              className='flex justify-between text-muted-foreground cursor-pointer'
+              // not a good solution, but i didn't think of anything better
+              onClick={() => signOutAction && signOutAction()} // @eslint-disable-line
+            >
+              Log Out
+              <RenderSVG
+                icon='M4 15H6V20H18V4H6V9H4V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V15ZM10 11V8L15 12L10 16V13H2V11H10Z'
+                className='size-5'
+              />
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

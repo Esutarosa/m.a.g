@@ -44,7 +44,7 @@ const HomePageMobileMenu: FC<HomePageMobileMenuProps> = ({ menuIsActive, setMenu
         ))}
         {isUserLoggedIn && (
           <Link href='/admin' className='block lg:hidden text-sm text-muted-foreground/85 hover:text-foreground transition'>
-            Dashboard
+            Admin Panel
           </Link>
         )}
       </motion.div>}
