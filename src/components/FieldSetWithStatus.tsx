@@ -5,7 +5,7 @@ import { useFormStatus } from 'react-dom';
 
 import Spinner from '@/components/Spinner';
 import { Button } from '@/components/ui/button';
-import RenderSVG from './RenderSVG';
+import RenderSVG from '@/components/RenderSVG';
 
 interface FieldSetWithStatusProps {
   id: string
@@ -78,7 +78,7 @@ const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
             {type === 'password' && (
               <Button
                 type='button'
-                variant='ghost'
+                variant='outline'
                 onClick={togglePasswordVisibility}
                 className='ml-2 rounded-[.5rem]'
               >
