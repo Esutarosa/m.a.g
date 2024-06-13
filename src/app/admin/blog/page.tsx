@@ -7,7 +7,7 @@ import AdminSectionContainer from '@/components/Layouts/AdminSectionContainer';
 import AdminBreadcrumb from '@/components/Admin/AdminBreadcrumb';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import AdminBlogTable from '@/components/Admin/AdminBlogTable';
+import AdminBlogTable from '@/components/Admin/Blog/AdminBlogTable';
 import RenderSVG from '@/components/RenderSVG';
 
 interface BlogProps { }
