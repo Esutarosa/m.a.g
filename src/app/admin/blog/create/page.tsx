@@ -5,7 +5,7 @@ import { createClient } from '@/config/supabase/server';
 import AdminLayout from '@/components/Layouts/Admin';
 import AdminSectionContainer from '@/components/Layouts/AdminSectionContainer';
 import AdminBreadcrumb from '@/components/Admin/AdminBreadcrumb';
-import AdminBlogForm from '@/components/Admin/Blog/AdminBlogForm';
+import CreatePostForm from '@/components/Admin/Blog/CreatePostForm';
 
 interface CreateProps { }
 
@@ -25,7 +25,7 @@ const Create: FC<CreateProps> = async ({ }) => {
       <AdminSectionContainer>
         <AdminBreadcrumb className='pl-0 flex sm:hidden' />
         <h1 className='h1'>Create Blog Post</h1>
-        <AdminBlogForm />
+        <CreatePostForm />
       </AdminSectionContainer>
     </AdminLayout>
   );

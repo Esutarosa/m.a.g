@@ -4,26 +4,12 @@ import { useState, type FC } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+import { Form } from '@/components/ui/form';
 import { toast } from '@/components/ui/use-toast';
 import Panel from '@/components/Panel';
-import RenderSVG from '@/components/RenderSVG';
-import { Switch } from '@/components/ui/switch';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { Textarea } from '@/components/ui/textarea';
 import PreviewButton from '@/components/Admin/Blog/PreviewButton';
-import FormActions from './FormActions';
-import FormFields from './FormFields';
+import FormActions from '@/components/Admin/Blog/FormActions';
+import FormFields from '@/components/Admin/Blog//FormFields';
 
 const FormSchema = z.object({
   title: z.string().min(3, {
@@ -38,9 +24,9 @@ const FormSchema = z.object({
   is_published: z.boolean(),
 })
 
-interface AdminBlogFormProps { }
+interface CreatePostFormProps { }
 
-const AdminBlogForm: FC<AdminBlogFormProps> = ({ }) => {
+const CreatePostForm: FC<CreatePostFormProps> = ({ }) => {
   const [isPreview, setPreview] = useState(false);
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -96,4 +82,4 @@ const AdminBlogForm: FC<AdminBlogFormProps> = ({ }) => {
   );
 }
 
-export default AdminBlogForm;
+export default CreatePostForm;

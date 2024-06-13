@@ -19,9 +19,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-interface AdminBlogTableProps { }
+interface BlogTableProps { }
 
-const AdminBlogTable: FC<AdminBlogTableProps> = ({ }) => {
+const BlogTable: FC<BlogTableProps> = ({ }) => {
   return (
     <Panel innerClassName='rounded-none p-4' outerClassName='p-0'>
       <Table className='lg:w-full w-[900px]'>
@@ -90,4 +90,4 @@ const AdminBlogTable: FC<AdminBlogTableProps> = ({ }) => {
   );
 }
 
-export default AdminBlogTable;
+export default BlogTable;
