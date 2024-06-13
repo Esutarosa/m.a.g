@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FC, PropsWithChildren } from "react";
 import { OPEN_SANS as fontFamily } from "@/config/fonts";
+import { Toaster } from "@/components/ui/toaster";
 
 import "@/styles/global.css";
 
@@ -14,6 +15,7 @@ const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
     <html className={fontFamily.className} lang="en">
       <body className="min-h-screen min-w-[320px] flex flex-col antialiased">
         {children}
+        <Toaster />
       </body>
     </html>
   )
