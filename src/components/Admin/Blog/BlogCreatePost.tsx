@@ -7,9 +7,9 @@ import { z } from 'zod';
 import { Form } from '@/components/ui/form';
 import { toast } from '@/components/ui/use-toast';
 import Panel from '@/components/Panel';
-import PreviewButton from '@/components/Admin/Blog/PreviewButton';
-import FormActions from '@/components/Admin/Blog/FormActions';
-import FormFields from '@/components/Admin/Blog//FormFields';
+import BlogPreviewButton from '@/components/Admin/Blog/BlogPreviewButton';
+import BlogFormActions from '@/components/Admin/Blog/BlogFormActions';
+import BlogFormFields from '@/components/Admin/Blog//BlogFormFields';
 
 const FormSchema = z.object({
   title: z.string().min(3, {
@@ -24,9 +24,9 @@ const FormSchema = z.object({
   is_published: z.boolean(),
 })
 
-interface CreatePostFormProps { }
+interface BlogCreatePostProps { }
 
-const CreatePostForm: FC<CreatePostFormProps> = ({ }) => {
+const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
   const [isPreview, setPreview] = useState(false);
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -59,12 +59,12 @@ const CreatePostForm: FC<CreatePostFormProps> = ({ }) => {
           className='w-full space-y-6'
         >
           <div className='flex items-center flex-wrap justify-between gap-5'>
-            <PreviewButton
+            <BlogPreviewButton
               isPreview={isPreview}
               setPreview={setPreview}
               control={form.control}
             />
-            <FormActions
+            <BlogFormActions
               isValid={form.formState.isValid}
             />
           </div>
@@ -72,7 +72,7 @@ const CreatePostForm: FC<CreatePostFormProps> = ({ }) => {
             <h4 className='h4'>Blog editor</h4>
             <p className='p text-sm border-b pb-4'>This is your public blog display field.</p>
           </div>
-          <FormFields
+          <BlogFormFields
             form={form}
             isPreview={isPreview}
           />
@@ -82,4 +82,4 @@ const CreatePostForm: FC<CreatePostFormProps> = ({ }) => {
   );
 }
 
-export default CreatePostForm;
+export default BlogCreatePost;

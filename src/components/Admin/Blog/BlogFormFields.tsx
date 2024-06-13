@@ -12,12 +12,12 @@ import {
 import Image from 'next/image';
 import RenderSVG from '@/components/RenderSVG';
 
-interface FormFieldsProps {
+interface BlogFormFieldsProps {
   form: any;
   isPreview: boolean;
 }
 
-const FormFields: FC<FormFieldsProps> = ({ form, isPreview }) => {
+const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
   return (
     <>
       <FormField
@@ -187,4 +187,4 @@ const FormFields: FC<FormFieldsProps> = ({ form, isPreview }) => {
   );
 }
 
-export default FormFields;
+export default BlogFormFields;

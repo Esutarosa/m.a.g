@@ -10,13 +10,13 @@ import {
 import { Switch } from '@/components/ui/switch';
 import RenderSVG from '@/components/RenderSVG';
 
-interface PreviewButtonProps {
+interface BlogPreviewButtonProps {
   isPreview: boolean;
   setPreview: (value: boolean) => void;
   control: any;
 }
 
-const PreviewButton: FC<PreviewButtonProps> = ({
+const BlogPreviewButton: FC<BlogPreviewButtonProps> = ({
   isPreview,
   setPreview,
   control
@@ -70,4 +70,4 @@ const PreviewButton: FC<PreviewButtonProps> = ({
   );
 }
 
-export default PreviewButton;
+export default BlogPreviewButton;

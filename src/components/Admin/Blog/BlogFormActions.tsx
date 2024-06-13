@@ -2,9 +2,9 @@ import type { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import RenderSVG from '@/components/RenderSVG';
 
-interface FormActionsProps { isValid: boolean; }
+interface BlogFormActionsProps { isValid: boolean; }
 
-const FormActions: FC<FormActionsProps> = ({ isValid }) => {
+const BlogFormActions: FC<BlogFormActionsProps> = ({ isValid }) => {
   return (
     <div className='flex items-center gap-2'>
       <Button
@@ -22,4 +22,4 @@ const FormActions: FC<FormActionsProps> = ({ isValid }) => {
   );
 }
 
-export default FormActions;
+export default BlogFormActions;
