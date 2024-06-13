@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/form';
 import Image from 'next/image';
 import RenderSVG from '@/components/RenderSVG';
+import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
 
 interface BlogFormFieldsProps {
   form: any;
@@ -37,7 +38,7 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                 isPreview && 'pt-2 xl:pt-10 container'
               )}>
                 <Input
-                  placeholder='What will the name of your wonderful blog be?'
+                  placeholder='This should be a great title for a new blog...'
                   className={cn(
                     'rounded-xl py-6 placeholder:text-accent text-lg font-medium leading-relaxed',
                     isPreview
@@ -82,7 +83,7 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                 isPreview && 'container'
               )}>
                 <Input
-                  placeholder='Give me your image url'
+                  placeholder='Give me your image url...'
                   className={cn(
                     'rounded-xl py-6 placeholder:text-accent text-lg font-medium leading-relaxed',
                     isPreview
@@ -152,12 +153,12 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                 'w-full flex items-start break-words gap-2',
                 isPreview
                   ? 'pt-8 container'
-                  : 'h-48'
+                  : 'min-h-48'
               )}>
                 <Textarea
                   placeholder='Write something interesting and exciting here...'
                   className={cn(
-                    'rounded-xl py-6 placeholder:text-accent text-lg font-medium leading-relaxed resize-none h-full',
+                    'rounded-xl placeholder:text-accent text-lg font-medium leading-relaxed resize-none min-h-96 h-full',
                     isPreview
                       ? 'hidden'
                       : 'w-full xl:w-1/2'
@@ -171,9 +172,10 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                     ? 'mx-auto w-full xl:w-4/5'
                     : 'w-1/2 xl:block hidden'
                 )}>
-                  <p className='text-sm p'>
-                    {form.getValues().content}
-                  </p>
+                  <MarkdownPreview
+                    content={form.getValues().content}
+                  />
+
                 </div>
               </div>
             </FormControl>
