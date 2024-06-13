@@ -150,15 +150,15 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
             </FormLabel>
             <FormControl>
               <div className={cn(
-                'w-full flex items-start break-words gap-2',
+                'w-full flex break-words gap-2',
                 isPreview
-                  ? 'pt-8 container'
-                  : 'min-h-48'
+                  ? 'container pt-4'
+                  : 'h-[85vh]'
               )}>
                 <Textarea
                   placeholder='Write something interesting and exciting here...'
                   className={cn(
-                    'rounded-xl placeholder:text-accent text-lg font-medium leading-relaxed resize-none min-h-96 h-full',
+                    'rounded-xl overflow-y-scroll placeholder:text-accent text-lg font-medium leading-relaxed h-[85vh] resize-none',
                     isPreview
                       ? 'hidden'
                       : 'w-full xl:w-1/2'
@@ -167,15 +167,12 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                   {...field}
                 />
                 <div className={cn(
-                  'xl:px-10',
+                  'xl:px-10 overflow-y-scroll',
                   isPreview
                     ? 'mx-auto w-full xl:w-4/5'
                     : 'w-1/2 xl:block hidden'
                 )}>
-                  <MarkdownPreview
-                    content={form.getValues().content}
-                  />
-
+                  <MarkdownPreview content={form.getValues().content} />
                 </div>
               </div>
             </FormControl>
