@@ -45,7 +45,7 @@ const AdminSideBar: FC<AdminSideBarProps> = ({ }) => {
                   href={item.href}
                   className={cn(
                     'flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-xl text-muted-foreground hover:text-foreground transition-colors hover:bg-accent active:bg-accent',
-                    pathname === item.href && 'bg-accent text-foreground'
+                    pathname.startsWith(item.href) && 'bg-accent text-foreground'
                   )}
                 >
                   <RenderSVG icon={item.icon} className='size-6' />
