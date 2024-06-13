@@ -10,6 +10,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import Image from 'next/image';
+import RenderSVG from '@/components/RenderSVG';
 
 interface FormFieldsProps {
   form: any;
@@ -32,12 +33,18 @@ const FormFields: FC<FormFieldsProps> = ({ form, isPreview }) => {
             </FormLabel>
             <FormControl>
               <div className={cn(
-                'w-full flex items-start break-words gap-2',
+                'w-full flex items-center break-words gap-2',
                 isPreview && 'pt-2 xl:pt-10 container'
               )}>
                 <Input
                   placeholder='What will the name of your wonderful blog be?'
-                  className={cn('rounded-xl py-6 placeholder:text-accent text-lg font-medium leading-relaxed', isPreview ? 'hidden' : 'w-full xl:w-1/2')}
+                  className={cn(
+                    'rounded-xl py-6 placeholder:text-accent text-lg font-medium leading-relaxed',
+                    isPreview
+                      ? 'hidden'
+                      : 'w-full xl:w-1/2'
+                  )}
+                  required
                   {...field}
                 />
                 <div className={cn(
@@ -71,7 +78,7 @@ const FormFields: FC<FormFieldsProps> = ({ form, isPreview }) => {
             </FormLabel>
             <FormControl>
               <div className={cn(
-                'w-full flex items-start break-words gap-2',
+                'w-full flex items-center break-words gap-2',
                 isPreview && 'container'
               )}>
                 <Input
@@ -82,6 +89,7 @@ const FormFields: FC<FormFieldsProps> = ({ form, isPreview }) => {
                       ? 'hidden'
                       : 'w-full xl:w-1/2'
                   )}
+                  required
                   {...field}
                 />
                 <div className={cn(
@@ -90,14 +98,33 @@ const FormFields: FC<FormFieldsProps> = ({ form, isPreview }) => {
                     ? 'mx-auto w-full xl:w-4/5'
                     : 'w-1/2 xl:block hidden'
                 )}>
-                  <div className='relative h-96 rounded-xl'>
-                    <Image
-                      src={form.getValues().image_url}
-                      alt='preview'
-                      fill
-                      className='object-cover object-center rounded-xl'
-                    />
-                  </div>
+                  {form.getValues().image_url && (
+                    <div className={cn(
+                      'w-full',
+                      isPreview
+                        ? 'mx-auto'
+                        : 'w-full xl:block hidden'
+                    )}>
+                      {!isPreview ? (
+                        <div className='flex items-center text-muted-foreground gap-2'>
+                          <RenderSVG
+                            icon='M2.9918 21C2.44405 21 2 20.5551 2 20.0066V3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918ZM20 15V5H4V19L14 9L20 15ZM20 17.8284L14 11.8284L6.82843 19H20V17.8284ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z'
+                            className='size-4'
+                          />
+                          <span>Click on Preview to see image</span>
+                        </div>
+                      ) : (
+                        <div className='relative h-96 rounded-xl'>
+                          <Image
+                            src={form.getValues().image_url}
+                            alt='preview'
+                            fill
+                            className='object-cover object-center rounded-xl'
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </FormControl>
@@ -135,6 +162,7 @@ const FormFields: FC<FormFieldsProps> = ({ form, isPreview }) => {
                       ? 'hidden'
                       : 'w-full xl:w-1/2'
                   )}
+                  required
                   {...field}
                 />
                 <div className={cn(
