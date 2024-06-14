@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import { Control, UseFormReturn } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import {
   FormControl,
@@ -10,16 +11,25 @@ import {
 import { Switch } from '@/components/ui/switch';
 import RenderSVG from '@/components/RenderSVG';
 
+interface FormValues {
+  title: string;
+  image_url: string;
+  content: string;
+  is_published: boolean;
+}
+
 interface BlogPreviewButtonProps {
   isPreview: boolean;
   setPreview: (value: boolean) => void;
-  control: any;
+  control: Control<FormValues>;
+  form: UseFormReturn<FormValues>;
 }
 
 const BlogPreviewButton: FC<BlogPreviewButtonProps> = ({
   isPreview,
   setPreview,
-  control
+  control,
+  form
 }) => {
   return (
     <div className='flex items-center flex-wrap justify-between gap-5'>
@@ -28,7 +38,11 @@ const BlogPreviewButton: FC<BlogPreviewButtonProps> = ({
           type='button'
           variant='secondary'
           className='flex items-center gap-2'
-          onClick={() => setPreview(!isPreview)}
+          onClick={() =>
+            setPreview(
+              !isPreview &&
+              !form.getFieldState('image_url').invalid
+            )}
         >
           {isPreview ? (
             <>

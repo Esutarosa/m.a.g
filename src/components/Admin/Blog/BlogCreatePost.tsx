@@ -74,6 +74,7 @@ const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
               isPreview={isPreview}
               setPreview={setPreview}
               control={form.control}
+              form={form}
             />
             <BlogFormActions
               isValid={form.formState.isValid}
