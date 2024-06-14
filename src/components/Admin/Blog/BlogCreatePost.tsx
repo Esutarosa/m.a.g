@@ -26,7 +26,9 @@ const FormSchema = z.object({
   const image_url = data.image_url
   try {
     const url = new URL(image_url);
-    return url.hostname === 'pbs.twimg.com' || url.hostname === 'i.imgur.com'
+    return url.hostname === 'pbs.twimg.com'
+      || url.hostname === 'i.imgur.com'
+      || url.hostname === 'cdn.discordapp.com'
   } catch {
     return false
   }
