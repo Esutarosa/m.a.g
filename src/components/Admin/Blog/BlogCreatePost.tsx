@@ -22,6 +22,17 @@ const FormSchema = z.object({
     message: 'Content must be at least 3 characters.',
   }),
   is_published: z.boolean(),
+}).refine((data) => {
+  const image_url = data.image_url
+  try {
+    const url = new URL(image_url);
+    return url.hostname === 'pbs.twimg.com' || url.hostname === 'i.imgur.com'
+  } catch {
+    return false
+  }
+}, {
+  message: 'Invalid image url.',
+  path: ['image_url']
 })
 
 interface BlogCreatePostProps { }

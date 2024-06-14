@@ -169,7 +169,7 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                 <div className={cn(
                   'xl:px-10 overflow-y-scroll',
                   isPreview
-                    ? 'mx-auto w-full xl:w-4/5'
+                    ? 'mx-auto w-full xl:w-4/5 overflow-y-hidden'
                     : 'w-1/2 xl:block hidden'
                 )}>
                   <MarkdownPreview content={form.getValues().content} />
