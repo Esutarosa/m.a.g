@@ -33,7 +33,7 @@ const FormSchema = z.object({
     return false
   }
 }, {
-  message: 'Invalid image url.',
+  message: 'Currently we are support only image from X, Imgur and Discord.',
   path: ['image_url']
 })
 
