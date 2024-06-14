@@ -91,6 +91,7 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                       : 'w-full xl:w-1/2'
                   )}
                   required
+                  autoComplete='off'
                   {...field}
                 />
                 <div className={cn(
