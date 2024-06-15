@@ -14,21 +14,21 @@ export type Database = {
           created_at: string
           id: string
           image_url: string
-          is_publish: boolean
+          is_published: boolean
           title: string
         }
         Insert: {
           created_at?: string
           id?: string
           image_url: string
-          is_publish?: boolean
+          is_published?: boolean
           title: string
         }
         Update: {
           created_at?: string
           id?: string
           image_url?: string
-          is_publish?: boolean
+          is_published?: boolean
           title?: string
         }
         Relationships: []

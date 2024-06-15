@@ -11,6 +11,7 @@ import BlogPreviewButton from '@/components/Admin/Blog/BlogPreviewButton';
 import BlogFormActions from '@/components/Admin/Blog/BlogFormActions';
 import BlogFormFields from '@/components/Admin/Blog//BlogFormFields';
 import { BlogFormSchema } from '@/components/Admin/Blog/BlogFormSchema';
+import { createBlog } from '@/config/actions/blog';
 
 interface BlogCreatePostProps { }
 
@@ -28,15 +29,35 @@ const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
     },
   })
 
-  const onSubmit = (data: z.infer<typeof BlogFormSchema>) => {
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className='mt-2 w-full rounded-xl bg-card p-4'>
-          <code className='text-primary'>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    })
+  // This should be done in page.tsx, 
+  // but there are actually reasons 
+  // why it should be done here
+  const onSubmit = async (data: z.infer<typeof BlogFormSchema>) => {
+    const result = await createBlog(data);
+    const { error } = JSON.parse(result);
+
+    if (error!.message) {
+      toast({
+        title: 'Fail to create post',
+        description: (
+          <pre className='w-full rounded-xl bg-muted p-4'>
+            <code className='text-primary'>
+              {error.message}
+            </code>
+          </pre>
+        ),
+      })
+    } else {
+      toast({
+        title: 'Post created successfully',
+        // description: (
+        //   <pre className='mt- w-full rounded-xl bg-card p-4'>
+        //     <code className='text-primary'>{data.title}</code>
+        //   </pre>
+        // ),
+        description: data.content.slice(0, 100),
+      })
+    }
   }
 
   return (
