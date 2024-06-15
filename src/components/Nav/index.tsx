@@ -14,6 +14,8 @@ import HomePageMobileMenu from '@/components/Nav/HomePageMobileMenu';
 import DefaultMobileMenu from '@/components/Nav/DefaultMobileMenu';
 
 import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 interface NavProps {
   isHideHeader?: boolean
@@ -42,8 +44,23 @@ const Nav: FC<NavProps> = ({ isHideHeader, isHomePage, isUserLoggedIn }) => {
         <div className='flex items-center justify-between h-16 mx-auto container lg:px-16 xl:px-20'>
           <div className={`${isHomePage ? PressStart2P.className : ''} flex items-center px-6 lg:px-0 flex-1 sm:items-stretch justify-between`}>
             <div className='flex items-center'>
-              <Logo />
-              <div className='hidden pl-10 gap-4 lg:flex'>
+              {isHomePage ? (
+                <Link href='/'>
+                  <Image
+                    src="/images/8bit-mag.svg"
+                    alt="Logo"
+                    width={40}
+                    height={40}
+                    className='rounded-md'
+                  />
+                </Link>
+              ) : (
+                <Logo />
+              )}
+              <div className={cn(
+                'hidden gap-4 lg:flex',
+                isHomePage ? 'pl-4' : 'pl-8'
+              )}>
                 {nav.map((item) => (
                   <MenuItem
                     key={item.key}

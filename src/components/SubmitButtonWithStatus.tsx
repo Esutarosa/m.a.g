@@ -53,7 +53,7 @@ const SubmitButtonWithStatus: FC<SubmitButtonWithStatusProps> = ({
       styleAs={styleAs}
       formAction={formAction}
       className={cn(
-        'p-4 rounded-[.25rem] cursor-pointer inline-flex items-center gap-2',
+        'p-4 rounded-md cursor-pointer inline-flex items-center gap-2',
         primary
           ? 'bg-primary text-background hover:bg-primary/85'
           : 'border border-border hover:bg-accent/50 hover:text-accent-foreground',
