@@ -15,11 +15,11 @@ const Create: FC<CreateProps> = async ({ }) => {
 
   const signOut = async () => {
     "use server";
-
     const supabase = createClient();
     await supabase.auth.signOut();
     return redirect("/");
-  };
+  }
+
   return (
     <AdminLayout user={user} signOutAction={signOut}>
       <AdminSectionContainer>
