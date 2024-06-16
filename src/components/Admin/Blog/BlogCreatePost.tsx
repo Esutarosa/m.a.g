@@ -12,10 +12,13 @@ import BlogFormActions from '@/components/Admin/Blog/BlogFormActions';
 import BlogFormFields from '@/components/Admin/Blog//BlogFormFields';
 import { BlogFormSchema } from '@/components/Admin/Blog/BlogFormSchema';
 import { createBlog } from '@/config/actions/blog';
+import { useRouter } from 'next/navigation';
 
 interface BlogCreatePostProps { }
 
 const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
+  const router = useRouter()
+
   const [isPreview, setPreview] = useState(false);
   const [isPending, startTransition] = useTransition();
 
@@ -51,6 +54,7 @@ const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
           title: 'Post created successfully',
           description: data.content.slice(0, 100),
         })
+        router.push('/admin/blog')
       }
     })
   }

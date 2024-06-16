@@ -69,7 +69,7 @@ const MarkdownPreview: FC<MarkdownPreviewProps> = ({ content, className }) => {
           return <a className='text-blue-600 underline' {...props} />
         },
         img: ({ node, ...props }) => {
-          return <img className='max-w-full h-auto' {...props} />
+          return <img alt={props.alt} className='max-w-full h-auto' {...props} />
         },
         strong: ({ node, ...props }) => {
           return <strong className='font-bold' {...props} />
