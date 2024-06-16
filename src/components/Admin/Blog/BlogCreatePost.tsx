@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FC } from 'react';
+import { useState, useTransition, type FC } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -17,6 +17,7 @@ interface BlogCreatePostProps { }
 
 const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
   const [isPreview, setPreview] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof BlogFormSchema>>({
     mode: 'all',
@@ -29,36 +30,31 @@ const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
     },
   })
 
-  // This should be done in page.tsx, 
-  // but there are actually reasons 
-  // why it should be done here
   const onSubmit = async (data: z.infer<typeof BlogFormSchema>) => {
     const result = await createBlog(data);
     const { error } = JSON.parse(result);
 
-    if (error!.message) {
-      toast({
-        title: 'Fail to create post',
-        description: (
-          <pre className='w-full rounded-xl bg-muted p-4'>
-            <code className='text-primary'>
-              {error.message}
-            </code>
-          </pre>
-        ),
-      })
-    } else {
-      toast({
-        title: 'Post created successfully',
-        // description: (
-        //   <pre className='mt- w-full rounded-xl bg-card p-4'>
-        //     <code className='text-primary'>{data.title}</code>
-        //   </pre>
-        // ),
-        description: data.content.slice(0, 100),
-      })
-    }
+    startTransition(() => {
+      if (error?.message) {
+        toast({
+          title: 'Fail to create post',
+          description: (
+            <pre className='w-full rounded-xl bg-muted p-4'>
+              <code className='text-primary'>
+                {error.message}
+              </code>
+            </pre>
+          ),
+        })
+      } else {
+        toast({
+          title: 'Post created successfully',
+          description: data.content.slice(0, 100),
+        })
+      }
+    })
   }
+
 
   return (
     <Panel innerClassName='rounded-none p-4 z-0' outerClassName='p-0'>
@@ -76,6 +72,7 @@ const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
             />
             <BlogFormActions
               isValid={form.formState.isValid}
+              isPending={isPending}
             />
           </div>
           <div>

@@ -1,15 +1,24 @@
 import type { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import RenderSVG from '@/components/RenderSVG';
+import { cn } from '@/lib/utils';
 
-interface BlogFormActionsProps { isValid: boolean; }
+interface BlogFormActionsProps {
+  isValid: boolean;
+  isPending: boolean;
+}
 
-const BlogFormActions: FC<BlogFormActionsProps> = ({ isValid }) => {
+const BlogFormActions: FC<BlogFormActionsProps> = ({ isValid, isPending }) => {
   return (
     <div className='flex items-center gap-2'>
       <Button
         variant='default'
-        className='flex items-center gap-2'
+        className={cn(
+          'flex items-center gap-2',
+          {
+            'animate-spin': isPending
+          }
+        )}
         disabled={!isValid}
       >
         <RenderSVG
