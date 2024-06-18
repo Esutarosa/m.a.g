@@ -4,6 +4,7 @@ import { BlogFormSchema } from "@/components/Admin/Blog/BlogFormSchema";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from 'next/headers';
 import { Database } from "@/config/types/blog";
+import { revalidatePath } from "next/cache";
 
 const cookieStore = cookies();
 
@@ -47,4 +48,14 @@ export async function readBlog() {
     .from('blog')
     .select('*')
     .order('created_at', { ascending: false })
+}
+
+export async function deleteBlogById(id: string) {
+  const result = await supabase
+    .from('blog')
+    .delete()
+    .eq('id', id)
+  revalidatePath('/admin/blog')
+
+  return JSON.stringify(result)
 }

@@ -14,9 +14,7 @@ import { BlogFormSchema } from '@/components/Admin/Blog/BlogFormSchema';
 import { createBlog } from '@/config/actions/blog';
 import { useRouter } from 'next/navigation';
 
-interface BlogCreatePostProps { }
-
-const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
+const BlogCreatePost: FC = () => {
   const router = useRouter()
 
   const [isPreview, setPreview] = useState(false);
@@ -52,13 +50,12 @@ const BlogCreatePost: FC<BlogCreatePostProps> = ({ }) => {
       } else {
         toast({
           title: 'Post created successfully',
-          description: data.content.slice(0, 100),
+          description: 'Post ' + data.title + ' has been created successfully',
         })
         router.push('/admin/blog')
       }
     })
-  }
-
+  };
 
   return (
     <Panel innerClassName='rounded-none p-4 z-0' outerClassName='p-0'>
