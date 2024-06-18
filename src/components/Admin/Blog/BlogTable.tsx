@@ -8,7 +8,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Switch } from '@/components/ui/switch';
 import { readBlog, updateBlogById } from '@/config/actions/blog';
 import Link from 'next/link';
 import BlogTableActions from '@/components/Admin/Blog/BlogTableActions';
@@ -52,7 +51,6 @@ const BlogTable: FC = async () => {
                   </Link>
                 </TableCell>
                 <TableCell>
-                  {/* <Switch checked={blog.is_published} /> */}
                   <BlogSwitchForm
                     checked={blog.is_published}
                     onToggle={updatePublishPost}
