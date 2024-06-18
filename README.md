@@ -4,8 +4,8 @@ Public repository of the artist's private website.
 
 ## Problems
 
-If you find a bug or problems with the site, report it in the issues thread
+If you find a bug or problems with the site, report it in the issues thread.
 
 ## License 
 
-This project is protected by a license
+This project is protected by a license.
