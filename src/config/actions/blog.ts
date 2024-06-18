@@ -14,6 +14,7 @@ export async function createBlog(data: BlogFormSchema) {
     .insert(blog)
     .select('id')
     .single();
+  revalidatePath('/admin/blog')
 
   if (resultBlog.error) {
     return JSON.stringify(resultBlog)
