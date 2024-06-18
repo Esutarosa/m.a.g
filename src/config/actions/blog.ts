@@ -45,3 +45,13 @@ export async function deleteBlogById(id: string) {
 
   return JSON.stringify(result)
 }
+
+export async function updateBlogById(id: string, data: BlogFormSchema) {
+  const result = await supabase
+    .from('blog')
+    .update(data)
+    .eq('id', id)
+  revalidatePath('/admin/blog')
+
+  return JSON.stringify(result)
+}

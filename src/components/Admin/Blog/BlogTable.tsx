@@ -9,9 +9,11 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Switch } from '@/components/ui/switch';
-import { readBlog } from '@/config/actions/blog';
+import { readBlog, updateBlogById } from '@/config/actions/blog';
 import Link from 'next/link';
 import BlogTableActions from '@/components/Admin/Blog/BlogTableActions';
+import BlogSwitchForm from './BlogSwitchForm';
+import { BlogFormSchema } from './BlogFormSchema';
 
 const BlogTable: FC = async () => {
 
@@ -37,23 +39,32 @@ const BlogTable: FC = async () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {blogs?.map((blog, index) => (
-            <TableRow key={index}>
-              <TableCell className='font-medium'>{blog?.title}</TableCell>
-              <TableCell>
-                <Link href={blog?.image_url}>
-                  {blog?.image_url}
-                </Link>
-              </TableCell>
-              <TableCell>
-                <Switch checked={blog.is_published} />
-              </TableCell>
-              <TableCell className='w-[200px]'>{formatDateTime(blog.created_at)}</TableCell>
-              <TableCell className='text-right flex justify-end gap-1'>
-                <BlogTableActions id={blog.id} />
-              </TableCell>
-            </TableRow>
-          ))}
+          {blogs?.map((blog, index) => {
+            const updatePublishPost = updateBlogById.bind(null, blog.id, {
+              is_published: !blog.is_published
+            } as BlogFormSchema);
+            return (
+              <TableRow key={index}>
+                <TableCell className='font-medium'>{blog?.title}</TableCell>
+                <TableCell>
+                  <Link href={blog?.image_url}>
+                    {blog?.image_url}
+                  </Link>
+                </TableCell>
+                <TableCell>
+                  {/* <Switch checked={blog.is_published} /> */}
+                  <BlogSwitchForm
+                    checked={blog.is_published}
+                    onToggle={updatePublishPost}
+                  />
+                </TableCell>
+                <TableCell className='w-[200px]'>{formatDateTime(blog.created_at)}</TableCell>
+                <TableCell className='text-right flex justify-end gap-1'>
+                  <BlogTableActions id={blog.id} />
+                </TableCell>
+              </TableRow>
+            )
+          })}
         </TableBody>
       </Table>
     </Panel>
