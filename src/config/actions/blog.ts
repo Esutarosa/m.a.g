@@ -1,24 +1,10 @@
 'use server';
 
 import { BlogFormSchema } from "@/components/Admin/Blog/BlogFormSchema";
-import { createServerClient } from "@supabase/ssr";
-import { cookies } from 'next/headers';
-import { Database } from "@/config/types/blog";
 import { revalidatePath } from "next/cache";
+import { createClient } from "@/config/supabase/server";
 
-const cookieStore = cookies();
-
-const supabase = createServerClient<Database>(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_KEY!,
-  {
-    cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value;
-      },
-    },
-  },
-);
+const supabase = createClient();
 
 export async function createBlog(data: BlogFormSchema) {
   const { ['content']: exeludedKey, ...blog } = data;

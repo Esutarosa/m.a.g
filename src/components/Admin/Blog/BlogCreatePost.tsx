@@ -15,7 +15,7 @@ import { createBlog } from '@/config/actions/blog';
 import { useRouter } from 'next/navigation';
 
 const BlogCreatePost: FC = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const [isPreview, setPreview] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -52,7 +52,7 @@ const BlogCreatePost: FC = () => {
           title: 'Post created successfully',
           description: 'Post ' + data.title + ' has been created successfully',
         })
-        router.push('/admin/blog')
+        router.push('/admin/blog');
       }
     })
   };
