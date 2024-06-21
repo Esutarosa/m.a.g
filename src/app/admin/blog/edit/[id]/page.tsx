@@ -11,7 +11,7 @@ interface EditProps { params: { id: string } }
 
 const Edit: FC<EditProps> = async ({ params }) => {
   const { user } = await getUser();
-  const { data } = await readBlogContentById(params.id);
+  const { data: blog } = await readBlogContentById(params.id);
   if (!user) return redirect('/login');
 
   const signOut = async () => {
@@ -26,7 +26,7 @@ const Edit: FC<EditProps> = async ({ params }) => {
     <AdminLayout user={user} signOutAction={signOut}>
       <AdminSectionContainer>
         <h1 className='h1'>Edit Blog Post</h1>
-        <EditForm blog={data} />
+        <EditForm blog={blog} />
       </AdminSectionContainer>
     </AdminLayout>
   );

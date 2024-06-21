@@ -4,24 +4,22 @@ import type { FC } from 'react';
 import BlogForm from '@/components/Admin/Blog/BlogForm';
 import { IBlogDetail } from '@/config/types/blog';
 import { useRouter } from 'next/navigation';
+import { createBlog } from '@/config/actions/blog';
 import { toast } from '@/components/ui/use-toast';
-import { BlogFormSchema } from '../BlogFormSchema';
-import { updateBlogDetailById } from '@/config/actions/blog';
+import { BlogFormSchema } from '@/components/Admin/Blog/BlogFormSchema';
 
-interface EditFormProps {
-  blog: IBlogDetail;
-}
+interface BlogFormCreateProps { blog: IBlogDetail }
 
-const EditForm: FC<EditFormProps> = ({ blog }) => {
+const BlogFormCreate: FC<BlogFormCreateProps> = ({ blog }) => {
   const router = useRouter();
 
   const onHandleSubmit = async (data: BlogFormSchema) => {
-    const result = await updateBlogDetailById(blog?.id!, data);
+    const result = await createBlog(data);
     const { error } = JSON.parse(result);
 
     if (error?.message) {
       toast({
-        title: 'Fail to update post',
+        title: 'Fail to create post',
         description: (
           <pre className='w-full rounded-xl bg-muted p-4'>
             <code className='text-primary'>
@@ -32,8 +30,8 @@ const EditForm: FC<EditFormProps> = ({ blog }) => {
       })
     } else {
       toast({
-        title: 'Post updated successfully',
-        description: 'Post ' + data.title + ' has been updated successfully.',
+        title: 'Post created successfully',
+        description: 'Post ' + data.title + ' has been created successfully.',
       })
       router.push('/admin/blog');
     }
@@ -44,4 +42,4 @@ const EditForm: FC<EditFormProps> = ({ blog }) => {
   );
 }
 
-export default EditForm;
+export default BlogFormCreate;

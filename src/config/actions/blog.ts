@@ -64,3 +64,22 @@ export async function readBlogContentById(id: string) {
     .eq('id', id)
     .single();
 }
+
+export async function updateBlogDetailById(id: string, data: BlogFormSchema) {
+  const supabase = await createClient();
+  const { ['content']: exeludedKey, ...blog } = data;
+  const resultBlog = await supabase
+    .from('blog')
+    .update(blog)
+    .eq('id', id);
+  if (resultBlog.error) {
+    return JSON.stringify(resultBlog)
+  } else {
+    const result = await supabase
+      .from('blog_content')
+      .update({ content: data.content })
+      .eq('blog_id', id);
+    revalidatePath('/admin/blog');
+    return JSON.stringify(result);
+  }
+}
