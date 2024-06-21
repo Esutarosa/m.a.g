@@ -8,9 +8,7 @@ import { createBlog } from '@/config/actions/blog';
 import { toast } from '@/components/ui/use-toast';
 import { BlogFormSchema } from '@/components/Admin/Blog/BlogFormSchema';
 
-interface BlogFormCreateProps { blog: IBlogDetail }
-
-const BlogFormCreate: FC<BlogFormCreateProps> = ({ blog }) => {
+const BlogFormCreate: FC = () => {
   const router = useRouter();
 
   const onHandleSubmit = async (data: BlogFormSchema) => {
@@ -38,7 +36,7 @@ const BlogFormCreate: FC<BlogFormCreateProps> = ({ blog }) => {
   };
 
   return (
-    <BlogForm onHandleSubmit={onHandleSubmit} defaultBlog={blog} />
+    <BlogForm onHandleSubmit={onHandleSubmit} />
   );
 }
 

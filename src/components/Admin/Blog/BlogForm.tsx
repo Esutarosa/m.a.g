@@ -14,7 +14,7 @@ import { IBlogDetail } from '@/config/types/blog';
 
 interface BlogFormProps {
   onHandleSubmit: (data: z.infer<typeof BlogFormSchema>) => void
-  defaultBlog: IBlogDetail
+  defaultBlog?: IBlogDetail
 }
 
 const BlogForm: FC<BlogFormProps> = ({
