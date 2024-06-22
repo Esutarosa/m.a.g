@@ -9,10 +9,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { readBlogAdmin, updateBlogById } from '@/config/actions/blog';
-import Link from 'next/link';
 import BlogTableActions from '@/components/Admin/Blog/BlogTableActions';
 import BlogSwitchForm from '@/components/Admin/Blog/BlogSwitchForm';
-import { BlogFormSchema } from './BlogFormSchema';
 import { IBlog } from '@/config/types/blog';
 
 const BlogTable: FC = async () => {
