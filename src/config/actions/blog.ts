@@ -89,6 +89,7 @@ export async function updateBlogDetailById(id: string, data: BlogFormSchema) {
       .update({ content: data.content })
       .eq('blog_id', id);
     revalidatePath('/admin/blog');
+    revalidatePath('/blog/' + id);
     return JSON.stringify(result);
   }
 }

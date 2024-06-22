@@ -49,10 +49,9 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                   {...field}
                 />
                 <div className={cn(
-                  'xl:px-10',
                   isPreview
                     ? 'mx-auto w-full xl:w-4/5'
-                    : 'w-1/2 xl:block hidden'
+                    : 'w-1/2 xl:block hidden xl:px-10'
                 )}>
                   <h1 className='h1 font-bold'>
                     {form.getValues().title}
@@ -95,10 +94,9 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                   {...field}
                 />
                 <div className={cn(
-                  'xl:px-10',
                   isPreview
                     ? 'mx-auto w-full xl:w-4/5'
-                    : 'w-1/2 xl:block hidden'
+                    : 'w-1/2 xl:block hidden xl:px-10'
                 )}>
                   {form.getValues().image_url && (
                     <div className={cn(
@@ -116,7 +114,7 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                           <span>Click on Preview to see image</span>
                         </div>
                       ) : (
-                        <div className='relative h-96 rounded-xl'>
+                        <div className='relative h-60 lg:h-96'>
                           <Image
                             src={form.getValues().image_url}
                             alt='preview'
@@ -168,10 +166,10 @@ const BlogFormFields: FC<BlogFormFieldsProps> = ({ form, isPreview }) => {
                   {...field}
                 />
                 <div className={cn(
-                  'xl:px-10 overflow-y-scroll',
+                  'overflow-y-scroll',
                   isPreview
                     ? 'mx-auto w-full xl:w-4/5 overflow-y-hidden'
-                    : 'w-1/2 xl:block hidden'
+                    : 'w-1/2 xl:block hidden xl:px-10'
                 )}>
                   <MarkdownPreview content={form.getValues().content} />
                 </div>
