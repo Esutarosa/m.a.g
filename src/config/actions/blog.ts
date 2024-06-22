@@ -33,6 +33,15 @@ export async function readBlog() {
   return supabase
     .from('blog')
     .select('*')
+    .eq('is_published', true)
+    .order('created_at', { ascending: false });
+}
+
+export async function readBlogAdmin() {
+  const supabase = await createClient();
+  return supabase
+    .from('blog')
+    .select('*')
     .order('created_at', { ascending: false });
 }
 

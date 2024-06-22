@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { readBlog, updateBlogById } from '@/config/actions/blog';
+import { readBlogAdmin, updateBlogById } from '@/config/actions/blog';
 import Link from 'next/link';
 import BlogTableActions from '@/components/Admin/Blog/BlogTableActions';
 import BlogSwitchForm from './BlogSwitchForm';
@@ -16,7 +16,7 @@ import { BlogFormSchema } from './BlogFormSchema';
 
 const BlogTable: FC = async () => {
 
-  const { data: blogs } = await readBlog();
+  const { data: blogs } = await readBlogAdmin();
 
   const formatDateTime = (timestamp: string) => {
     return new Date(timestamp)
