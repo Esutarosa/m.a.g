@@ -10,8 +10,12 @@ interface BlogSingleProps { params: { id: string } }
 const BlogSingle: FC<BlogSingleProps> = async ({ params }) => {
   const { user } = await getUser();
   const { data: blog } = (await fetch(
-    process.env.SITE_URL + '/api/blog?id=' + params.id
+    process.env.NEXT_PUBLIC_SITE_URL + '/api/blog?id=' + params.id
   ).then((res) => res.json())) as { data: IBlog };
+
+  if (!blog?.id) {
+    return null;
+  }
 
   return (
     <DefaultLayout isUserLoggedIn={user}>

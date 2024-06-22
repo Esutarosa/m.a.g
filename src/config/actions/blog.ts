@@ -3,6 +3,7 @@
 import { BlogFormSchema } from "@/components/Admin/Blog/BlogFormSchema";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/config/supabase/server";
+import { IBlog } from "../types/blog";
 
 export async function createBlog(data: BlogFormSchema) {
   const supabase = await createClient();
@@ -55,13 +56,14 @@ export async function deleteBlogById(id: string) {
   return JSON.stringify(result);
 }
 
-export async function updateBlogById(id: string, data: BlogFormSchema) {
+export async function updateBlogById(id: string, data: IBlog) {
   const supabase = await createClient();
   const result = await supabase
     .from('blog')
     .update(data)
     .eq('id', id);
   revalidatePath('/admin/blog');
+  revalidatePath('/blog/' + id);
   return JSON.stringify(result);
 }
 
