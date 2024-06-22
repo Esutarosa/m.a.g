@@ -32,10 +32,10 @@ const Blog: FC = async () => {
           {' '}
           where I do a simpler daily blog from my life.
         </p>
-        <div className='my-4 md:my-8 border-t'>
+        <div className='my-4 md:my-8'>
           {blogs ? (
             blogs.length > 0 ? (
-              <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-8'>
+              <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-5 py-4 md:py-8'>
                 {blogs.map((blog) => (
                   <Link
                     href={'/blog/' + blog.id}

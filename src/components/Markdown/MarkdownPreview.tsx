@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import Markdown from 'react-markdown';
 import { cn } from '@/lib/utils';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 interface MarkdownPreviewProps {
   content: string
@@ -13,15 +14,16 @@ const MarkdownPreview: FC<MarkdownPreviewProps> = ({ content, className }) => {
     <Markdown
       className={cn('space-y-2', className)}
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
       components={{
         h1: ({ node, ...props }) => {
-          return <h1 className='h1 font-bold pt-2' {...props} />
+          return <h1 className='h1 font-bold pt-8' {...props} />
         },
         h2: ({ node, ...props }) => {
-          return <h2 className='h2 font-bold pt-2' {...props} />
+          return <h2 className='h2 font-bold pt-6' {...props} />
         },
         h3: ({ node, ...props }) => {
-          return <h3 className='h3 font-bold pt-2' {...props} />
+          return <h3 className='h3 font-bold pt-4' {...props} />
         },
         h4: ({ node, ...props }) => {
           return <h4 className='h4 font-bold pt-2' {...props} />

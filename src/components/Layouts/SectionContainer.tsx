@@ -15,7 +15,7 @@ const SectionContainer: FC<PropsWithChildren<SectionContainerProps>> = ({
     <div
       id={id}
       className={cn(
-        'sm:py-18 container relative mx-auto px-6 py-16 md:py-24 lg:px-16 lg:py-24 xl:px-20',
+        'container relative mx-auto px-6 py-8 md:py-12 lg:px-16 xl:px-20',
         className)}
     >
       {children}

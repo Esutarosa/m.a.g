@@ -20,7 +20,7 @@ const BlogSingle: FC<BlogSingleProps> = async ({ params }) => {
   return (
     <DefaultLayout isUserLoggedIn={user}>
       <SectionContainer>
-        <div className='min-h-screen pt-10 space-y-10'>
+        <div className='min-h-screen space-y-10'>
           <div className='space-y-4 md:space-y-8'>
             <h1 className='h1 font-bold'>{blog?.title}</h1>
             <p className='p text-sm'>{new Date(blog?.created_at || '').toDateString()}</p>

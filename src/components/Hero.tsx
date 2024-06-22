@@ -10,7 +10,7 @@ import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 
 const Hero: FC = () => {
   return (
-    <SectionContainer className='pt-6 md:pt-12 overflow-hidden'>
+    <SectionContainer className='overflow-hidden'>
       <div className={cn(
         'relative h-96 w-full overflow-hidden bg-foreground flex flex-col items-center justify-center rounded-lg',
         PressStart2P.className

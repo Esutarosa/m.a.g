@@ -9,7 +9,7 @@ import { PRESS_START_2P as PressStart2P } from '@/config/fonts';
 
 const SummaryFacts: FC = () => {
   return (
-    <SectionContainer className='-mt-12'>
+    <SectionContainer>
       <div className={cn(
         'flex flex-col gap-4',
         PressStart2P.className
