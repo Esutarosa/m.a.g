@@ -97,6 +97,12 @@ export type IBlogDetail = {
   } | null
 } | null
 
+export type IBlogContent = {
+  blog_id: string
+  content: string
+  created_at: string
+} | null
+
 type PublicSchema = Database[Extract<keyof Database, "public">]
 
 export type Tables<

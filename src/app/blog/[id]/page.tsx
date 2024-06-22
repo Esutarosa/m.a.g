@@ -4,6 +4,8 @@ import SectionContainer from '@/components/Layouts/SectionContainer';
 import { getUser } from '@/config/store/user';
 import { IBlog } from '@/config/types/blog';
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
+import BlogContent from '@/components/BlogContent';
 
 interface BlogSingleProps { params: { id: string } }
 
@@ -13,9 +15,7 @@ const BlogSingle: FC<BlogSingleProps> = async ({ params }) => {
     process.env.NEXT_PUBLIC_SITE_URL + '/api/blog?id=' + params.id
   ).then((res) => res.json())) as { data: IBlog };
 
-  if (!blog?.id) {
-    return null;
-  }
+  if (!blog?.id) return redirect('/blog');
 
   return (
     <DefaultLayout isUserLoggedIn={user}>
@@ -33,6 +33,7 @@ const BlogSingle: FC<BlogSingleProps> = async ({ params }) => {
               className='object-cover object-center rounded-xl'
             />
           </div>
+          <BlogContent blogId={blog?.id} />
         </div>
       </SectionContainer>
     </DefaultLayout>

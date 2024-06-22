@@ -53,6 +53,7 @@ export async function deleteBlogById(id: string) {
     .delete()
     .eq('id', id);
   revalidatePath('/admin/blog');
+  revalidatePath('/blog/' + id);
   return JSON.stringify(result);
 }
 
