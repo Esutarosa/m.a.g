@@ -2,7 +2,7 @@ import { Database } from "@/config/types/blog";
 import { createClient } from "@supabase/supabase-js";
 
 export async function GET(request: Request) {
-  const supabase = createClient<Database>(
+  const supabase = await createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_KEY!,
   );
@@ -22,7 +22,7 @@ export async function GET(request: Request) {
       .from("blog")
       .select("*")
       .eq("id", id)
-      .limit(5);
+      .single();
     return Response.json({ ...result });
   }
 

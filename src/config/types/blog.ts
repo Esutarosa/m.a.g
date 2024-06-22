@@ -75,6 +75,15 @@ export type Database = {
   }
 }
 
+export type IBlog = {
+  id: string
+  title: string
+  image_url: string
+  created_at: string
+  content: string
+  is_published: boolean
+}
+
 export type IBlogDetail = {
   created_at: string
   id: string
