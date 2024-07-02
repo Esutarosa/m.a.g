@@ -3,7 +3,7 @@
 import { BlogFormSchema } from "@/components/Admin/Blog/BlogFormSchema";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/config/supabase/server";
-import { IBlog } from "../types/blog";
+import { IBlog } from "@/config/types/blog";
 
 export async function createBlog(data: BlogFormSchema) {
   const supabase = await createClient();
