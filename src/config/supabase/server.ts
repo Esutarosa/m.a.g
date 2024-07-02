@@ -3,7 +3,7 @@ import {
   type CookieOptions
 } from '@supabase/ssr';
 import { cookies } from 'next/headers';
-import { Database } from '@/config/types/blog';
+import { Database } from '@/config/types/database';
 
 export const createClient = () => {
   const cookieStore = cookies();
