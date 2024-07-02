@@ -10,7 +10,11 @@ const Contact: FC = async () => {
   return (
     <DefaultLayout isUserLoggedIn={user}>
       <SectionContainer>
+        <h1 className='h1'>Contact</h1>
+        <p className='p'>Contact me if you have any questions or suggestions.</p>
+        <div className='my-4 md:my-8'>
 
+        </div>
       </SectionContainer>
     </DefaultLayout>
   );
