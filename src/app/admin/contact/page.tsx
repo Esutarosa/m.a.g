@@ -5,10 +5,9 @@ import { createClient } from '@/config/supabase/server';
 import AdminLayout from '@/components/Layouts/Admin';
 import AdminSectionContainer from '@/components/Layouts/AdminSectionContainer';
 import AdminBreadcrumb from '@/components/Admin/AdminBreadcrumb';
+import ContactTable from '@/components/Admin/Contact/ContactTable';
 
-interface ContactProps { }
-
-const Contact: FC<ContactProps> = async ({ }) => {
+const Contact: FC = async () => {
   const { user } = await getUser();
   if (!user) return redirect('/login');
 
@@ -23,6 +22,8 @@ const Contact: FC<ContactProps> = async ({ }) => {
     <AdminLayout user={user} signOutAction={signOut}>
       <AdminSectionContainer>
         <AdminBreadcrumb className='pl-0 flex sm:hidden' />
+        <h1 className='h1'>Add or create new contacts</h1>
+        <ContactTable />
       </AdminSectionContainer>
     </AdminLayout>
   );
