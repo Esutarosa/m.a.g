@@ -1,20 +1,13 @@
 import type { FC } from 'react';
 
-import HomeLayout from '@/components/Layouts/Home';
-import Hero from '@/components/Hero';
-import SummaryFacts from '@/components/SummaryFacts';
+import { Layout } from '@/components/layouts';
 
-import { getUser } from '@/config/store/user';
-
-const Home: FC = async () => {
-  const { user } = await getUser();
-
+const HomePage: FC = () => {
   return (
-    <HomeLayout isUserLoggedIn={user} isHomePage>
-      <Hero />
-      <SummaryFacts />
-    </HomeLayout>
+    <Layout className='min-h-[1000px]'>
+
+    </Layout>
   );
 }
 
-export default Home;
+export default HomePage;

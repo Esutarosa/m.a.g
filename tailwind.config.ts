@@ -1,19 +1,27 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
+
+import { nextui } from '@nextui-org/theme';
 
 const config: Config = {
   content: [
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     container: {
       center: true,
+      padding: '0.75rem',
       screens: {
-        "2xl": "1400px",
+        '8xl': '1800px',
       },
     },
     extend: {
+      screens: {
+        '3xl': '1800px',
+        '4xl': '2000px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -53,33 +61,23 @@ const config: Config = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+      animation: {
+        scroll:
+          'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
       },
       keyframes: {
         scroll: {
           to: {
-            transform: "translate(calc(-50% - 0.5rem))",
+            transform: 'translate(calc(-50% - 0.5rem))',
           },
         },
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
       },
-      animation: {
-        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-      maxWidth: { '8xl': '75rem' },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [nextui()],
 };
 export default config;

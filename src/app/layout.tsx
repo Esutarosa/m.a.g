@@ -1,24 +1,33 @@
-import type { Metadata } from "next";
-import { FC, PropsWithChildren } from "react";
-import { OPEN_SANS as fontFamily } from "@/config/fonts";
-import { Toaster } from "@/components/ui/toaster";
+import type { FC, PropsWithChildren } from 'react';
+import type { Metadata } from 'next';
 
-import "@/styles/global.css";
+import { NextUIProvider } from '@/providers';
+
+import { openSans } from '@/config/fonts';
+import { siteConfig } from '@/config/site';
+
+import { cn } from '@/utils/cn';
+
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: "M.A.G",
-  description: "Artist's official website",
+  title: siteConfig.title,
+  description: siteConfig.description,
 };
 
-const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
+const layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <html className={fontFamily.className} lang="en">
-      <body className="min-h-screen min-w-[320px] flex flex-col antialiased">
-        {children}
-        <Toaster />
+    <html lang='en' suppressHydrationWarning>
+      <body className={cn(
+        'bg-background text-foreground',
+        openSans.className
+      )}>
+        <NextUIProvider>
+          {children}
+        </NextUIProvider>
       </body>
     </html>
-  )
-};
+  );
+}
 
-export default RootLayout;
+export default layout;
