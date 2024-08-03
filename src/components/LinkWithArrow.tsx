@@ -32,12 +32,12 @@ const LinkWithArrow: FC<LinkWithArrowProps> = ({
       )}>
         {content}
       </span>
-      {isExternal && (
+      {isExternal &&
         <span className='relative w-2 h-2 ml-[.025rem] overflow-hidden flex items-center justify-center text-primary'>
           <ArrowUpRightIcon className='absolute w-2 h-2 inset-0 sm:transition-transform sm:translate-x-0 sm:translate-y-0 sm:group-hover/link:translate-x-6 group-hover/link:-translate-y-6' />
           <ArrowUpRightIcon className='absolute w-2 h-2 inset-0 sm:transition-transform sm:-translate-x-6 sm:translate-y-6 sm:group-hover/link:translate-x-0 group-hover/link:-translate-y-0' />
         </span>
-      )}
+      }
     </Link>
   );
 }

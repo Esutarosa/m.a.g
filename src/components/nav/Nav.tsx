@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+
 import type { HideNavFooter } from '@/types/HideNavFooter';
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -42,7 +43,7 @@ const Nav: FC<NavProps> = ({ isHideNav }) => {
         }}
       >
         <div className={cn(
-          'w-full flex 3xl:grid justify-between items-center container border-b border-muted px-3 py-3',
+          'w-full flex 3xl:grid justify-between items-center container border-b border-border px-3 py-3',
           'grid-cols-1 3xl:grid-cols-3 transition-colors duration-300',
         )}>
           <div className='3xl:col-start-1'>

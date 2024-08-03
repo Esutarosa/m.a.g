@@ -25,7 +25,7 @@ export const siteConfig = {
   ],
   socials: [
     {
-      label: 'BandCamp',
+      label: 'CD & ALBUMS',
       href: 'https://modernizedandroidgyaru.bandcamp.com/',
       key: 'bandcamp',
       target: '_blank'
