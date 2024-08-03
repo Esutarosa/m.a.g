@@ -9,6 +9,7 @@ import { cn } from '@/utils/cn';
 interface LinkWithArrowProps extends LinkHTMLAttributes<HTMLAnchorElement> {
   href: string;
   target?: string;
+  muted?: boolean;
 }
 
 const LinkWithArrow: FC<LinkWithArrowProps> = ({
@@ -16,6 +17,7 @@ const LinkWithArrow: FC<LinkWithArrowProps> = ({
   content,
   target,
   className,
+  muted,
   ...props
 }) => {
   const isExternal = target === '_blank';
@@ -28,12 +30,16 @@ const LinkWithArrow: FC<LinkWithArrowProps> = ({
         'group group-hover/link:bg-primary/10 group-hover/link:text-primary group-hover/link:decoration-primary',
         'underline decoration-dotted dotted-underline decoration-foreground/30 underline-offset-4',
         'transition-colors',
+        muted && 'text-foreground/70',
         className
       )}>
         {content}
       </span>
       {isExternal &&
-        <span className='relative w-2 h-2 ml-[.025rem] overflow-hidden flex items-center justify-center text-primary'>
+        <span className={cn(
+          'relative w-2 h-2 ml-[.025rem] overflow-hidden flex items-center justify-center text-primary transition-colors',
+          muted && 'text-foreground/70 group-hover/link:text-primary'
+        )}>
           <ArrowUpRightIcon className='absolute w-2 h-2 inset-0 sm:transition-transform sm:translate-x-0 sm:translate-y-0 sm:group-hover/link:translate-x-6 group-hover/link:-translate-y-6' />
           <ArrowUpRightIcon className='absolute w-2 h-2 inset-0 sm:transition-transform sm:-translate-x-6 sm:translate-y-6 sm:group-hover/link:translate-x-0 group-hover/link:-translate-y-0' />
         </span>

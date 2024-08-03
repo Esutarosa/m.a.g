@@ -25,7 +25,7 @@ const Nav: FC<NavProps> = ({ isHideNav }) => {
     <AnimatePresence mode='wait'>
       <motion.header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50',
+          'fixed top-0 left-0 right-0 z-50 bg-background',
           'transition-colors duration-300 font-semibold',
           isHideNav && 'hidden'
         )}

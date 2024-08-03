@@ -3,6 +3,7 @@
 import type { FC, PropsWithChildren } from 'react';
 
 import { Nav } from '@/components/nav';
+
 import { Footer } from '@/components/footer';
 
 import { cn } from '@/utils/cn';
@@ -28,7 +29,7 @@ const Layout: FC<LayoutProps> = ({
       )}>
         {children}
       </main>
-      {/* <Footer isHideFooter={isHideFooter} /> */}
+      <Footer isHideFooter={isHideFooter} />
     </>
   );
 }
