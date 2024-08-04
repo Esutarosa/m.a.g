@@ -6,8 +6,8 @@ import { HeroContent, HeroSlider } from '@/components/hero';
 
 const Hero: FC = () => {
   return (
-    <Container padding='loose'>
-      <div className='relative h-screen antialiased'>
+    <Container centered={false} padding='loose'>
+      <div className='relative h-[85vh] antialiased'>
         <HeroSlider />
         <HeroContent />
       </div>

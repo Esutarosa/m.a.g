@@ -3,13 +3,15 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   title: 'M.A.G',
   description: 'The official website of a musician who creates cool music.',
+  bio: {
+    name: 'M.A.G',
+    fullName: 'Modernized Android Gyaru',
+    shortName: 'Android Gyaru',
+    signature: 'Gore and Beauty',
+    bio: "One doesn't know where to go but has to move forward. He has to go to his goal. Always transforming himself, his heart and mind drift and run towards the goal when he finds it.",
+    ganres: 'Breakcore, DnB, Jungle, House, Ambient and many more artist.'
+  },
   navItems: [
-    {
-      label: 'BIOGRAPHY',
-      href: '/biography',
-      key: 'biography',
-      target: undefined
-    },
     {
       label: 'DISCOGRAPHY',
       href: '/discography',
@@ -21,6 +23,12 @@ export const siteConfig = {
       href: '/social',
       key: 'social',
       target: undefined,
+    },
+    {
+      label: 'MY BLOG',
+      href: '/blog',
+      key: 'blog',
+      target: undefined
     },
   ],
   socials: [

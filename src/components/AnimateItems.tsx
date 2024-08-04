@@ -56,6 +56,7 @@ const AnimateItems: FC<AnimateItemsProps> = ({
   const shouldAnimate = type !== 'none' &&
     !prefersReducedMotion &&
     !(animateOnFirstLoadOnly && hasLoadedInitial.current);
+
   const shouldStagger =
     !(staggerOnFirstLoadOnly && hasLoadedInitial.current);
 
@@ -96,7 +97,7 @@ const AnimateItems: FC<AnimateItemsProps> = ({
     <motion.div
       className={className}
       initial={shouldAnimate ? 'hidden' : false}
-      animate={canStart || true ? 'show' : 'hidden'}
+      animate={canStart ? 'show' : 'hidden'}
       variants={shouldStagger ? {
         show: {
           transition: {
@@ -118,7 +119,9 @@ const AnimateItems: FC<AnimateItemsProps> = ({
             hidden: getInitialVariant(),
             show: {
               opacity: 1,
-              transform: 'translateX(0) translateY(0) scale(1)',
+              x: 0,
+              y: 0,
+              scale: 1,
             },
           }}
           transition={{

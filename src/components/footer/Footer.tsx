@@ -58,7 +58,6 @@ const Footer: FC<FooterProps> = ({ isHideFooter }) => {
       <InfiniteMoving
         speed='320'
         pauseOnHover={false}
-        maskImage={false}
         className='text-foreground/20 hover:text-primary/70 text-xs'
         items={[
           '_▞▚▞▚▞▚▞_',

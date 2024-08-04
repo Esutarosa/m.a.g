@@ -34,7 +34,7 @@ const Container: FC<ContainerProps> = ({
 
   const getPaddingClasses = () => {
     switch (padding) {
-      case 'loose': return 'py-4 md:py-24';
+      case 'loose': return 'py-16 md:py-24';
       case 'normal': return 'py-4 md:py-8';
       case 'tight': return 'py-1.5';
     }
@@ -42,15 +42,13 @@ const Container: FC<ContainerProps> = ({
 
   return (
     <section className={cn(
-      'flex flex-col items-center justify-center',
-      'rounded-md container w-full',
+      'rounded-md container',
       getColorClasses(),
       getPaddingClasses(),
       sectionClassName,
     )}>
       <div className={cn(
-        'flex flex-col w-full',
-        centered && 'items-center',
+        centered && 'flex flex-col items-center',
         spaceChildren && 'space-y-4',
         containerClassName
       )}>

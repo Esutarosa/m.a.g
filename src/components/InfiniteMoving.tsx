@@ -17,7 +17,7 @@ interface InfiniteMovingProps {
   direction?: 'left' | 'right';
   speed?: 'fast' | 'normal' | 'slow' | string;
   pauseOnHover?: boolean;
-  maskImage?: boolean;
+  centered?: boolean;
   className?: string;
 }
 
@@ -33,7 +33,7 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
   direction = 'left',
   speed = 'fast',
   pauseOnHover = true,
-  maskImage = true,
+  centered = true,
   className,
 }) => {
   const [start, setStart] = useState<boolean>(false);
@@ -45,7 +45,7 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
     addAnimation();
   }, []);
 
-  function addAnimation() {
+  const addAnimation = () => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -88,19 +88,19 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
   return (
     <div ref={containerRef} className={cn(
       'scroller relative z-20 container overflow-hidden',
-      maskImage && '[mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
       className
     )}>
       <ul ref={scrollerRef} className={cn(
-        'flex min-w-full shrink-0 w-max flex-nowrap p-2',
+        'flex min-w-full shrink-0 w-max flex-nowrap',
         pauseOnHover && 'hover:[animation-play-state:paused]',
-        start && 'animate-scroll'
+        centered && 'items-center justify-center',
+        start && 'animate-scroll',
       )}>
-        {images && (
-          images.map((image, index) => (
+        {images &&
+          images.map((image, index) =>
             <li key={index} className={cn(
-              'w-[170px] h-[100px] max-w-full lg:w-[305px] lg:h-[172px]',
-              'relative rounded-2xl p-2 flex-shrink-0 pointer-events-none select-none',
+              'w-[170px] h-[100px] max-w-full lg:w-[305px] lg:h-[172px] p-1.5',
+              'relative rounded-2xl flex-shrink-0 pointer-events-none select-none',
             )}>
               <div className='relative z-20 w-full h-full'>
                 <Image
@@ -112,18 +112,18 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
                 />
               </div>
             </li>
-          ))
-        )}
-        {items && (
-          items.map((item, index) => (
+          )
+        }
+        {items &&
+          items.map((item, index) =>
             <li key={index} className={cn(
               'max-w-full',
               'relative rounded-2xl flex-shrink-0 pointer-events-none select-none',
             )}>
               {item}
             </li>
-          ))
-        )}
+          )
+        }
       </ul>
     </div>
   );
