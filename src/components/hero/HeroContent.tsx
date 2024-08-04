@@ -5,7 +5,7 @@ interface HeroContentProps { }
 const HeroContent: FC<HeroContentProps> = ({ }) => {
   return (
     <div>
-      HeroContent
+      Git Content
     </div>
   );
 }
