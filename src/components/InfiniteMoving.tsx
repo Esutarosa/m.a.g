@@ -109,11 +109,11 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
                   alt={'Slider Image' + ' ' + index}
                   width={305}
                   height={172}
-                  className='w-full h-full object-cover rounded-md'
+                  className='w-full h-full'
+                  imgClassName='object-cover rounded-md'
+                  blurCompatibilityLevel='high'
                   aspectRatio={305 / 172}
                   blurDataURL={image}
-                  blurCompatibilityLevel='high'
-                  priority
                 />
               </div>
             </li>
