@@ -7,7 +7,8 @@ import {
   type FC
 } from 'react';
 
-import Image from 'next/image';
+// import Image from 'next/image';
+import { ImageWithFallback } from '@/components/primitives/image';
 
 import { cn } from '@/utils/cn';
 
@@ -103,12 +104,16 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
               'relative rounded-2xl flex-shrink-0 pointer-events-none select-none',
             )}>
               <div className='relative z-20 w-full h-full'>
-                <Image
+                <ImageWithFallback
                   src={image}
                   alt={'Slider Image' + ' ' + index}
                   width={305}
                   height={172}
                   className='w-full h-full object-cover rounded-md'
+                  aspectRatio={305 / 172}
+                  blurDataURL={image}
+                  blurCompatibilityLevel='high'
+                  priority
                 />
               </div>
             </li>
