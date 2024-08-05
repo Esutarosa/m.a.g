@@ -12,7 +12,7 @@ const HeroContent: FC = () => {
       'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
       'flex items-center justify-center w-full h-full bg-background/75',
     )}>
-      <div className='grid grid-cols-1 3xl:grid-cols-3 items-center justify-between w-full'>
+      <div className='grid grid-cols-1 2xl:grid-cols-3 items-center justify-between w-full'>
         <HeroContentLeft />
         <HeroContentRight />
       </div>

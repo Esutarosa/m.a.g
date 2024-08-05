@@ -6,7 +6,7 @@ import { siteConfig } from '@/config/site';
 
 const HeroContentLeft: FC = () => {
   return (
-    <div className='flex flex-col col-start-1 gap-3 max-w-lg pr-10 lg:pr-0'>
+    <div className='flex flex-col col-start-1 gap-3 max-w-lg pr-10 2xl:pr-0'>
       <AnimateItems content={
         <h2 className='text-4xl'>
           <span className='font-bold'>{siteConfig.bio.name}</span>

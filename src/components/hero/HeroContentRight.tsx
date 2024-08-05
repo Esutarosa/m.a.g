@@ -10,13 +10,13 @@ import { cn } from '@/utils/cn';
 
 const HeroContentRight: FC = () => {
   return (
-    <div className='col-start-2 lg:col-start-3'>
+    <div className='col-start-2 2xl:col-start-3'>
       <div className='flex items-center justify-between w-full'>
         <AnimateItems content={
           <div className={cn(
             'backdrop-blur supports-[backdrop-filter]:bg-background/60',
             'border-2 border-border rounded-md py-4 px-12',
-            'hidden lg:block'
+            'hidden 2xl:block',
           )}>
             <LinkWithArrow
               content='savelife.in.ua'
@@ -26,7 +26,7 @@ const HeroContentRight: FC = () => {
           </div>
         } />
         <AnimateItems content={
-          <h4 className='vertical-text'>
+          <h4 className='vertical-text text-[.5rem] md:text-xs 2xl:text-sm'>
             {siteConfig.bio.signature}
           </h4>
         } />
