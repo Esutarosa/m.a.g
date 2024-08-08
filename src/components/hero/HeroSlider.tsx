@@ -29,7 +29,7 @@ const HeroSlider: FC = () => {
             speed={config.speed}
             images={getImageSlice(config.startIndex, config.count)}
             className={cn(
-              '-rotate-[12.5deg] overflow-visible shadow-md grayscale',
+              '-rotate-[12.5deg] shadow-md grayscale',
             )}
           />
         ))}

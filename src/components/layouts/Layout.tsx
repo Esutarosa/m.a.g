@@ -9,20 +9,20 @@ import { Footer } from '@/components/footer';
 import { cn } from '@/utils/cn';
 
 interface LayoutProps extends PropsWithChildren {
-  isHideHeader?: boolean;
+  isHideNav?: boolean;
   isHideFooter?: boolean;
   className?: string;
 }
 
 const Layout: FC<LayoutProps> = ({
-  isHideHeader,
+  isHideNav,
   isHideFooter,
   className,
   children
 }) => {
   return (
     <>
-      <Nav isHideNav={isHideHeader} />
+      <Nav isHideNav={isHideNav} />
       <main className={cn(
         'min-h-screen min-w-[220px]',
         className
