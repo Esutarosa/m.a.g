@@ -1,36 +1,17 @@
-'use client';
+import type { FC } from 'react';
 
-import { useState } from 'react';
+import { Container, Layout } from '@/components/layouts';
 
-import { supabase } from '@/config/supabase/client';
+import SignInForm from '@/components/SignInForm';
 
-export default function SignIn() {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSignIn = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) setError(error.message);
-  };
-
+const SignInPage: FC = () => {
   return (
-    <form onSubmit={handleSignIn}>
-      <input
-        type='email'
-        placeholder='Email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type='password'
-        placeholder='Password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type='submit'>Sign In</button>
-      {error && <p>{error}</p>}
-    </form>
+    <Layout isHideFooter isHideNav>
+      <Container containerClassName='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+        <SignInForm />
+      </Container>
+    </Layout>
   );
 }
+
+export default SignInPage;
