@@ -6,13 +6,21 @@ import {
   type ReactNode,
 } from 'react';
 
-import type { AnimationConfig } from '@/types/AnimationConfig';
-
 import { Variant, motion } from 'framer-motion';
 
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 import { useAppState } from '@/config/state/AppState';
+
+export type AnimationType = 'none' | 'scale' | 'left' | 'right' | 'bottom';
+
+export interface AnimationConfig {
+  type?: AnimationType;
+  duration?: number;
+  staggerDelay?: number;
+  scaleOffset?: number;
+  distanceOffset?: number;
+}
 
 interface AnimateItemsProps extends AnimationConfig {
   className?: string;

@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import type { AnimationConfig } from '@/types/AnimationConfig';
+import type { AnimationConfig } from '@/components/AnimateItems';
 
 export interface AppStateContext {
   hasLoaded?: boolean;

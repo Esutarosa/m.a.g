@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import type { HideNavFooter } from '@/types/HideNavFooter';
+import type { HideNavFooter } from '@/interfaces/HideNavFooter';
 
 import { motion, AnimatePresence } from "framer-motion";
 
