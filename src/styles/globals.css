@@ -3,36 +3,80 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+  /* >>> Main imports ========================================== */
+  @import '@/styles/variables';
+  @import '@/styles/keyframes';
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+  /* >>> Forms ================================================= */ 
+  label {
+    @apply
+      font-sans 
+      text-sm 
+      block 
+      uppercase 
+      font-medium 
+      tracking-wider
+  }
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+  input[type=text], input[type=email], input[type=password], select, textarea {
+    @apply
+      px-2.5 py-2
+      border 
+      border-border
+      rounded-xl
+      text-primary
+      bg-background
+      font-mono text-base leading-tight /* TODO: need change font */
+  }
+  input[type=text], input[type=email], input[type=password], select, textarea {
+    @apply
+      text-[1rem] /* Prevent iOS auto-zoom behavior */
+      read-only:cursor-default
+  }
+  input[type=text], input[type=email], input[type=password], select {
+    @apply
+      min-h-[2.4rem]
+  }
+  input[type=text], input[type=email], input[type=password], textarea {
+    @apply
+      read-only:bg-background
+      read-only:text-foreground
+  }
+  input[type=file] {
+    @apply
+      block font-mono w-full text-medium
+      file:hover:disabled:cursor-not-allowed
+      file:cursor-pointer
+      file:shadow-sm
+      file:bg-background
+      file:mr-2 
+      file:my-2 
+      file:px-4 
+      file:py-1.5 
+      file:rounded-xl
+      file:border
+      file:border-solid
+      file:border-muted
+      file:active:bg-muted
+      file:disabled:bg-muted
+      file:hover:border-muted-foreground
+      file:hover:disabled:border-muted-foreground
+      file:active:disabled:bg-muted
+  }
+  input[type=checkbox] {
+    @apply
+      rounded-xl
+      bg-transparent
+  }
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+  /* >>>  Other ================================================= */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-
-    --radius: 0.5rem;
+  .animate-rotate-pulse {
+    animation: rotate-pulse 0.75s linear infinite normal both running;
   }
 }
 
@@ -46,25 +90,4 @@
 
 ::selection { 
   @apply text-primary;
-}
-
-.vertical-text {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-}
-
-@keyframes rotate-pulse {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-rotate-pulse {
-  animation: rotate-pulse 0.75s linear infinite normal both running;
 }
