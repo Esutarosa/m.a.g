@@ -15,9 +15,7 @@ import Link from 'next/link';
 
 import { cn } from '@/utils/cn';
 
-interface NavProps extends HideNavFooter { }
-
-const Nav: FC<NavProps> = ({ isHideNav }) => {
+const Nav: FC<HideNavFooter> = ({ isHideNav }) => {
   const visible = useScrollVisibility();
   const { screenWidth } = useMediaQuery();
 

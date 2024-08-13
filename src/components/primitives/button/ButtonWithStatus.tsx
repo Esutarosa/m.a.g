@@ -7,6 +7,8 @@ import {
 
 import { ButtonWithLoader } from '@/components/primitives/button';
 
+import { toastSuccess } from '@/components/primitives/toast';
+
 import { useFormStatus } from 'react-dom';
 
 import { cn } from '@/utils/cn';
@@ -37,8 +39,7 @@ const ButtonWithStatus: FC<ButtonWithStatusProps> = ({
   useEffect(() => {
     if (!pending && pendingPrevious.current) {
       if (onFormSubmitToastMessage) {
-        /* TODO: toast message */
-        console.log('Toast Message...');
+        toastSuccess(onFormSubmitToastMessage);
       }
       onFormSubmit?.();
     }
