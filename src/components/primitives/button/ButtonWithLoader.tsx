@@ -1,13 +1,18 @@
 import type { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+
 import type { SpinnerColor } from '@/components/Spinner';
-import { cn } from '@/utils/cn';
+
+import { Button } from '@/components/primitives/button';
+
 import Spinner from '@/components/Spinner';
+
+import { cn } from '@/utils/cn';
 
 interface ButtonWithLoaderProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   icon?: ReactNode;
   spinnerColor?: SpinnerColor;
-  styleAs?: 'button' | 'link' | 'link-without-hover';
+  variant?: 'default' | 'secondary';
   hideTextOnMobile?: boolean;
   confirmText?: string;
   shouldPreventDefault?: boolean;
@@ -19,7 +24,7 @@ const ButtonWithLoader: FC<ButtonWithLoaderProps> = ({
   isLoading,
   icon,
   spinnerColor,
-  styleAs = 'button',
+  variant = 'default',
   hideTextOnMobile = true,
   confirmText,
   shouldPreventDefault,
@@ -31,51 +36,43 @@ const ButtonWithLoader: FC<ButtonWithLoaderProps> = ({
   ...rest
 }) => {
   return (
-    <button
+    <Button
       {...rest}
       type={type}
       onClick={e => {
-        if (shouldPreventDefault) { e.preventDefault(); }
+        if (shouldPreventDefault) {
+          e.preventDefault();
+        }
         if (!confirmText || confirm(confirmText)) {
           onClick?.(e);
         }
       }}
       className={cn(
-        ...(styleAs !== 'button'
-          ? [
-            'h-4',
-            'disabled:!bg-transparent',
-          ]
-          : ['h-9']
-        ),
-        styleAs === 'link' && 'hover:text-foreground',
-        'inline-flex items-center gap-2 self-start whitespace-nowrap',
+        'inline-flex items-center gap-2 self-start transition-colors whitespace-nowrap',
+        isLoading && 'text-muted-foreground/75',
         primary && 'text-primary',
         className,
       )}
       disabled={isLoading || disabled}
+      variant={variant}
     >
       {(icon || isLoading) &&
         <span className={cn(
-          'min-w-[1.25rem] max-h-5 overflow-hidden',
-          styleAs === 'button' ? 'translate-y-[-0.5px]' : 'translate-y-[0.5px]',
-          'inline-flex justify-center shrink-0',
+          'inline-flex justify-center'
         )}>
           {isLoading
-            ? <Spinner
-              size={14}
-              color={spinnerColor}
-              className='translate-y-[0.5px]'
-            />
+            ? <Spinner color={spinnerColor} />
             : icon}
-        </span>}
-      {children && <span className={cn(
-        styleAs !== 'button' && isLoading && 'text-muted-foreground',
-        hideTextOnMobile && icon !== undefined && 'hidden sm:inline-block',
-      )}>
-        {children}
-      </span>}
-    </button>
+        </span>
+      }
+      {children &&
+        <span className={cn(
+          hideTextOnMobile && icon !== undefined && 'hidden md:inline-block'
+        )}>
+          {children}
+        </span>
+      }
+    </Button>
   );
 }
 

@@ -24,7 +24,7 @@ const Spinner: FC<SpinnerProps> = ({
       className={cn(
         'inline-flex',
         color === 'light' && 'text-muted-foreground',
-        color === 'dim' && 'text-muted-foreground/50',
+        color === 'dim' && 'text-muted-foreground/75',
         className
       )}
       style={{
@@ -34,7 +34,7 @@ const Spinner: FC<SpinnerProps> = ({
       <SVG
         width={size}
         height={size}
-        viewBox={`0 0 ${size} ${size}`}
+        viewBox={cn('0 0', SIZE_DEFAULT, SIZE_DEFAULT)}
         stroke='currentColor'
         strokeWidth={SIZE_DEFAULT / size * 2}
         pathFill='none'

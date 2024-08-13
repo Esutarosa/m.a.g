@@ -12,9 +12,7 @@ import packageJson from '@/../package.json';
 
 import { cn } from '@/utils/cn';
 
-interface FooterProps extends HideNavFooter { }
-
-const Footer: FC<FooterProps> = ({ isHideFooter }) => {
+const Footer: FC<HideNavFooter> = ({ isHideFooter }) => {
   return (
     <footer className={cn(
       'flex flex-col items-center w-full bg-accent/45 text-foreground',

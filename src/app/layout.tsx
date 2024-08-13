@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 };
 
-const layout: FC<PropsWithChildren> = ({ children }) => {
+const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={cn(
@@ -30,4 +30,4 @@ const layout: FC<PropsWithChildren> = ({ children }) => {
   );
 }
 
-export default layout;
+export default RootLayout;
