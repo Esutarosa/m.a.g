@@ -20,8 +20,6 @@ import { ButtonWithStatus } from '@/components/primitives/button';
 
 import SVG from '@/components/SVG';
 
-import { useSearchParams } from 'next/navigation';
-
 import ErrorNote from '@/components/ErrorNote';
 
 import { cn } from '@/utils/cn';
@@ -35,8 +33,6 @@ const SignInForm: FC = () => {
   const [response, action] = useFormAction(async (e: FormEvent) => {
     return signInAction(e, email, password);
   });
-
-  const params = useSearchParams();
 
   useLayoutEffect(() => {
     emailRef.current?.focus();
@@ -73,24 +69,19 @@ const SignInForm: FC = () => {
             </ErrorNote>}
           <div className='space-y-4 w-full'>
             <FieldSetWithStatus
-              id="email"
+              id='email'
               inputRef={emailRef}
-              label="Admin Email"
-              type="email"
+              label='Admin Email'
+              type='email'
               value={email}
               onChange={setEmail}
             />
             <FieldSetWithStatus
-              id="password"
-              label="Admin Password"
-              type="password"
+              id='password'
+              label='Admin Password'
+              type='password'
               value={password}
               onChange={setPassword}
-            />
-            <input
-              type="hidden"
-              name="callbackUrl"
-              value={params.get('callbackUrl') ?? ''}
             />
           </div>
           <ButtonWithStatus disabled={!isFormValid}>
