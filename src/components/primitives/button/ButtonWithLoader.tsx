@@ -51,6 +51,7 @@ const ButtonWithLoader: FC<ButtonWithLoaderProps> = ({
         'inline-flex items-center gap-2 self-start transition-colors whitespace-nowrap',
         isLoading && 'text-muted-foreground/75',
         primary && 'text-primary',
+        disabled && 'opacity-50',
         className,
       )}
       disabled={isLoading || disabled}
