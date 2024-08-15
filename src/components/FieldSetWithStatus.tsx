@@ -29,6 +29,8 @@ interface FieldSetWithStatusProps {
   inputRef?: LegacyRef<HTMLInputElement>;
   accessory?: ReactNode;
   hideLabel?: boolean;
+  className?: string;
+  inputClassName?: string;
 }
 
 const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
@@ -50,6 +52,8 @@ const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
   inputRef,
   accessory,
   hideLabel,
+  className,
+  inputClassName,
 }) => {
   const { pending } = useFormStatus();
 
@@ -85,7 +89,7 @@ const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
               <Spinner />
             </span>}
         </label>}
-      <div className='flex gap-2'>
+      <div className={className}>
         {selectOptions
           ? <select
             id={id}
@@ -149,6 +153,7 @@ const FieldSetWithStatus: FC<FieldSetWithStatusProps> = ({
                   readOnly || pending || loading
                 ) && 'opacity-50 cursor-not-allowed',
                 Boolean(error) && 'text-destructive',
+                inputClassName,
               )}
             />}
         {accessory && <div>

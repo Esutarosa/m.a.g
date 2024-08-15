@@ -14,7 +14,7 @@
       text-sm 
       block 
       uppercase 
-      font-medium 
+      font-semibold
       tracking-wider
   }
 
@@ -80,6 +80,7 @@
   }
 }
 
+/* >>>  Scrollbar ================================================= */
 ::-webkit-scrollbar {
   @apply bg-muted w-1.5;
 }
