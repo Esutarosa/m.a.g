@@ -2,6 +2,8 @@ import type { FC } from 'react';
 
 import SVG from '@/components/SVG';
 
+import { LOADER } from '@/config/icons';
+
 import { cn } from '@/utils/cn';
 
 const SIZE_DEFAULT = 12;
@@ -38,7 +40,7 @@ const Spinner: FC<SpinnerProps> = ({
         stroke='currentColor'
         strokeWidth={SIZE_DEFAULT / size * 2}
         pathFill='none'
-        icon='M11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11'
+        icon={LOADER}
         className='animate-rotate-pulse'
       />
     </span>
