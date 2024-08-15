@@ -1,7 +1,7 @@
-import { Open_Sans } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-export const openSans = Open_Sans({
-  weight: ['300', '400', '600', '700'],
-  display: 'fallback',
+export const poppins = Poppins({
   subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
 });

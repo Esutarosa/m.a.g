@@ -10,7 +10,7 @@
   /* >>> Forms ================================================= */ 
   label {
     @apply
-      font-sans 
+      font-poppins
       text-sm 
       block 
       uppercase 
@@ -26,7 +26,7 @@
       rounded-xl
       text-primary
       bg-background
-      font-mono text-base leading-tight /* TODO: need change font */
+      font-poppins text-base leading-tight
   }
   input[type=text], input[type=email], input[type=password], select, textarea {
     @apply
@@ -44,7 +44,7 @@
   }
   input[type=file] {
     @apply
-      block font-mono w-full text-medium
+      block font-poppins w-full text-medium
       file:hover:disabled:cursor-not-allowed
       file:cursor-pointer
       file:shadow-sm

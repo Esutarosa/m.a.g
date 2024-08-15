@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 import { NextUIProvider } from '@/providers';
 
-import { openSans } from '@/config/fonts';
+import { poppins } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
 
 import { cn } from '@/utils/cn';
@@ -20,7 +20,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
     <html lang='en' suppressHydrationWarning>
       <body className={cn(
         'bg-background text-foreground',
-        openSans.className
+        poppins.className
       )}>
         <NextUIProvider>
           {children}
