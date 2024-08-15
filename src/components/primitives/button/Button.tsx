@@ -48,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp ref={ref} className={cn(
         'inline-flex items-center justify-center',
-        'whitespace-nowrap rounded-3xl text-sm transition-colors',
+        'whitespace-nowrap rounded-xl text-sm transition-colors',
         variantForButton(),
         sizeForButton(),
         className
