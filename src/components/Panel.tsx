@@ -28,7 +28,7 @@ const Panel: FC<PanelProps> = ({
       outerClassName
     )}>
       <div className={cn(
-        'w-full h-full p-4 overflow-hidden',
+        'w-full h-full p-4 md:p-6 overflow-hidden',
         relative && 'relative z-10',
         hasChildCenter && 'flex items-center justify-center',
         innerClassName
