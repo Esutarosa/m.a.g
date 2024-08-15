@@ -18,8 +18,6 @@ import FieldSetWithStatus from '@/components/FieldSetWithStatus';
 
 import { ButtonWithStatus } from '@/components/primitives/button';
 
-import SVG from '@/components/SVG';
-
 import Panel from '@/components/Panel';
 
 import ErrorNote from '@/components/ErrorNote';
