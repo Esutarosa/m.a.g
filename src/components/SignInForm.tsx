@@ -36,7 +36,8 @@ const SignInForm: FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
 
   const [response, action] = useFormAction(async (e: FormEvent) => {
-    return signInAction(e, email, password);
+    // e.preventDefault();
+    return signInAction(email, password);
   });
 
   useLayoutEffect(() => {

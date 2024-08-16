@@ -2,6 +2,7 @@
 
 import { supabase } from '@/config/supabase/client';
 import { User } from '@supabase/supabase-js';
+import { redirect } from 'next/navigation';
 import { useEffect, useState, type FC } from 'react';
 
 const AdminPage: FC = () => {
@@ -21,7 +22,7 @@ const AdminPage: FC = () => {
     setUser(null);
   };
 
-  if (!user) return <p>Please sign in</p>;
+  if (!user) redirect('/signin');
 
   return (
     <div>
