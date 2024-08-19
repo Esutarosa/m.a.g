@@ -22,7 +22,7 @@ const AdminPage: FC = () => {
     setUser(null);
   };
 
-  if (!user) redirect('/signin');
+  if (!user) redirect('/auth');
 
   return (
     <div>

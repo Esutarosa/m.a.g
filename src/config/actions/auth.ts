@@ -1,33 +1,23 @@
-'use server';
+'use server'
 
-import { supabase } from '@/config/supabase/client';
+import { revalidatePath } from 'next/cache';
 
 import { redirect } from 'next/navigation';
 
-export const signInAction = async (
-  email: string,
-  password: string,
-) => {
-  const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
+import { supabase } from '@/config/supabase/server';
 
-  if (!error) redirect('/admin');
+export async function signin(formData: FormData) {
+  const data = {
+    email: formData.get('email') as string,
+    password: formData.get('password') as string,
+  }
 
-  return error;
-};
+  const { error } = await supabase.auth.signInWithPassword(data)
 
-export const signUpAction = async (
-  email: string,
-  password: string,
-) => {
-  const { error } = await supabase.auth.signUp({
-    email,
-    password
-  });
+  if (error) {
+    redirect('/error')
+  }
 
-  if (!error) redirect('/');
-
-  return error;
-};
+  revalidatePath('/admin', 'layout')
+  redirect('/admin')
+}
