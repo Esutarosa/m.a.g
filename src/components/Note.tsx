@@ -52,7 +52,7 @@ const Note: FC<NoteProps> = ({
                   className='translate-x-[0.5px] translate-y-[0.5px]'
                 />}
               </span>}
-            <span className={cn('text-sm grow')}>
+            <span className={cn('text-sm grow grid gap-1')}>
               {children}
             </span>
             {cta &&

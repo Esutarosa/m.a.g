@@ -1,4 +1,4 @@
-'use server'
+'use server';
 
 import { revalidatePath } from 'next/cache';
 
@@ -6,18 +6,43 @@ import { redirect } from 'next/navigation';
 
 import { supabase } from '@/config/supabase/server';
 
-export async function signin(formData: FormData) {
-  const data = {
+import { SignInFormSchema } from '@/config/definitions/SignInFormSchema';
+
+export async function signIn(formData: FormData) {
+  const validatedFields = SignInFormSchema.safeParse({
     email: formData.get('email') as string,
     password: formData.get('password') as string,
-  }
+  });
 
-  const { error } = await supabase.auth.signInWithPassword(data)
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    }
+  };
+
+  const { email, password } = validatedFields.data;
+
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
 
   if (error) {
-    redirect('/error')
-  }
+    const errorMessage =
+      error.message.includes('Invalid login credentials')
+        ? 'Invalid email or password.'
+        : error.message;
 
-  revalidatePath('/admin', 'layout')
-  redirect('/admin')
+    return {
+      errors: { form: errorMessage },
+    }
+  };
+
+  revalidatePath('/admin', 'layout');
+  redirect('/admin');
+}
+
+export async function signOut() {
+  await supabase.auth.signOut();
+  return redirect('/auth');
 }

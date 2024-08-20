@@ -1,33 +1,19 @@
-'use client';
-
-import { supabase } from '@/config/supabase/client';
+import { supabase } from '@/config/supabase/server';
 import { User } from '@supabase/supabase-js';
 import { redirect } from 'next/navigation';
 import { useEffect, useState, type FC } from 'react';
 
-const AdminPage: FC = () => {
-  const [user, setUser] = useState<User | null>(null);
+const AdminPage: FC = async () => {
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect('/auth')
+  }
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
-    };
-
-    fetchUser();
-  }, []);
-
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-  };
-
-  if (!user) redirect('/auth');
+  if (!data.user) redirect('/auth');
 
   return (
     <div>
-      <p>Signed in as {user.email}</p>
-      <button onClick={handleSignOut}>Sign Out</button>
+      <p>Signed in as {data.user.email}</p>
     </div>
   );
 }

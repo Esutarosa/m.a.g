@@ -9,8 +9,6 @@ import {
 
 import { Container } from '@/components/layouts';
 
-import { useForm, useFormState } from 'react-hook-form';
-
 import FieldSetWithStatus from '@/components/FieldSetWithStatus';
 
 import { ButtonWithStatus } from '@/components/primitives/button';
@@ -23,11 +21,7 @@ import SVG from '@/components/SVG';
 
 import ErrorNote from '@/components/ErrorNote';
 
-import { signin } from '@/config/actions/auth';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-
-import { type SignInFormInputs, SignInFormSchema } from '@/config/definitions/LoginFormSchema';
+import { signIn } from '@/config/actions/auth';
 
 import { cn } from '@/utils/cn';
 
@@ -35,21 +29,7 @@ const AuthForm: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
-
-  const form = useForm<SignInFormInputs>({
-    resolver: zodResolver(SignInFormSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  });
-
-  const {
-    control,
-    register,
-  } = form;
-
-  const { errors } = useFormState({ control });
+  const [errors, setErrors] = useState<{ [key: string]: string[] } | { form: string } | null>(null);
 
   const emailRef = useRef<HTMLInputElement>(null);
   useLayoutEffect(() => {
@@ -58,6 +38,17 @@ const AuthForm: FC = () => {
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible((prev) => !prev);
+  };
+
+  const handleSubmit = async (formData: FormData) => {
+    const result = await signIn(formData);
+
+    if (result?.errors) {
+      setErrors(result.errors);
+      return;
+    }
+
+    setErrors(null);
   };
 
   const isFormValid =
@@ -81,9 +72,11 @@ const AuthForm: FC = () => {
         </p>
         <form className='w-full'>
           <div className='space-y-6 w-full'>
-            {errors?.email &&
+            {errors &&
               <ErrorNote>
-                {errors.email.message}
+                {Object.values(errors).flat().map((error, idx) => (
+                  <p key={idx}>{error}</p>
+                ))}
               </ErrorNote>}
             <div className='space-y-4 w-full'>
               <FieldSetWithStatus
@@ -127,7 +120,7 @@ const AuthForm: FC = () => {
             <ButtonWithStatus
               className='w-full'
               disabled={!isFormValid}
-              formAction={signin}
+              formAction={handleSubmit}
             >
               Sign in
             </ButtonWithStatus>
