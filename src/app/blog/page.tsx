@@ -2,12 +2,12 @@ import type { FC } from 'react';
 
 import { Layout } from '@/components/layouts';
 
-const DiscographyPage: FC = () => {
+const BlogPage: FC = () => {
   return (
     <Layout>
-      DiscographyPage
+      BlogPage
     </Layout>
   );
 }
 
-export default DiscographyPage;
+export default BlogPage;
