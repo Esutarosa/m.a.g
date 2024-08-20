@@ -4,11 +4,13 @@ import { revalidatePath } from 'next/cache';
 
 import { redirect } from 'next/navigation';
 
-import { supabase } from '@/config/supabase/server';
+import { createClient } from '@/config/supabase/server';
 
 import { SignInFormSchema } from '@/config/definitions/SignInFormSchema';
 
 export async function signIn(formData: FormData) {
+  const supabase = createClient();
+
   const validatedFields = SignInFormSchema.safeParse({
     email: formData.get('email') as string,
     password: formData.get('password') as string,
@@ -43,6 +45,7 @@ export async function signIn(formData: FormData) {
 }
 
 export async function signOut() {
+  const supabase = createClient();
   await supabase.auth.signOut();
   return redirect('/auth');
 }
