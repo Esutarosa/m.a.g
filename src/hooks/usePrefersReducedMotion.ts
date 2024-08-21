@@ -1,3 +1,15 @@
+/**
+ * Custom hook to detect user preference for reduced motion.
+ *
+ * Uses the `prefers-reduced-motion` media query to determine if the user prefers
+ * reduced motion, and updates the state when the preference changes.
+ *
+ * @returns {boolean} `true` if the user prefers reduced motion, `false` otherwise.
+ *
+ * @example
+ * const prefersReducedMotion = usePrefersReducedMotion();
+ * console.log(prefersReducedMotion); // true or false
+ */
 import { useEffect, useState } from 'react';
 
 const MEDIA_QUERY_SELECTOR = '(prefers-reduced-motion: reduce)';

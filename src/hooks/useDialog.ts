@@ -1,3 +1,14 @@
+/**
+ * Custom hook to access the Dialog context.
+ *
+ * Must be used within a `DialogProvider`.
+ *
+ * @returns {DialogContextType} The dialog context value.
+ * @throws {Error} If used outside of a `DialogProvider`.
+ *
+ * @example
+ * const { openDialog, closeDialog } = useDialog();
+ */
 import { useContext } from 'react';
 
 import { DialogContext } from '@/components/primitives/dialog';
