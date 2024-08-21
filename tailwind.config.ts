@@ -74,7 +74,7 @@ const config: Config = {
       keyframes: {
         scroll: {
           to: {
-            transform: 'translate(calc(-30% - 0.5rem))',
+            transform: 'translate(calc(-1 * var(--scroll-percentage, 30%) - 0.5rem))',
           },
         },
       },

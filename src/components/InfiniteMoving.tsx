@@ -1,22 +1,23 @@
 'use client';
 
 import {
+  ReactNode,
   useEffect,
   useRef,
   useState,
   type FC
 } from 'react';
 
-// import Image from 'next/image';
 import { ImageWithFallback } from '@/components/primitives/image';
 
 import { cn } from '@/utils/cn';
 
 interface InfiniteMovingProps {
-  items?: string[];
+  items?: ReactNode | ReactNode[];
   images?: string[];
   direction?: 'left' | 'right';
   speed?: 'fast' | 'normal' | 'slow' | string;
+  scrollPercentage?: string;
   pauseOnHover?: boolean;
   centered?: boolean;
   className?: string;
@@ -33,6 +34,7 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
   images,
   direction = 'left',
   speed = 'fast',
+  scrollPercentage = '30',
   pauseOnHover = true,
   centered = true,
   className,
@@ -59,6 +61,7 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
 
       getDirection();
       getSpeed();
+      getScrollPercentage();
       setStart(true);
     }
   };
@@ -83,6 +86,12 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
     if (containerRef.current) {
       const animationDuration = speedMap[speed] || speed;
       containerRef.current.style.setProperty('--animation-duration', animationDuration + 's');
+    }
+  };
+
+  const getScrollPercentage = () => {
+    if (containerRef.current) {
+      containerRef.current.style.setProperty('--scroll-percentage', scrollPercentage + '%');
     }
   };
 
@@ -120,15 +129,12 @@ const InfiniteMoving: FC<InfiniteMovingProps> = ({
           )
         }
         {items &&
-          items.map((item, index) =>
-            <li key={index} className={cn(
-              'max-w-full',
-              'relative rounded-2xl flex-shrink-0 pointer-events-none select-none',
-            )}>
-              {item}
-            </li>
-          )
-        }
+          <li className={cn(
+            'max-w-full',
+            'relative rounded-2xl flex-shrink-0 pointer-events-none select-none',
+          )}>
+            {items}
+          </li>}
       </ul>
     </div>
   );
