@@ -97,6 +97,7 @@ const ImageWithFallback: FC<ImageWithFallbackProps> = ({
             : 'opacity-0',
         )}>
           {BLUR_ENABLED && blurDataURL ? (
+            /* eslint-disable @next/next/no-img-element */
             <img
               src={blurDataURL}
               className={cn(
@@ -104,6 +105,7 @@ const ImageWithFallback: FC<ImageWithFallbackProps> = ({
                 getBlurClass()
               )} {...rest}
             />
+            /* eslint-enable @next/next/no-img-element */
           ) : (
             <div className={cn(
               'w-full h-full',

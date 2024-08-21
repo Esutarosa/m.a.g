@@ -28,7 +28,7 @@ const NotFound: FC = () => {
       )}>
         <div className={cn('-rotate-[8.5deg]')}>
           <Note>
-            Oops, this page doesn't exist.
+            Oops, this page doesn&#39;t exist.
           </Note>
         </div>
         <InfiniteMoving
