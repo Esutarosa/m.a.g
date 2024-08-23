@@ -16,14 +16,14 @@ const DialogTitle: FC<DialogTitleProps> = ({
 }) => {
   const { uniqueId } = useDialog();
   return (
-    <motion.div
+    <motion.h3
       layoutId={`dialog-title-container-${uniqueId}`}
       className={className}
       style={style}
       layout
     >
       {children}
-    </motion.div>
+    </motion.h3>
   );
 }
 
