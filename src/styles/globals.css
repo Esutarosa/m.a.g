@@ -7,6 +7,65 @@
   @import '@/styles/variables';
   @import '@/styles/keyframes';
 
+  /* >>> General =============================================== */
+  html {
+    scroll-behavior: smooth !important;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* >>> Typography ============================================ */
+  h1:not(.prose *):not(.overwrite),
+  h2:not(.prose *):not(.overwrite),
+  h3:not(.prose *):not(.overwrite),
+  h4:not(.prose *):not(.overwrite),
+  h5:not(.prose *):not(.overwrite),
+  h6:not(.prose *):not(.overwrite) {
+    @apply text-foreground mb-4;
+  }
+
+  h1:not(.prose *):not(.overwrite) {
+    @apply text-4xl;
+  }
+
+  h2:not(.prose *):not(.overwrite) {
+    @apply text-3xl;
+  }
+
+  h3:not(.prose *):not(.overwrite) {
+    @apply text-2xl;
+  }
+
+  h4:not(.prose *):not(.overwrite) {
+    @apply text-xl;
+  }
+
+  h5:not(.prose *):not(.overwrite) {
+    @apply text-xl;
+  }
+
+  p:not(.prose *):not(.overwrite) {
+    @apply text-muted-foreground mb-4;
+  }
+
+  h1:not(.overwrite),
+  h2:not(.overwrite),
+  h3:not(.overwrite),
+  h4:not(.overwrite),
+  h5:not(.overwrite),
+  h6:not(.overwrite) {
+    scroll-margin-top: 5.625rem;
+  }
+
+  h1:not(.prose *):not(.overwrite),
+  h2:not(.prose *):not(.overwrite) {
+    line-height: 1.2 !important;
+  }
+
   /* >>> Forms ================================================= */ 
   label {
     @apply
