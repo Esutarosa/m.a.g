@@ -8,13 +8,13 @@ const HeroContentLeft: FC = () => {
   return (
     <div className='flex flex-col col-start-1 gap-3 max-w-lg pr-10 2xl:pr-0'>
       <AnimateItems content={
-        <h2 className='text-4xl'>
+        <h1 className='text-4xl'>
           <span className='font-bold'>{siteConfig.bio.name}</span>
           <span className='text-muted-foreground'> |</span>
           <span className='text-3xl align-middle text-muted-foreground'> {' '}
             Artist
           </span>
-        </h2>
+        </h1>
       } />
       <AnimateItems content={
         <span className='flex flex-col gap-2'>

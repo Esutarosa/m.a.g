@@ -25,7 +25,7 @@
   .h4:not(.prose *):not(.overwrite),
   .h5:not(.prose *):not(.overwrite),
   .h6:not(.prose *):not(.overwrite) {
-    @apply text-foreground mb-4;
+    @apply text-foreground font-bold mb-4;
   }
 
   .h1:not(.prose *):not(.overwrite) {

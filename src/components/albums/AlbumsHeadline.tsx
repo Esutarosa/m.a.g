@@ -9,6 +9,7 @@ interface AlbumsHeadlineProps { }
 const AlbumsHeadline: FC<AlbumsHeadlineProps> = ({ }) => {
   return (
     <GridSite
+      sideFirstOnMobile
       contentMain={<AlbumsMostPopular />}
       contentSide={<AlbumsContent />}
     />

@@ -9,13 +9,12 @@ import {
   DialogContent,
   DialogDescription,
   DialogImage,
+  DialogSubtitle,
   DialogTitle,
   DialogTrigger
 } from '@/components/primitives/dialog';
 
 import AnimateItems from '@/components/AnimateItems';
-
-import { cn } from '@/utils/cn';
 
 interface AlbumsMostPopularProps { }
 
@@ -40,74 +39,78 @@ const fakeData = [
     title: 'Crystal Maiden',
     subtitle: 'by M.A.G'
   },
+  {
+    src: '/images/5.jpg',
+    title: 'Firefly',
+    subtitle: 'by M.A.G'
+  },
+  {
+    src: '/images/6.jpg',
+    title: 'Happiness In Solitude',
+    subtitle: 'by M.A.G'
+  },
+  {
+    src: '/images/7.jpg',
+    title: 'Home - Resonance (M​.​A​.​G Remix)',
+    subtitle: 'by M.A.G'
+  },
 ]
 
 const AlbumsMostPopular: FC<AlbumsMostPopularProps> = ({ }) => {
   return (
     <AnimateItems
-      duration={0.8}
-      staggerDelay={0.095}
-      distanceOffset={60}
-      className='grid grid-cols-2 gap-4'
-      content={fakeData.map((album, inx) =>
-        <Dialog key={inx} transition={{
+      className='grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden'
+      content={fakeData.slice().reverse().map((item, idx) =>
+        <Dialog key={idx} transition={{
           type: 'spring',
-          bounce: 0.05,
-          duration: 0.65
+          stiffness: 180,
+          damping: 24,
         }}>
-          <DialogTrigger className={cn(
-            'flex flex-col overflow-hidden rounded-xl',
-            'border border-border bg-accent',
-          )}>
-            <DialogImage
-              src={album.src}
-              alt={album.title + ' cover'}
-              className='h-28 xl:h-48 w-full object-cover'
-            />
-            <div className='p-2'>
-              <DialogTitle className='line-clamp-1'>
-                {album.title}
-              </DialogTitle>
+          <DialogTrigger className='!rounded-md bg-foreground group'>
+            <div className='flex items-center space-x-3 p-3'>
+              <DialogImage
+                src={item.src}
+                alt={item.title + ' cover'}
+                className='size-12 object-cover object-top !rounded-sm'
+              />
+              <div className='flex flex-col items-start justify-center space-y-0'>
+                <DialogTitle className='relative text-sm text-card'>
+                  <span className='relative inline-flex overflow-hidden'>
+                    <div className='line-clamp-1 max-w-[200px] duration-300 translate-y-0 skew-y-0 transition group-hover:-translate-y-[180%] group-hover:skew-y-12'>
+                      {item.title}
+                    </div>
+                    <div className='line-clamp-1 max-w-[200px] duration-300 absolute translate-y-[180%] skew-y-12 transition group-hover:translate-y-0 group-hover:skew-y-0'>
+                      {item.title}
+                    </div>
+                  </span>
+                </DialogTitle>
+                <DialogSubtitle className='text-[10px] text-muted-foreground'>
+                  {item.subtitle}
+                </DialogSubtitle>
+              </div>
             </div>
           </DialogTrigger>
           <DialogContainer>
-            <DialogContent className={cn(
-              'flex flex-col h-auto w-full',
-              'overflow-hidden rounded-xl',
-              'pointer-events-auto relative',
-              'border border-border bg-accent',
-              'sm:w-[520px]',
-            )}>
-              <DialogImage
-                src={album.src}
-                alt={album.title + ' cover'}
-                className='w-full h-96 object-cover'
-              />
-              <div className='p-6'>
-                <DialogTitle>
-                  {album.title}
+            <DialogContent className='relative h-auto w-[620px] mx-2 !rounded-lg border border-foreground/40 backdrop-blur supports-[backdrop-filter]:bg-background/95'>
+              <div className='relative p-6'>
+                <div className='flex justify-center py-10'>
+                  <DialogImage
+                    src={item.src}
+                    alt={item.title + ' cover'}
+                    className='h-auto w-[200px] !rounded-sm'
+                  />
+                </div>
+                <DialogTitle className='text-xl'>
+                  {item.title}
                 </DialogTitle>
-                <DialogDescription variants={{
-                  initial: {
-                    opacity: 0,
-                    scale: 0.8,
-                    y: 100
-                  },
-                  animate: {
-                    opacity: 1,
-                    scale: 1,
-                    y: 0
-                  },
-                  exit: {
-                    opacity: 0,
-                    scale: 0.8,
-                    y: 100
-                  },
-                }}>
-                  <p>{album.title}</p>
+                <DialogSubtitle className='text-sm text-muted-foreground'>
+                  {item.subtitle}
+                </DialogSubtitle>
+                <DialogDescription className='text-muted-foreground mt-4 text-sm'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugiat optio, obcaecati voluptatibus harum ut asperiores voluptate commodi a? Omnis fugit sint eos explicabo veniam dolorem reprehenderit quisquam, hic id?
                 </DialogDescription>
               </div>
-              <DialogClose />
+              <DialogClose className='block 3xl:hidden' />
             </DialogContent>
           </DialogContainer>
         </Dialog>
