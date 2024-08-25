@@ -16,8 +16,6 @@ import {
 
 import AnimateItems from '@/components/AnimateItems';
 
-interface AlbumsMostPopularProps { }
-
 const fakeData = [
   {
     src: '/images/1.jpg',
@@ -56,7 +54,7 @@ const fakeData = [
   },
 ]
 
-const AlbumsMostPopular: FC<AlbumsMostPopularProps> = ({ }) => {
+const AlbumsItem: FC = () => {
   return (
     <AnimateItems
       className='grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden'
@@ -119,4 +117,4 @@ const AlbumsMostPopular: FC<AlbumsMostPopularProps> = ({ }) => {
   );
 }
 
-export default AlbumsMostPopular;
+export default AlbumsItem;

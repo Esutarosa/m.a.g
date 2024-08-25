@@ -1,11 +1,11 @@
 import Albums from './Albums';
 import AlbumsHeadline from './AlbumsHeadline';
-import AlbumsMostPopular from './AlbumsMostPopular';
+import AlbumsItem from './AlbumsItem';
 import AlbumsContent from './AlbumsContent';
 
 export {
   Albums,
   AlbumsHeadline,
-  AlbumsMostPopular,
+  AlbumsItem,
   AlbumsContent,
 };
