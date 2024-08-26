@@ -43,50 +43,50 @@ const DockIconBlock: FC<DockIconBlockProps> = ({
 
   let widthTransform = useTransform(
     distance,
-    [-150, 0, 150],
-    [40, 80, 40]
+    [-120, 0, 120],
+    [40, 50, 40]
   );
   let heightTransform = useTransform(
     distance,
-    [-150, 0, 150],
-    [40, 80, 40]
+    [-120, 0, 120],
+    [40, 50, 40]
   );
 
   let widthTransformIcon = useTransform(
     distance,
-    [-150, 0, 150],
-    [20, 40, 20]
+    [-120, 0, 120],
+    [20, 35, 20]
   );
   let heightTransformIcon = useTransform(
     distance,
-    [-150, 0, 150],
-    [20, 40, 20]
+    [-120, 0, 120],
+    [20, 35, 20]
   );
 
   let width = useSpring(widthTransform, {
     mass: 0.1,
-    stiffness: 150,
-    damping: 12,
+    stiffness: 120,
+    damping: 15,
   });
   let height = useSpring(heightTransform, {
     mass: 0.1,
-    stiffness: 150,
-    damping: 12,
+    stiffness: 120,
+    damping: 15,
   });
 
   let widthIcon = useSpring(widthTransformIcon, {
     mass: 0.1,
-    stiffness: 150,
-    damping: 12,
+    stiffness: 120,
+    damping: 15,
   });
   let heightIcon = useSpring(heightTransformIcon, {
     mass: 0.1,
-    stiffness: 150,
-    damping: 12,
+    stiffness: 120,
+    damping: 15,
   });
 
   return (
-    <Link href={href}>
+    <Link href={href} target='_blank'>
       <motion.div
         ref={ref}
         style={{ width, height }}

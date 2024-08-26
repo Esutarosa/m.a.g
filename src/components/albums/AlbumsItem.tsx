@@ -18,41 +18,45 @@ import { ScrollArea } from '@/components/primitives/scroll-area';
 
 import AnimateItems from '@/components/AnimateItems';
 
+import { Dock } from '@/components/primitives/dock';
+
+import { YOUTUBE, SOUNDCLOUD, SPOTIFY } from '@/config/icons';
+
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
+
+import { Button } from '@/components/primitives/button';
+
+import SVG from '@/components/SVG';
+
+import Link from 'next/link';
+
 const fakeData = [
   {
     src: '/images/1.jpg',
     title: '9966 feat. restoreta',
-    subtitle: 'by M.A.G'
+    subtitle: 'by M.A.G',
+    youtube: '/1',
+    soundcloud: '/2',
+    spotify: '/3',
+    bandcamp: '/4',
   },
   {
-    src: '/images/2.jpg',
-    title: '2322332323233333333',
-    subtitle: 'by M.A.G'
+    src: '/images/17.jpg',
+    title: 'Sanity',
+    subtitle: 'by M.A.G',
+    youtube: '/1',
+    soundcloud: '/2',
+    spotify: '/3',
+    bandcamp: '/4',
   },
   {
-    src: '/images/3.jpg',
-    title: 'Angel333',
-    subtitle: 'by M.A.G'
-  },
-  {
-    src: '/images/4.jpg',
-    title: 'Crystal Maiden',
-    subtitle: 'by M.A.G'
-  },
-  {
-    src: '/images/5.jpg',
-    title: 'Firefly',
-    subtitle: 'by M.A.G'
-  },
-  {
-    src: '/images/6.jpg',
-    title: 'Happiness In Solitude',
-    subtitle: 'by M.A.G'
-  },
-  {
-    src: '/images/7.jpg',
-    title: 'Home - Resonance (M​.​A​.​G Remix)',
-    subtitle: 'by M.A.G'
+    src: '/images/9.jpg',
+    title: 'Insomnia',
+    subtitle: 'by M.A.G',
+    youtube: '/1',
+    soundcloud: '/2',
+    spotify: '/3',
+    bandcamp: '/4',
   },
 ]
 
@@ -91,14 +95,14 @@ const AlbumsItem: FC = () => {
             </div>
           </DialogTrigger>
           <DialogContainer>
-            <DialogContent className='relative h-auto w-[620px] mx-2 !rounded-lg border border-border bg-card'>
-              <ScrollArea className='max-h-[90vh] h-[720px]' type='scroll'>
+            <DialogContent className='relative h-auto w-[480px] mx-2 !rounded-lg border border-border bg-card'>
+              <ScrollArea className='max-h-[90vh]' type='scroll'>
                 <div className='relative p-6'>
                   <div className='flex justify-center py-10'>
                     <DialogImage
                       src={item.src}
                       alt={item.title + ' cover'}
-                      className='h-auto w-[200px] !rounded-sm'
+                      className='h-[200px] w-[200px] object-cover !rounded-sm'
                     />
                   </div>
                   <DialogTitle className='text-xl'>
@@ -107,8 +111,52 @@ const AlbumsItem: FC = () => {
                   <DialogSubtitle className='text-sm text-muted-foreground'>
                     {item.subtitle}
                   </DialogSubtitle>
-                  <DialogDescription className='text-muted-foreground mt-4 text-sm'>
-                    Content
+                  <DialogDescription>
+                    <p className='mt-4 text-muted-foreground'>
+                      A dance-ready EP blending modern drum & bass, swampy dub, and acid electro from the rising Melbourne producer.
+                    </p>
+                    <p className='mt-4 text-muted-foreground'>
+                      A jungle and drum & bass compilation featuring a dozen songs that push the boundaries of both genres.
+                    </p>
+                    <p className='mt-4 text-muted-foreground'>
+                      shoebills side is immaculate st4cyminajj
+                    </p>
+                    <div className='w-full flex justify-between items-center mt-4 text-sm'>
+                      <Button variant='secondary' asChild className='group relative h-12 w-12 overflow-hidden rounded-full transition-all duration-300 md:hover:w-32'>
+                        <Link href={item.bandcamp} target='_blank'>
+                          <div className='inline-flex whitespace-nowrap opacity-0 transition-all duration-200 md:group-hover:-translate-x-3 md:group-hover:opacity-100'>
+                            Get Album
+                          </div>
+                          <div className='absolute right-3 transition-all duration-200 transform md:-rotate-45 md:group-hover:rotate-0'>
+                            <SVG
+                              icon={<ArrowRightIcon />}
+                              width={20}
+                              height={20}
+                              className='size-5'
+                            />
+                          </div>
+                        </Link>
+                      </Button>
+                      <div>
+                        <Dock items={[
+                          {
+                            title: 'YouTube',
+                            icon: <SVG icon={YOUTUBE} />,
+                            href: item.youtube
+                          },
+                          {
+                            title: 'SoundCloud',
+                            icon: <SVG icon={SOUNDCLOUD} />,
+                            href: item.soundcloud
+                          },
+                          {
+                            title: 'Spotify',
+                            icon: <SVG icon={SPOTIFY} />,
+                            href: item.spotify
+                          },
+                        ]} />
+                      </div>
+                    </div>
                   </DialogDescription>
                 </div>
               </ScrollArea>
