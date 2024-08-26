@@ -14,6 +14,8 @@ import {
   DialogTrigger
 } from '@/components/primitives/dialog';
 
+import { ScrollArea } from '@/components/primitives/scroll-area';
+
 import AnimateItems from '@/components/AnimateItems';
 
 const fakeData = [
@@ -61,8 +63,8 @@ const AlbumsItem: FC = () => {
       content={fakeData.slice().reverse().map((item, idx) =>
         <Dialog key={idx} transition={{
           type: 'spring',
-          stiffness: 180,
-          damping: 24,
+          stiffness: 220,
+          damping: 28,
         }}>
           <DialogTrigger className='!rounded-md bg-foreground group'>
             <div className='flex items-center space-x-3 p-3'>
@@ -89,25 +91,27 @@ const AlbumsItem: FC = () => {
             </div>
           </DialogTrigger>
           <DialogContainer>
-            <DialogContent className='relative h-auto w-[620px] mx-2 !rounded-lg border border-foreground/40 backdrop-blur supports-[backdrop-filter]:bg-background/95'>
-              <div className='relative p-6'>
-                <div className='flex justify-center py-10'>
-                  <DialogImage
-                    src={item.src}
-                    alt={item.title + ' cover'}
-                    className='h-auto w-[200px] !rounded-sm'
-                  />
+            <DialogContent className='relative h-auto w-[620px] mx-2 !rounded-lg border border-border bg-card'>
+              <ScrollArea className='max-h-[90vh] h-[720px]' type='scroll'>
+                <div className='relative p-6'>
+                  <div className='flex justify-center py-10'>
+                    <DialogImage
+                      src={item.src}
+                      alt={item.title + ' cover'}
+                      className='h-auto w-[200px] !rounded-sm'
+                    />
+                  </div>
+                  <DialogTitle className='text-xl'>
+                    {item.title}
+                  </DialogTitle>
+                  <DialogSubtitle className='text-sm text-muted-foreground'>
+                    {item.subtitle}
+                  </DialogSubtitle>
+                  <DialogDescription className='text-muted-foreground mt-4 text-sm'>
+                    Content
+                  </DialogDescription>
                 </div>
-                <DialogTitle className='text-xl'>
-                  {item.title}
-                </DialogTitle>
-                <DialogSubtitle className='text-sm text-muted-foreground'>
-                  {item.subtitle}
-                </DialogSubtitle>
-                <DialogDescription className='text-muted-foreground mt-4 text-sm'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa fugiat optio, obcaecati voluptatibus harum ut asperiores voluptate commodi a? Omnis fugit sint eos explicabo veniam dolorem reprehenderit quisquam, hic id?
-                </DialogDescription>
-              </div>
+              </ScrollArea>
               <DialogClose className='block 3xl:hidden' />
             </DialogContent>
           </DialogContainer>
