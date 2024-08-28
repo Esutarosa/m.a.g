@@ -26,7 +26,6 @@ import Link from 'next/link';
 
 import { cn } from '@/utils/cn';
 
-
 type Platform =
   'discord' |
   'twitter' |
@@ -40,9 +39,10 @@ type Platform =
 
 interface SocialContentProps {
   socialLinks: Array<{
+    title?: string;
+    subtitle?: string;
     platform: string;
-    url: any;
-    description?: string;
+    url: string;
   }>;
 }
 
@@ -76,31 +76,36 @@ const SocialContent: FC<SocialContentProps> = ({ socialLinks }) => {
 
   return (
     <AnimateItems
-      className='grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden'
-      content={socialLinks.map(({ platform, url, description }) => (
-        <Link href={url} target='_blank' className='group/link relative w-full text-sm'>
-          <Panel outerClassName='bg-primary text-card' innerClassName='group'>
-            <div className='flex gap-2'>
+      className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-2 gap-4 overflow-hidden'
+      content={socialLinks.map(({ platform, url, title, subtitle }) =>
+        <Link href={url} target='_blank' className='group/link relative w-full'>
+          <Panel
+            outerClassName='relative'
+            innerClassName='group p-0 md:p-0 !p-2 !px-4'
+          >
+            <div className='absolute top-2 right-2'>
+              <div className={cn(
+                'relative w-2 h-2 overflow-hidden flex items-center justify-center text-primary transition-colors',
+              )}>
+                <ArrowUpRightIcon className='absolute w-2 h-2 inset-0 sm:transition-transform sm:translate-x-0 sm:translate-y-0 sm:group-hover/link:translate-x-6 group-hover/link:-translate-y-6' />
+                <ArrowUpRightIcon className='absolute w-2 h-2 inset-0 sm:transition-transform sm:-translate-x-6 sm:translate-y-6 sm:group-hover/link:translate-x-0 group-hover/link:-translate-y-0' />
+              </div>
+            </div>
+            <div className='flex items-center gap-2'>
               {getIcon(platform)}
-              <div className='flex'>
-                <span className={cn(
-                  'group group-hover/link:text-card/75 group-hover/link:decoration-card',
-                  'underline decoration-dotted dotted-underline decoration-foreground/30 underline-offset-4',
-                  'transition-colors',
-                )}>
-                  {description}
+              <div className='flex flex-col flex-1 min-w-0'>
+                <span className='text-sm text-ellipsis'>
+                  {title}
                 </span>
-                <span className={cn(
-                  'relative w-2 h-2 ml-[.025rem] overflow-hidden flex items-center justify-center text-primary transition-colors',
-                )}>
-                  <ArrowUpRightIcon className='absolute text-card w-2 h-2 inset-0 sm:transition-transform sm:translate-x-0 sm:translate-y-0 sm:group-hover/link:translate-x-6 group-hover/link:-translate-y-6' />
-                  <ArrowUpRightIcon className='absolute text-card w-2 h-2 inset-0 sm:transition-transform sm:-translate-x-6 sm:translate-y-6 sm:group-hover/link:translate-x-0 group-hover/link:-translate-y-0' />
-                </span>
+                <small className='leading-3 text-[11px] text-muted-foreground line-clamp-1 overflow-hidden text-ellipsis'>
+                  @{subtitle}
+                </small>
               </div>
             </div>
           </Panel>
         </Link>
-      ))} />
+      )}
+    />
   );
 };
 
