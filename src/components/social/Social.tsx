@@ -17,6 +17,7 @@ const Social: FC<SocialProps> = ({ socialLinks }) => {
   return (
     <Container padding='loose' centered={false}>
       <GridSite
+        sideFirstOnMobile
         contentMain={<SocialContent socialLinks={socialLinks} />}
         contentSide={<SocialSide />}
       />
