@@ -2,10 +2,6 @@
 
 import type { FC, ReactNode } from 'react';
 
-import AnimateItems from '@/components/AnimateItems';
-
-import SVG from '@/components/SVG';
-
 import {
   BANDCAMP,
   DISCORD,
@@ -18,7 +14,13 @@ import {
   YOUTUBE
 } from '@/config/icons';
 
+import AnimateItems from '@/components/AnimateItems';
+
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
+
+import { useSocial } from '@/hooks/useSocial';
+
+import SVG from '@/components/SVG';
 
 import Panel from '@/components/Panel';
 
@@ -37,16 +39,9 @@ type Platform =
   'spotify' |
   'soundcloud';
 
-interface SocialContentProps {
-  socialLinks: Array<{
-    title?: string;
-    subtitle?: string;
-    platform: string;
-    url: string;
-  }>;
-}
+const SocialContent: FC = () => {
+  const socialLinks = useSocial();
 
-const SocialContent: FC<SocialContentProps> = ({ socialLinks }) => {
   const iconMap: Record<Platform, ReactNode> = {
     discord: DISCORD,
     twitter: TWITTER,

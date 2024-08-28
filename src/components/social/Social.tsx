@@ -6,19 +6,12 @@ import { SocialContent, SocialSide } from '@/components/social';
 
 import { GridSite } from '@/components/grid';
 
-interface SocialProps {
-  socialLinks: Array<{
-    platform: string;
-    url: string
-  }>;
-}
-
-const Social: FC<SocialProps> = ({ socialLinks }) => {
+const Social: FC = () => {
   return (
     <Container padding='loose' centered={false}>
       <GridSite
         sideFirstOnMobile
-        contentMain={<SocialContent socialLinks={socialLinks} />}
+        contentMain={<SocialContent />}
         contentSide={<SocialSide />}
       />
     </Container>
