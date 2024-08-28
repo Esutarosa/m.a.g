@@ -22,7 +22,7 @@ const Panel: FC<PanelProps> = ({
 }) => {
   return (
     <div className={cn(
-      'rounded-xl bg-card transition-colors',
+      'rounded-md bg-card transition-colors',
       hasBorder && 'border border-border',
       hasActiveOnHover && 'hover:border-accent-foreground',
       outerClassName
