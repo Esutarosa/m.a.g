@@ -30,41 +30,29 @@ import SVG from '@/components/SVG';
 
 import Link from 'next/link';
 
-const fakeData = [
-  {
-    src: '/images/1.jpg',
-    title: '9966 feat. restoreta',
-    subtitle: 'by M.A.G',
-    youtube: '/1',
-    soundcloud: '/2',
-    spotify: '/3',
-    bandcamp: '/4',
-  },
-  {
-    src: '/images/17.jpg',
-    title: 'Sanity',
-    subtitle: 'by M.A.G',
-    youtube: '/1',
-    soundcloud: '/2',
-    spotify: '/3',
-    bandcamp: '/4',
-  },
-  {
-    src: '/images/9.jpg',
-    title: 'Insomnia',
-    subtitle: 'by M.A.G',
-    youtube: '/1',
-    soundcloud: '/2',
-    spotify: '/3',
-    bandcamp: '/4',
-  },
-]
+interface AlbumItemData {
+  src: string;
+  title: string;
+  subtitle: string;
+  youtube: string;
+  soundcloud: string;
+  spotify: string;
+  bandcamp: string;
+}
 
-const AlbumsItem: FC = () => {
+interface AlbumsItemProps {
+  data: AlbumItemData[];
+  description?: string;
+}
+
+const AlbumsItem: FC<AlbumsItemProps> = ({
+  data = [],
+  description,
+}) => {
   return (
     <AnimateItems
       className='grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden'
-      content={fakeData.slice().reverse().map((item, idx) =>
+      content={data.slice().reverse().map((item, idx) =>
         <Dialog key={idx} transition={{
           type: 'spring',
           stiffness: 220,
@@ -112,15 +100,10 @@ const AlbumsItem: FC = () => {
                     {item.subtitle}
                   </DialogSubtitle>
                   <DialogDescription>
-                    <p className='mt-4 text-muted-foreground'>
-                      A dance-ready EP blending modern drum & bass, swampy dub, and acid electro from the rising Melbourne producer.
-                    </p>
-                    <p className='mt-4 text-muted-foreground'>
-                      A jungle and drum & bass compilation featuring a dozen songs that push the boundaries of both genres.
-                    </p>
-                    <p className='mt-4 text-muted-foreground'>
-                      shoebills side is immaculate st4cyminajj
-                    </p>
+                    {description &&
+                      <p className='mt-4 text-muted-foreground'>
+                        {description}
+                      </p>}
                     <div className='w-full flex justify-between items-center mt-4 text-sm'>
                       <Button variant='secondary' asChild className='group relative h-12 w-12 overflow-hidden rounded-full transition-all duration-300 md:hover:w-32'>
                         <Link href={item.bandcamp} target='_blank'>
