@@ -1,6 +1,13 @@
 import type { FC, PropsWithChildren } from 'react';
 
-const AdminLayout: FC<PropsWithChildren> = ({ children }) => {
+import { getUser } from '@/config/store/user';
+
+import { redirect } from 'next/navigation';
+
+const AdminLayout: FC<PropsWithChildren> = async ({ children }) => {
+  const { user } = await getUser();
+  if (!user) return redirect('/auth');
+
   return <>{children}</>
 }
 
