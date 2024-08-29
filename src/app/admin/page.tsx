@@ -4,14 +4,16 @@ import { getUser } from '@/config/store/user';
 
 import { redirect } from 'next/navigation';
 
+import { AdminLayout } from '@/components/layouts';
+
 const AdminPage: FC = async () => {
   const { user } = await getUser();
   if (!user) return redirect('/auth');
 
   return (
-    <div>
+    <AdminLayout>
       <p>Hello {user.email}</p>
-    </div>
+    </AdminLayout>
   );
 }
 

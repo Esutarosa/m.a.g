@@ -1,3 +1,5 @@
+import { ADMIN, BLOG, DISC, HOME, SOCIAL } from '@/config/icons';
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -29,6 +31,43 @@ export const siteConfig = {
       href: '/blog',
       key: 'blog',
       target: undefined
+    },
+  ],
+  adminSidebarItems: [
+    {
+      label: 'Home',
+      icon: HOME,
+      href: '/',
+      key: 'home',
+      color: 'primary'
+    },
+    {
+      label: 'Admin',
+      icon: ADMIN,
+      href: '/admin',
+      key: 'admin',
+      color: 'secondary'
+    },
+    {
+      label: 'Discography',
+      icon: DISC,
+      href: '/admin/discography',
+      key: 'discography',
+      color: 'secondary'
+    },
+    {
+      label: 'Social Media',
+      icon: SOCIAL,
+      href: '/admin/social',
+      key: 'social',
+      color: 'secondary'
+    },
+    {
+      label: 'My Blog',
+      icon: BLOG,
+      href: '/admin/blog',
+      key: 'blog',
+      color: 'secondary'
     },
   ],
   socials: [
