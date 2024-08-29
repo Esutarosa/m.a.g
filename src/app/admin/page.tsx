@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import { getUser } from '@/config/store/user';
 
 import { AdminLayout } from '@/components/layouts';
+
 import { AdminSiteSettings } from '@/components/admin';
 
 const AdminPage: FC = async () => {
@@ -10,11 +11,10 @@ const AdminPage: FC = async () => {
 
   return (
     <AdminLayout>
-      <AdminSiteSettings>
-        {user ?
-          <p>Hello {user.email}</p>
-          : null}
-      </AdminSiteSettings>
+      <AdminSiteSettings />
+      {user ?
+        <p>Hello {user.email}</p>
+        : null}
     </AdminLayout>
   );
 }
