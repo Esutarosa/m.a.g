@@ -2,18 +2,11 @@
 
 import type { FC, PropsWithChildren } from 'react';
 
+import type { SocialContextType } from '@/types';
+
 import { SocialContext } from '@/components/social';
 
-interface SocialLink {
-  platform: string;
-  url: string;
-  title?: string;
-  subtitle?: string;
-}
-
-interface SocialProviderProps extends PropsWithChildren {
-  socialLinks: SocialLink[];
-}
+interface SocialProviderProps extends PropsWithChildren<SocialContextType> { }
 
 const SocialProvider: FC<SocialProviderProps> = ({ children, socialLinks }) => (
   <SocialContext.Provider value={{ socialLinks }}>

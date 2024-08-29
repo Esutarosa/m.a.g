@@ -72,6 +72,38 @@ export type SocialContextType = {
 };
 
 /**
+ * Type for album item data.
+ *
+ * @property {string} src - The source URL for the album's image.
+ * @property {string} title - The title of the album.
+ * @property {string} subtitle - The subtitle of the album.
+ * @property {string} youtube - The YouTube link for the album.
+ * @property {string} soundcloud - The SoundCloud link for the album.
+ * @property {string} spotify - The Spotify link for the album.
+ * @property {string} bandcamp - The Bandcamp link for the album.
+ * @property {string} description - The description of the album.
+ */
+export interface AlbumItemData {
+  image_src: string;
+  title: string;
+  subtitle: string;
+  youtube: string;
+  soundcloud: string;
+  spotify: string;
+  bandcamp: string;
+  description: string;
+};
+
+/**
+ * Context type for managing album data.
+ *
+ * @property {AlbumItemData[]} data - Array of album item data.
+ */
+export type AlbumContextType = {
+  albums: AlbumItemData[];
+};
+
+/**
  * Type for different field set types.
  *
  * Represents the various input types available in a form.
