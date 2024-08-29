@@ -2,6 +2,8 @@
 
 import type { FC, ReactNode } from 'react';
 
+import type { PlatformType } from '@/types';
+
 import {
   BANDCAMP,
   DISCORD,
@@ -28,21 +30,10 @@ import Link from 'next/link';
 
 import { cn } from '@/utils/cn';
 
-type Platform =
-  'discord' |
-  'twitter' |
-  'instagram' |
-  'facebook' |
-  'youtube' |
-  'bandcamp' |
-  'steam' |
-  'spotify' |
-  'soundcloud';
-
 const SocialContent: FC = () => {
   const socialLinks = useSocial();
 
-  const iconMap: Record<Platform, ReactNode> = {
+  const iconMap: Record<PlatformType, ReactNode> = {
     discord: DISCORD,
     twitter: TWITTER,
     instagram: INSTAGRAM,
@@ -55,7 +46,7 @@ const SocialContent: FC = () => {
   };
 
   const getIcon = (platform: string) => {
-    const normalizedPlatform = platform.toLowerCase() as Platform;
+    const normalizedPlatform = platform.toLowerCase() as PlatformType;
 
     const iconProps = normalizedPlatform === 'bandcamp' && {
       pathFill: 'none',
@@ -73,7 +64,12 @@ const SocialContent: FC = () => {
     <AnimateItems
       className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-2 gap-4 overflow-hidden'
       content={socialLinks.map(({ platform, url, title, subtitle }) =>
-        <Link href={url} target='_blank' className='group/link relative w-full'>
+        <Link
+          key={platform}
+          href={url}
+          target='_blank'
+          className='group/link relative w-full'
+        >
           <Panel
             outerClassName='relative'
             innerClassName='group p-0 md:p-0 !p-2 !px-4'

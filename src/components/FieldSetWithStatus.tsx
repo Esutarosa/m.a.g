@@ -2,7 +2,7 @@
 
 import type { FC, LegacyRef, ReactNode } from 'react';
 
-import type { FieldSetType } from '@/types/TForm';
+import type { FieldSetType } from '@/types';
 
 import { useFormStatus } from 'react-dom';
 

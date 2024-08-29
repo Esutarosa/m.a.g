@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 
-import type { IDock } from '@/interfaces/IDock';
+import type { DockType } from '@/types';
 
 import { motion, useMotionValue } from 'framer-motion';
 
@@ -10,7 +10,7 @@ import { DockIconBlock } from '@/components/primitives/dock';
 
 import { cn } from '@/utils/cn';
 
-interface DockDesktopProps extends IDock {
+interface DockDesktopProps extends DockType {
   className?: string;
 }
 

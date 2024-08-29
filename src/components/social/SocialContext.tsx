@@ -2,17 +2,8 @@
 
 import { createContext } from 'react';
 
-interface SocialLink {
-  platform: string;
-  url: string;
-  title?: string;
-  subtitle?: string;
-}
+import { SocialContextType } from '@/types';
 
-interface SocialContextProps {
-  socialLinks: SocialLink[];
-}
-
-const SocialContext = createContext<SocialContextProps | undefined>(undefined);
+const SocialContext = createContext<SocialContextType | undefined>(undefined);
 
 export default SocialContext;

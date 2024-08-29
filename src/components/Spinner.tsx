@@ -1,14 +1,14 @@
 import type { FC } from 'react';
 
-import SVG from '@/components/SVG';
+import type { SpinnerColor } from '@/types';
 
 import { LOADER } from '@/config/icons';
+
+import SVG from '@/components/SVG';
 
 import { cn } from '@/utils/cn';
 
 const SIZE_DEFAULT = 12;
-
-export type SpinnerColor = 'text' | 'dim' | 'light';
 
 interface SpinnerProps {
   size?: number;

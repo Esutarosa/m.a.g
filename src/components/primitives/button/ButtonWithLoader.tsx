@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
-import type { SpinnerColor } from '@/components/Spinner';
+import type { SpinnerColor } from '@/types';
 
 import { Button } from '@/components/primitives/button';
 

@@ -1,4 +1,4 @@
-import type { AnyProps } from '@/types/AnyProps';
+import type { AnyProps } from '@/types';
 
 /**
  * Merges properties from two sets of props, giving precedence to the `childProps`

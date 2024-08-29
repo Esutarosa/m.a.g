@@ -1,16 +1,6 @@
-import {
-  createContext,
-  type Dispatch,
-  type RefObject,
-  type SetStateAction
-} from 'react';
+import { createContext } from 'react';
 
-interface DialogContextType {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
-  uniqueId: string;
-  triggerRef: RefObject<HTMLDivElement>;
-}
+import type { DialogContextType } from '@/types';
 
 const DialogContext = createContext<DialogContextType | null>(null);
 

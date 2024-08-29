@@ -2,11 +2,11 @@
 
 import type { FC } from 'react';
 
-import type { IDock } from '@/interfaces/IDock';
+import type { DockType } from '@/types';
 
 import { DockDesktop, DockMobile } from '@/components/primitives/dock';
 
-interface DockProps extends IDock {
+interface DockProps extends DockType {
   desktopClassName?: string;
   mobileClassName?: string;
 }
