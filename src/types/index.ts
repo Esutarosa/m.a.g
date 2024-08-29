@@ -138,3 +138,14 @@ export type DockType = {
     href: string;
   }[];
 };
+
+/**
+ * Interface for hiding navigation and footer components.
+ *
+ * @property {boolean} [isHideNav] - Optional flag to hide the navigation.
+ * @property {boolean} [isHideFooter] - Optional flag to hide the footer.
+ */
+export interface HideNavFooter {
+  isHideNav?: boolean;
+  isHideFooter?: boolean;
+}

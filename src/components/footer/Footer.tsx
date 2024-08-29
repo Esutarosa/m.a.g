@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import type { HideNavFooter } from '@/interfaces/HideNavFooter';
+import type { HideNavFooter } from '@/types';
 
 import InfiniteMoving from '@/components/InfiniteMoving';
 import LinkWithArrow from '@/components/LinkWithArrow';
