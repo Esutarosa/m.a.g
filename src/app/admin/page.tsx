@@ -1,20 +1,13 @@
 import type { FC } from 'react';
 
-import { getUser } from '@/config/store/user';
-
 import { AdminLayout } from '@/components/layouts';
 
 import { AdminSiteSettings } from '@/components/admin';
 
-const AdminPage: FC = async () => {
-  const { user } = await getUser();
-
+const AdminPage: FC = () => {
   return (
     <AdminLayout>
       <AdminSiteSettings />
-      {user ?
-        <p>Hello {user.email}</p>
-        : null}
     </AdminLayout>
   );
 }
