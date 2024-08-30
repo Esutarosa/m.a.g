@@ -29,6 +29,7 @@ import { Tooltip } from '@nextui-org/tooltip';
 import { DELETE, EDIT, EYE } from '@/config/icons';
 
 import SVG from '@/components/SVG';
+
 import { cn } from '@/utils/cn';
 
 const AdminBlogTable: FC = () => {
