@@ -121,8 +121,14 @@ const AdminBlogTable: FC = () => {
               'min-w-[340px] md:min-w-full'
             )}
             key={uid}
-            align={uid === 'title' ? 'start' : uid === 'actions' ? 'end' : 'center'}
-          >
+            align={uid ===
+              'title'
+              ? 'start'
+              : uid ===
+                'actions'
+                ? 'end'
+                : 'center'
+            }>
             {label}
           </TableColumn>}
       </TableHeader>
