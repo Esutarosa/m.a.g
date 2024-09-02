@@ -245,3 +245,18 @@ export type BlogContextType = {
   blogDetails?: BlogDetailType[];
   blogContents?: BlogContentType[];
 };
+
+/**
+ * Type for admin blog form values.
+ *
+ * @property {string} title - Title of the blog post.
+ * @property {string} image_url - URL to the image for the blog post.
+ * @property {string} content - Content of the blog post.
+ * @property {boolean} is_published - Flag if the blog post is published.
+ */
+export type AdminBlogFormValues = {
+  title: string;
+  image_url: string;
+  content: string;
+  is_published: boolean;
+};
